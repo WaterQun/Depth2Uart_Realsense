@@ -1,0 +1,2950 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.tippy-iOS{cursor:pointer!important}.tippy-notransition{transition:none}.tippy-popper{transition-timing-function:cubic-bezier(.165,.84,.44,1);max-width:calc(100% - 10px);pointer-events:none;outline:0}.tippy-popper[x-placement^=top] .tippy-backdrop{border-radius:40% 40% 0 0}.tippy-popper[x-placement^=top] .tippy-roundarrow{bottom:-8px;-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=top] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.tippy-popper[x-placement^=top] .tippy-arrow{border-top:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;bottom:-7px;margin:0 6px;-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=top] .tippy-backdrop{-webkit-transform-origin:0 25%;transform-origin:0 25%}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-55%);transform:scale(1) translate(-50%,-55%)}.tippy-popper[x-placement^=top] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-50%,-45%);transform:scale(.2) translate(-50%,-45%);opacity:0}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(-20px);transform:translateY(-20px)}.tippy-popper[x-placement^=top] [data-animation=perspective]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateY(-10px) rotateX(0);transform:perspective(700px) translateY(-10px) rotateX(0)}.tippy-popper[x-placement^=top] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) translateY(0) rotateX(60deg);transform:perspective(700px) translateY(0) rotateX(60deg)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateY(-10px);transform:translateY(-10px)}.tippy-popper[x-placement^=top] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateY(0);transform:translateY(0)}.tippy-popper[x-placement^=top] [data-animation=scale]{-webkit-transform-origin:bottom;transform-origin:bottom}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=visible]{-webkit-transform:translateY(-10px) scale(1);transform:translateY(-10px) scale(1)}.tippy-popper[x-placement^=top] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(-10px) scale(.5);transform:translateY(-10px) scale(.5)}.tippy-popper[x-placement^=bottom] .tippy-backdrop{border-radius:0 0 30% 30%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow{top:-8px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%}.tippy-popper[x-placement^=bottom] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(0);transform:rotate(0)}.tippy-popper[x-placement^=bottom] .tippy-arrow{border-bottom:8px solid #333;border-right:8px solid transparent;border-left:8px solid transparent;top:-7px;margin:0 6px;-webkit-transform-origin:50% 100%;transform-origin:50% 100%}.tippy-popper[x-placement^=bottom] .tippy-backdrop{-webkit-transform-origin:0 -50%;transform-origin:0 -50%}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-45%);transform:scale(1) translate(-50%,-45%)}.tippy-popper[x-placement^=bottom] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-50%);transform:scale(.2) translate(-50%);opacity:0}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateY(20px);transform:translateY(20px)}.tippy-popper[x-placement^=bottom] [data-animation=perspective]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateY(10px) rotateX(0);transform:perspective(700px) translateY(10px) rotateX(0)}.tippy-popper[x-placement^=bottom] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) translateY(0) rotateX(-60deg);transform:perspective(700px) translateY(0) rotateX(-60deg)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateY(10px);transform:translateY(10px)}.tippy-popper[x-placement^=bottom] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateY(0);transform:translateY(0)}.tippy-popper[x-placement^=bottom] [data-animation=scale]{-webkit-transform-origin:top;transform-origin:top}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=visible]{-webkit-transform:translateY(10px) scale(1);transform:translateY(10px) scale(1)}.tippy-popper[x-placement^=bottom] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateY(10px) scale(.5);transform:translateY(10px) scale(.5)}.tippy-popper[x-placement^=left] .tippy-backdrop{border-radius:50% 0 0 50%}.tippy-popper[x-placement^=left] .tippy-roundarrow{right:-16px;-webkit-transform-origin:33.33333333% 50%;transform-origin:33.33333333% 50%}.tippy-popper[x-placement^=left] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(90deg);transform:rotate(90deg)}.tippy-popper[x-placement^=left] .tippy-arrow{border-left:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;right:-7px;margin:3px 0;-webkit-transform-origin:0 50%;transform-origin:0 50%}.tippy-popper[x-placement^=left] .tippy-backdrop{-webkit-transform-origin:50% 0;transform-origin:50% 0}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-50%);transform:scale(1) translate(-50%,-50%)}.tippy-popper[x-placement^=left] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-75%,-50%);transform:scale(.2) translate(-75%,-50%);opacity:0}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(-20px);transform:translateX(-20px)}.tippy-popper[x-placement^=left] [data-animation=perspective]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateX(-10px) rotateY(0);transform:perspective(700px) translateX(-10px) rotateY(0)}.tippy-popper[x-placement^=left] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) translateX(0) rotateY(-60deg);transform:perspective(700px) translateX(0) rotateY(-60deg)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateX(-10px);transform:translateX(-10px)}.tippy-popper[x-placement^=left] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateX(0);transform:translateX(0)}.tippy-popper[x-placement^=left] [data-animation=scale]{-webkit-transform-origin:right;transform-origin:right}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=visible]{-webkit-transform:translateX(-10px) scale(1);transform:translateX(-10px) scale(1)}.tippy-popper[x-placement^=left] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(-10px) scale(.5);transform:translateX(-10px) scale(.5)}.tippy-popper[x-placement^=right] .tippy-backdrop{border-radius:0 50% 50% 0}.tippy-popper[x-placement^=right] .tippy-roundarrow{left:-16px;-webkit-transform-origin:66.66666666% 50%;transform-origin:66.66666666% 50%}.tippy-popper[x-placement^=right] .tippy-roundarrow svg{position:absolute;left:0;-webkit-transform:rotate(-90deg);transform:rotate(-90deg)}.tippy-popper[x-placement^=right] .tippy-arrow{border-right:8px solid #333;border-top:8px solid transparent;border-bottom:8px solid transparent;left:-7px;margin:3px 0;-webkit-transform-origin:100% 50%;transform-origin:100% 50%}.tippy-popper[x-placement^=right] .tippy-backdrop{-webkit-transform-origin:-50% 0;transform-origin:-50% 0}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=visible]{-webkit-transform:scale(1) translate(-50%,-50%);transform:scale(1) translate(-50%,-50%)}.tippy-popper[x-placement^=right] .tippy-backdrop[data-state=hidden]{-webkit-transform:scale(.2) translate(-25%,-50%);transform:scale(.2) translate(-25%,-50%);opacity:0}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-toward][data-state=hidden]{opacity:0;-webkit-transform:translateX(20px);transform:translateX(20px)}.tippy-popper[x-placement^=right] [data-animation=perspective]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=visible]{-webkit-transform:perspective(700px) translateX(10px) rotateY(0);transform:perspective(700px) translateX(10px) rotateY(0)}.tippy-popper[x-placement^=right] [data-animation=perspective][data-state=hidden]{opacity:0;-webkit-transform:perspective(700px) translateX(0) rotateY(60deg);transform:perspective(700px) translateX(0) rotateY(60deg)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=fade][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=visible]{-webkit-transform:translateX(10px);transform:translateX(10px)}.tippy-popper[x-placement^=right] [data-animation=shift-away][data-state=hidden]{opacity:0;-webkit-transform:translateX(0);transform:translateX(0)}.tippy-popper[x-placement^=right] [data-animation=scale]{-webkit-transform-origin:left;transform-origin:left}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=visible]{-webkit-transform:translateX(10px) scale(1);transform:translateX(10px) scale(1)}.tippy-popper[x-placement^=right] [data-animation=scale][data-state=hidden]{opacity:0;-webkit-transform:translateX(10px) scale(.5);transform:translateX(10px) scale(.5)}.tippy-tooltip{position:relative;color:#fff;border-radius:4px;font-size:.9rem;padding:.3rem .6rem;line-height:1.4;text-align:center;will-change:transform;background-color:#333}.tippy-tooltip[data-size=small]{padding:.2rem .4rem;font-size:.75rem}.tippy-tooltip[data-size=large]{padding:.4rem .8rem;font-size:1rem}.tippy-tooltip[data-animatefill]{overflow:hidden;background-color:transparent}.tippy-tooltip[data-interactive],.tippy-tooltip[data-interactive] path{pointer-events:auto}.tippy-tooltip[data-inertia][data-state=visible]{transition-timing-function:cubic-bezier(.54,1.5,.38,1.11)}.tippy-tooltip[data-inertia][data-state=hidden]{transition-timing-function:ease}.tippy-arrow,.tippy-roundarrow{position:absolute;width:0;height:0}.tippy-roundarrow{width:24px;height:8px;fill:#333;pointer-events:none}.tippy-backdrop{position:absolute;will-change:transform;background-color:#333;border-radius:50%;width:calc(110% + 2rem);left:50%;top:50%;z-index:-1;transition:all cubic-bezier(.46,.1,.52,.98);-webkit-backface-visibility:hidden;backface-visibility:hidden}.tippy-backdrop:after{content:"";float:left;padding-top:100%}.tippy-backdrop+.tippy-content{transition-property:opacity;will-change:opacity}.tippy-backdrop+.tippy-content[data-state=visible]{opacity:1}.tippy-backdrop+.tippy-content[data-state=hidden]{opacity:0}</style>
+<title>README.md · WaterQun/Depth2Uart_Realsense - 码云 - 开源中国</title>
+<meta content="on" http-equiv="x-dns-prefetch-control">
+<link href="https://e.gitee.com/" rel="dns-prefetch">
+<link href="https://files.gitee.com/" rel="dns-prefetch">
+<link href="https://toscode.gitee.com/" rel="dns-prefetch">
+<link href="https://cn-assets.gitee.com/" rel="dns-prefetch">
+<link href="https://portrait.gitee.com/" rel="dns-prefetch">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://gitee.com/assets/favicon.ico">
+<link rel="canonical" href="https://gitee.com/waterqun/depth2uart_realsense">
+<meta content="gitee.com/waterqun/depth2uart_realsense git https://gitee.com/waterqun/depth2uart_realsense.git" name="go-import">
+
+<meta content="always" name="referrer">
+<meta content="Gitee" property="og:site_name">
+<meta content="Object" property="og:type">
+<meta content="https://gitee.com/waterqun/depth2uart_realsense" property="og:url">
+<meta content="https://foruda.gitee.com/avatar/1669987295196124647/11989972_waterqun_1669987294.png" itemprop="image" property="og:image">
+<meta content="WaterQun/Depth2Uart_Realsense" itemprop="name" property="og:title">
+<meta content="双目测距------双目相机V1.0，将双目相机采集到任意一点的深度数据进行串口传输" property="og:description">
+<meta content="Depth2Uart_Realsense,C++" name="Keywords">
+<meta content="双目测距------双目相机V1.0，将双目相机采集到任意一点的深度数据进行串口传输" itemprop="description" name="Description">
+<meta content="pc,mobile" name="applicable-device">
+
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="r/K6C0SYc+MXGS9hkEbyw5Jjhl/ND3ZVMDpkXRn/l/+MfrNq9D/g28QbVIF08EyrnLj1EbUBe1I/Ouv479aZ6A==">
+
+<link rel="stylesheet" media="all" href="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/application-430b33c493dc32b71b4bd610da73bf44.css">
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/hm.js.下载"></script><script async="" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/sensors-sdk-2f850fa5b654ad55ac0993fda2f37ba5.js.下载" charset="UTF-8"></script><script>
+//<![CDATA[
+window.gon = {};gon.locale="zh-CN";gon.sentry_dsn=null;gon.baidu_register_hm_push=null;gon.sensor={"server_url":"https://haveaniceday.gitee.com:3443/sa?project=production","sdk_url":"https://cn-assets.gitee.com/assets/static/sensors-sdk-2f850fa5b654ad55ac0993fda2f37ba5.js","page_type":"仓库页面"};gon.info={"controller_path":"projects","action_name":"show","current_user":{"id":11989972,"name":"WaterQun","username":"waterqun","official":false,"admin":false,"avatar_url":"https://foruda.gitee.com/avatar/1669987295196124647/11989972_waterqun_1669987294.png"}};gon.tour_env={"current_user":"waterqun","action_name":"show","original_url":"https://gitee.com/waterqun/depth2uart_realsense","controller_path":"projects"};gon.http_clone="https://gitee.com/waterqun/depth2uart_realsense.git";gon.user_project="waterqun/depth2uart_realsense";gon.manage_branch="管理分支";gon.manage_tag="管理标签";gon.enterprise_id=0;gon.create_reaction_path="/waterqun/depth2uart_realsense/reactions";gon.ipipe_base_url="https://go-api.gitee.com";gon.artifact_base_url="https://go-repo.gitee.com";gon.gitee_go_remote_url="https://go.gitee.com/assets";gon.gitee_go_active=false;gon.current_project_is_mirror=false;gon.show_repo_comment=false;gon.cp="点击复制";gon.aready_cp="已复制";gon.is_fork=false;gon.ref="master";
+//]]>
+</script>
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/sensor-6269b9ad61bbcdaff20078e5dcff62d5.js.下载"></script>
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/sentry-5.1.0-a823fb0be1b61c5d7ca4a89f0536cb0a.js.下载"></script>
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/application-ff0f9f8b8f0003012e31971c44b7c92a.js.下载"></script>
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/jquery.timeago.zh-CN-4a4818e98c1978d2419ab19fabcba740.js.下载"></script>
+
+<link rel="stylesheet" media="all" href="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/application-46b94c31ba11ae8c37eacce2bdb5603e.css">
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/app-d2f1b7162d0ea330c79dd60731431493.js.下载"></script>
+
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/jweixin-1.2.0.js.下载"></script>
+<script>
+  var title = document.title.replace(/( - Gitee| - 码云)$/, '')
+      imgUrl = '';
+  
+  document.addEventListener('DOMContentLoaded', function(event) {
+    var imgUrlEl = document.querySelector('.readme-box .markdown-body > img, .readme-box .markdown-body :not(a) > img');
+    imgUrl = imgUrlEl && imgUrlEl.getAttribute('src');
+  
+    if (!imgUrl) {
+      imgUrlEl = document.querySelector('meta[itemprop=image]');
+      imgUrl = imgUrlEl && imgUrlEl.getAttribute('content');
+      imgUrl = imgUrl || "https://gitee.com/static/images/logo_themecolor.png";
+    }
+  
+    wx.config({
+      debug: false,
+      appId: "wxff219d611a159737",
+      timestamp: "1670000358",
+      nonceStr: "111d7c1b972ee0e46bbdaefd8b3c06f7",
+      signature: "ccbf06fb35df813298ac3a4342207499f1f9fe3e",
+      jsApiList: [
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage'
+      ]
+    });
+  
+    wx.ready(function () {
+      wx.onMenuShareTimeline({
+        title: title, // 分享标题
+        link: "https://gitee.com/waterqun/depth2uart_realsense", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: imgUrl // 分享图标
+      });
+      wx.onMenuShareAppMessage({
+        title: title, // 分享标题
+        link: "https://gitee.com/waterqun/depth2uart_realsense", // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        desc: document.querySelector('meta[name=Description]').getAttribute('content'),
+        imgUrl: imgUrl // 分享图标
+      });
+    });
+    wx.error(function(res){
+      console.error('err', res)
+    });
+  })
+</script>
+
+<script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [["$$","$$"],["\\[","\\]"]],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+    ignoreClass: "container|files",
+    processClass: "markdown-body"
+  }
+});
+</script>
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/MathJax.js.下载"></script>
+
+<script>
+  (function () {
+    var messages = {
+      'zh-CN': {
+        addResult: '增加 <b>{term}</b>',
+        count: '已选择 {count}',
+        maxSelections: '最多 {maxCount} 个选择',
+        noResults: '未找到结果',
+        serverError: '连接服务器时发生错误'
+      },
+      'zh-TW': {
+        addResult: '增加 <b>{term}</b>',
+        count: '已選擇 {count}',
+        maxSelections: '最多 {maxCount} 個選擇',
+        noResults: '未找到結果',
+        serverError: '連接服務器時發生錯誤'
+      }
+    }
+  
+    if (messages[gon.locale]) {
+      $.fn.dropdown.settings.message = messages[gon.locale]
+    }
+  }());
+</script>
+
+<script>
+  var userAgent = navigator.userAgent;
+  var isLessIE11 = userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1;
+  if(isLessIE11){
+    var can_access = ""
+    if (can_access != "true"){
+      window.location.href = "/incompatible.html";
+    }
+  }
+  document.addEventListener("error", function (ev) {
+    var elem = ev.target;
+    if (elem.tagName.toLowerCase() === 'img') {
+      elem.src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAAAAACIM/FCAAACh0lEQVR4Ae3ch5W0OgyG4dt/mQJ2xgQPzJoM1m3AbALrxzrf28FzsoP0HykJEEAAAUQTBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEkKK0789+GK/I2ezfQB522PnS1qc8pGgXvr4tE4aY0XOUWlGImThWgyCk6DleixzE7qwBkg/MGiDPlVVAyp1VQGrPKiACDhFI6VkF5LmzCki+sg7IwDoglnVAil0IMkeG9CyUiwsxLFUVFzJJOQaKCjFCDN9RXMjIX7W6ztZXZDKKCyn8sWJvH+nca7WHDN9lROlAliPH9iRKCPI4cswFJQWxB46toLQgQ9jhn5QYZA9DOkoMUoQde5YapAxDWkoNYsOQR3KQd9CxUnIQF4S49CB9ENKlBxmDEKsFUgMCCCCAAHIrSF61f6153Ajy8nyiPr8L5MXnmm4CyT2fzN4DUvHZ+ntA2tOQBRBAAAEEEEAAAQQQ7ZBaC6TwSiDUaYHQ2yuB0MN+ft+43whyrs4rgVCjBUKTFshLC6TUAjGA3AxSaYFYLZBOC2RUAsk8h5qTg9QcbEoOsoQhQ2qQhsO5xCD5dgB5JQaZ+KBKGtKecvR81Ic0ZDjByKdDx0rSEDZ/djQbH+bkIdvfJFm98BfV8hD2zprfVdlu9PxVeyYAkciREohRAplJCaRSAplJCcQogTjSAdlyHRBvSAekJR0QRzogA+mADJkOiCPSAPEtqYBshlRAXC43hxix2QiOuEZkVERykGyNo9idIZKE0HO7XrG6OiMShlDWjstVzdPgXtUH9v0CEidAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQP4HgjZxTpdEii0AAAAASUVORK5CYII=";
+    }
+  }, true);
+</script>
+<style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style>.highlight .line {
+  position: relative;
+}
+
+.giteelinker-link {
+  background-color: unset;
+}
+
+.giteelinker-link:hover {
+  text-decoration: none;
+}
+
+.giteelinker-link:after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease-out, background-color 250ms ease-in;
+}
+
+.lines.white .giteelinker-link:after {
+  left: 0;
+}
+
+.giteelinker-link[href] {
+  cursor: pointer;
+}
+
+.giteelinker-link[href]:hover {
+  text-decoration: underline !important;
+}
+
+.giteelinker-link[href]:after {
+  background-color: #FFB926;
+}
+
+.giteelinker-link[href]:hover:after {
+  background-color: #FF7300;
+  cursor: default;
+}
+
+/* Keep line indicator inside the box in Markdown `pre` blocks */
+.markdown-body .highlight {
+  position: relative;
+}
+</style><style type="text/css">#screenShotContainer{position:absolute;top:0;left:0;cursor:crosshair}#toolPanel{height:24px;background:#fff;z-index:9999;position:absolute;top:0;left:0;padding:10px}#toolPanel .item-panel{width:24px;height:24px;margin-right:15px;float:left}#toolPanel .item-panel:last-child{margin-right:0}#toolPanel .square{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAABtbW1nZ2dmZmZmZmZmZmbm2CNMAAAABnRSTlMAHKbm/+1DRvRuAAAAQUlEQVR4AWMYToBR2QUJGAnAJURdUEAgXEIFVcIJLmGCKuEMl3BBA0RJIJw4nCVGJchOJZgJjlASxUzUuLPBMAIAmahQ49nxQhcAAAAASUVORK5CYII=);background-size:cover}#toolPanel .square:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAYElEQVR42u3WsQ2AMAxE0Rsk83s0d5khiIIOKQ7RSSD+d+/XnkREdzWFUmPxUqFWe9+Xn1/XK0Q8fn9ezIHcAnIOjM17F1ANAAAAAAAAwAt8c1XYh5d9OtrHr32+E/2vA8lyXsPJ9ILxAAAAAElFTkSuQmCC)}#toolPanel .square-active,#toolPanel .square:active{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAPJJREFUaAXtmDEOwjAMRRuEVCFWJm7D1r0cgiNxlG7chokVoU4hkTJWcdQfKCovY2x/x+9nctNwIAABCEDgnwk4a/jjzR/G8XUNeZ33fm/l14g7555BZ2jb3eV+co+c5jYXjLH4+PDw3sqrGU+g+tA7yp5z2ptcMMW6gpxPpZi9zQG+9W2mCJT0NgeYEv6lOwZY2g0cwAGRAF9IBCiX44CMUBTAARGgXI4DMkJRAAdEgHI5DsgIRQEcEAHK5TggIxQFcEAEKJev34G0aJVJzREo6V3iwDCneaUas7e5nY4r7rQlXmS9XgkEMhCAAAQgsFICb9uiLZTmm16RAAAAAElFTkSuQmCC)}#toolPanel .round{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAAV1BMVEUAAACAgIBoaGhnZ2dnZ2dmZmZnZ2dqampmZmZnZ2dmZmZtbW1mZmZmZmZnZ2dpaWlmZmZmZmZmZmZmZmZmZmZra2tqampnZ2dmZmZnZ2dmZmZ2dnZmZmZwdqJ9AAAAHXRSTlMABkeVv9nzGJbx/weC9Mcu4y36qlomDK4j/XUN8jz+zUEAAADcSURBVHgB7VQDdsBQEIxt6/7XLHbjj2Ye6nmeNY1/fFeYlu24nuc6tmU+UPeDMNoRBv4H6nGSRhekSax1n0UCMk2QvIgkKEqlf9YXLRQx4i2fqm7armubutqykteRrOJ+2JihX6lEmhD3Z5zO5DRyr2RJBexsurITs4Gob4acz53nrEJx5hbXO9z5gSu3BAOb+FoMXZPAFniH+EY0aEjgCLxLfCsatCRwBd4jvhMNOhJ4zw1mEix4SnjReFvxweGrgS8fvt74AeEnij8B/M3gjwx/lfgzBt/91+Mfr97+GQDfPFmMAAAAAElFTkSuQmCC);background-size:cover}#toolPanel .round:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAABJ0lEQVR42u2Wvc2DMBCGnyppSE+PRJeswQ7swQLsAENQsAJlZqDOBHykihSRIop0Jj8+ktiKPvl1+96d/Z7vBwICAnRYkVHR0TMy0tNRkbH6jvOYmoHpwRmoiT9zvqbk+ND57RwpWb9/9/1L57ezf+8dOw4q9xMTB7bLb693fw0RL9N+Ls6JhpyUiIiUnIbTnVALclHOjFuSO05CO2OVennkzzlTPGUWnI0fpZSpNu5VvOQWBrfWVe1giGNDa5SeorozI7WJlZ8Y6c7sASpBb1SSNsKistM7Qc9VAXJh0dnpvaCnqgCpsOjt9FHQI1WASFiMLgJshMXfD0jkPMnOv6nzQnPeKpw3Ow/t2vnA8TAynQ99D2uLh8XLw+roYfn1sr4HBPx/XAA8p+U+DU7i1gAAAABJRU5ErkJggg==)}#toolPanel .round-active,#toolPanel .round:active{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAqJJREFUaAXtWDFLHEEUfrNn3LsIIRYGOcQml8YDu0BKr7BREKzzL2wDFopt/kXqQCBdwDZgKWeTsxE5FRsREr2Eu8l8uzewCLvvzbp7q9xMM3M7b973vjdzM+89It+8B7wHvAe8B6bZA6oo8u2unr0+G3SGNNoiRSukqWn6ZqRfU9+M++bbSY2CbwvL4WG3rf4Wgf1oAguHenE0uN8lPfqoiV5JjDKgt6SCL0FY37vuqEvJmjSZ3ARav3R4c/rnkya1o7WeSwPI+q6U+q1If3799uVB750aZMmmzeUiEHn9/u6rJv0hTbHLd0XqZ1BvbOfZDWcCb34MVof/ht+N8UsuRnKyhsT5zExt42o9POZkk/NOBMaePyraeGsQSJideO+yE4FdzPU486P42BTq+SQuHAMMYCW/Z43FBOI/bDFnPssg/K+AlSWTnBMdofiqvOvlvW2SgJIxbqcgbLQkR0m0A7jnJ2U8CAIrelsEbFkCeGHxSAl0FStiMCNsRitLAOGB9IVlsJymgQlsbhFLIIptOC0lzUuwWQJRYFaSgaxaBIVM4wkgqqyqCbB5AjYkroKEAJsnUIXhFtO8anaY1vMEkIxU1y44aJ4AMqmqmgCbJ2DSwKrsRwrKYbMEkMNySsqal2CzBJCAm4jvtiwj0/QCE9hp8/Y7SyCqHpgE3C6YWG8wJZULlgAMRvUAIe6kjI/D6fqeBE9EAHE5qgcShUXIAEuSCwBLRACCKH2geoBxmQ0YwJJiiAmgboPSBxJvqXJXuXFSv+1SIxITgDHY1tqL2mYZJKATZRXp0bHOEeXEVtj2T6mw5bQDlgC8NN9qrAWK9h9zO0W3jdEBXa6et7bk2gG7GH1csXiGxd0kCYyrKq8/tMP/9h7wHvAe8B6YLg/8B7td+kBEJNs9AAAAAElFTkSuQmCC)}#toolPanel .right-top{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAxUlEQVR42u2WvRGDMAxGv4kyBZ2zQBaQ4jaejAGYwD3pWIKKBtLkAtwJKCzljkOf+/fkH+kMeDyeS+V550wDTcIa6c2PYryIXqxCBecjAbVlgv5QMFrvYCoSUDAWABQ2X5GO4CdKpoJtvIpgD68g2MeXX3KyfaYSPqkJZDygJJDw/AKAVV8M6vj1AOGsejjCAAnK1c8DhHvOavi5epu2cvxf8LEyxQPcmOIB6kzxANWmeCDeFiNMH/9V1NRxEyv/kXs8p8gHU6QbjbKE6LEAAAAASUVORK5CYII=);background-size:cover}#toolPanel .right-top:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAsUlEQVR42u2WvQ3CMBBG30RMkc4swBrcZBkgE7iHLkukShNTIAQRRi58nxDiPvfv+ed8NkQikf/KkcxKqYyNK6d+fGmMTkVuCi59gqUp2NQrKH2CpBZA+lhFToJHTCsw7QpMu0WmPWTTVlENb36COh4vQQ1/Btjdi9Ufv28g2Xdz3htI8p79s4EsZD+8+T2Rgf8eftDiYdLiYdbiYdTi4fDSwgT4u2JkZmKID3kk8hO5AUMjeGfiup/PAAAAAElFTkSuQmCC)}#toolPanel .right-top-active,#toolPanel .right-top:active{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAjBJREFUaAXtmDlLA0EUgN/brMaINiEqgoIoglEEQf+A4AXWlja2WuRPWPtPBLXywsZSS402NlYeSSPGHJt9zrisSOIeM9llR5wpsuy8zcz3vTmYXQBddAZ0BnQGdAb+cwYwKfmZG+ouPdYn69jMA2EegNgVRsGA/fJq715YrtgFcpfUT9XKFFgGA2SQCBw0TwATDDrVCoqI1dJab6a13uve9ArI1udO3heIcPMLlmXWfquMOG3ZzoWR+xUWfvGLt8YiF6Am7BLQitNRAG0rDbtHouIv1Z5VhmdENmCaBUR4lv07ICYrUFpOF8k0F2Ulkh8BlvryUvpWVgINI9kRcKeOrIQBPXduG2Gu0a+BH70KSyCUn1ZRaP3EKsBduISV7loPtSZIbAHz9mMXGDipz5m1xiEhbgdKoNgWGrsAh2/ajXMiGEYbFoMWtqHSCLjw7NiQZceDg7GBTCFoTYjuQLGNQBt8LrNxvYAN3qGfRMoWn0KRH+b84LmAW7JntWm0rAs2vQZ5HQJWXtcyfWy0hM4fkS7isPAcuH0k6F4UnrcTmYAIPO+YF1eC5f+B7VBHTq3YbyRTSAZeDNP76Y4FkoTnWh0JJA3fkYAK8NICqsBLCagELyygGryQgIrwoQVUhQ8loDJ8oIDq8L4CfwGeC7R9m+SVQ6e1Wcu2Lr5fRn6c53lcpfLrp8WGZe0wSOdNSmF4z0QOnVXHs8cfW/NX1OX5kA7oDOgM6AzoDOgMKJCBTz35SoU1TFsiAAAAAElFTkSuQmCC)}#toolPanel .brush{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAA00lEQVR42u2XIQ7CQBBFv6vEorgAaDhKUZV/NpA60DThAnCMit6jvUJFHeiaOpLFEJKWVnXHkPnr39vMfDOAxWKZGUmkZiv5YamCdxn95zVcaeI1FAN8aMVxzdePwLMJtIs0AiQeU0geZDhScTGhaAPNfkohdbDVjiskCdmccqhwWehi9hTh8T2FDv6rcBstvKdnmUaaeM+L4f8Ur9d7w7utKh6QWLE5ACAnxd8DgNxU8YAUqnhAKlU8wIcqHmCnigfkyo5PqaTgnWe3586OFItlbt6EZUdgrAGhiQAAAABJRU5ErkJggg==);background-size:cover}#toolPanel .brush:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAuklEQVR42u2XIQ7CQBBFn6vEorgAaDhKUT0FaDbhAnCMit6DvUJFHeiaOpJWQEI2bVXnGzJv/Xub2TELjuMspaCmpWSt0Qf672nYKPWSRKo3T2x5jwI9jdVbZEA+mShthhNZzSRaq9nPJWq7p51OFJab8xglgvVipglzfZqQ6H+JnUr/SWRKfc/F9f+qD66X6fdaPeTKzQE4KW8PcNPqodLqIWr18NTqodPq4UrHi0jFnTNHDv5HcZylDMAxkfDxR59FAAAAAElFTkSuQmCC)}#toolPanel .brush-active,#toolPanel .brush:active{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAA45JREFUaAXtmFtPE0EUx8/ZFuwuQS5yE9EYjJdoiLeoL2rYUpAPZXwwfgA/DiBQ1BfjXcQbKhoFREQsUXYLpXs8U9xkQzLb2d22+LDtw+zOnDPz+59zdnZagPgTRyCOQByBOAIRIoARfCO7dt2j9oKVv0lEfQxyP6npt75fw/UgE++agO5R62DegSkA6nWBEfFhU0IfmhvENbevXKuVM6jGeGvW6tlwIOuFF+twJi6uFe2x3jvUpLpuzTOwb8I6AJtwl4COyCCDZKKmGSjBF2DKDz5oJmqWgbax9W5ycIrL5Kgs8jv7RSaSqKf9HuyaZKAEX8RsEHg3E1uOfX2nMO991QW0jdB+jvwkl80x78Kq1wRw2c+2qgLas9RFYE9y5I/7QfiNcRnN+I1XTUDHOHU6G7YomxN+AL5jiJ/qjNQNP5uqCBDwxS0rGjzgXCqB/UtX8YefgITfYJixzlHqKBYZHuBkGP9tH4bXoH9xyPhabo6KCiidbQoWv2HhVLmFZeMI+BFS0L+cMeZlNt7+ipWQgN+0rEmgCPCIH4jhV001eCGkIhnozlLbhs3wAH3e6AS55t3mPdSBuZo2FoL4Rc6AgM/nrYlI8ICzqFH/z4Fg8EJopAwcGKd9+UIJ/nSQqHltueZnMUHmylDDordf9Tr0WahnhFotYHiCM6qL7bTjsnmHoJsrw/ht55jqfVLV0Gsn4G2yxrkvCvxbbY9u/jBxyTt30OvAz8Ch+9Rig3WH9/mzQRdz7RHhTSXgxXyBBAj49XWGJzjnwgRtuWZfJ5JG5Mi76yoLOJyl5n/w513nwC3Cq6RmmMsZ/B7YV+Kg9AwI+N95W5RNJPg6NMSPk2UJS6jusruQ+IG9tiXg6UKoFYQTwky9YaTLHczCzO9bQq0PaK/4lyASPMDLasFvx0Yim0+VDVtkT/B5/pLERKV7OpUyBhZNXFExDmMjzUBBs/siwSO80OuMdDXhhWCpgERRaw4TkZIPwnM9aQwsZPBn6DkUHaUCCJ1QAnhXeGZAbeCFRqkA/p8vsAB+wz7V0cjMD+OqYgAjm0nfA0RaC4CjvADDP2loMAa/XMFfyk4VMJRnANUzsFvwQr9UAO9ASiXE5/nHjXuMTK0j7yZPKgBRK1s/DP+oMaUPfjYx505Y61b6DCDhbT77aHwM4C/m+D4H6HCr5VAT906O6vVphv9Ta+h4vTgCcQTiCPw/EfgLJV9RSXPyCEcAAAAASUVORK5CYII=)}#toolPanel .mosaicPen{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAHlBMVEUAAAD///9oaGhmZmZnZ2dmZmZmZmZnZ2dmZmZtbW004KMDAAAACnRSTlMAAWXI8/8ZvbYcHEn/BAAAAF5JREFUeAFjGFZAyCQUDpwVEeJspaFIIDwBLiEeigIK4RKqqBJBcAnT0E6EuTNCg+Fs19AJCAnO0BA4OzQUSoMAkBxJElAxEBhBEpiJgVDywUxwhJIoZqLGmQ2GEwAA7OprDZR1JoIAAAAASUVORK5CYII=);background-size:cover}#toolPanel .mosaicPen:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAj0lEQVR42u2WsQ3AIAwEnzGQWI8V6ei9DwOQIhBRJMJBMiny7xL4MzISD1AUdS+HCEFBVVaBIMJp7T2y2nqsDK/rfs3+RChuEZftKyriHCBta0JQzywgtVMy39xHG149i3CNe6p+2dn6WJpzBBBAwFeAJ7OVxggggICdAPNP3zy2mAcv8+hoHn43xHeK+psOlApo2xDq5Z0AAAAASUVORK5CYII=)}#toolPanel .mosaicPen-active,#toolPanel .mosaicPen:active{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAV9JREFUaAXtmU1KBDEQhauiC9GdIih4Add6BhnmHOKhxHOoeAY9hjAgLkfcTGo6Mo2ZpivW2F3GgZdNJ5VKVfK9XuSHCAUEQAAEahJgLfnx0+c0xngnIqeaz1/Ymfg17ISbt6u9+758u33GZFtN/kTr38TOTC+b+K/5Cp3HRbxtbGdr9lVDXcA3ef4gkv2+wVbb++Tg0urb9Tt6nD+L0EXX3rZDW9G/wyavxx2nx7CAcRJ5RcECvMha40IBKykvPyjgRdYaFwpYSXn5QQEvsta4UMBKystP3U6PmfDwYS6/jddspYtl63+hogLpJDXkMDKEfBF71rn1CmABmZpVqlCgCvYsKRTIYFSpQoEq2LOkUCCDUaUKBapgz5L+cwXS1X65qNvp9DJCzeNCup8vh9B7fzqM6CPbnq+rfWHmWWvpftUFpGed9DJSelzoBvNop8mHEK49YiMmCIAACAwnsARsm0C5E2sdIAAAAABJRU5ErkJggg==)}#toolPanel .separateLine{width:1px;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAAoCAYAAADUgSt0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABlJREFUeNpi4WUQTWMAAiYGKBhl0IIBEGAA+zwA23Qf36YAAAAASUVORK5CYII=);background-size:cover}#toolPanel .text{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAANlBMVEUAAABpaWlmZmZmZmZnZ2dnZ2eAgIBmZmZ0dHRmZmZnZ2dmZmZxcXFoaGj///9nZ2dra2tnZ2e4FhbPAAAAEnRSTlMASeP/wjQE4AuETRkSRwG6Jp66pYBaAAAAcUlEQVR4Ae3POQ7DMBBD0bHl3Vrvf9kUTNSEGUhA4Ebza76CMmDWNDvaPAkPeyaE5372R7Cs24ditq2LBvaj0jo7dgWc8g3kVMDFwKWAm4GbA8QAMmDgEeABfDMIAEEaiwkgRWkqF/eu5I7HqB8Mm/UC2GYEc6RJ/NYAAAAASUVORK5CYII=);background-size:cover}#toolPanel .text:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAmElEQVR42u3WuwmAMBSF4ROws7NzASdwB7FwK+fIIJZOImSQWIhg8HkvCYqcP/39yKMIwBj7by0cvGA5tDJANn4hRHnF+iIwokZ2iK5lqDFqgQn56a625Zh0QH9xbGG9DugeA50OKB8DpRy4e1lJIkCAAIH3gSIAivhAEwBN7PEGQwAMMDHHV7C7P4RFleZ6k1x1coAx9u1mYuQiZvp4kucAAAAASUVORK5CYII=)}#toolPanel .text-active,#toolPanel .text:active{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAABFBJREFUaAXtWd1rHFUUv2e/srumSpNNUkrUirSglbwU6UulhriJglRERIVWKmgltiCITxYhhfY/EBWKDwr65ENFhWxTuwU/HsQH8aMqSMFqimmaQtLd+Whm5/ib2S7sTnYyc+/cfajsPOzMPffe3zm/c8+5XytE/+l7oO+Bvgf+lx4YPmtODc3XV4cr9ZO9JJjqGXiD3xYs7hRMrz/LnO6Vnp4QGDpnP8iC93tGM/NgtWI9d1sRIKfxWrvBrsBo9Ogh3bgjVR50LWORBcKn9RAhhlK7lh/P/9kS6XprDyG2jYMdxnuWMlNDuKd0Gd2Oo52Ay2K2XUHrG6SeGv+OC62yrrdWAiML5j4YNiEQMkEDiXnAWLOPBOVJy1oJNBrcTF6ETHfD+M3ucnVpiCJ5wLEKj6675t+CRNaL+TAEytHelani92H1snJtI+Cw9TKyNbeZ8b5x66Q1mbUQmGNOYcGKFd8s3MnxeR6S9XRYey0E3pk3noT37+2WvBsUs0ibwnhjg1xRoIWASyIieTutY0GzGLHQPOlsvXkpMYHRr6z7haBpqNkwdYaqZh4aXbCfCK2XqEhMwFl3Z28lrpRHXXZPSNgZ2lRKaRBlR5Xza7axCN8rJCVxPkM7rpQLl4O4MuVEI3DDsp5XM94zkclyxVsyxnZrm4gAjOjYNndTsJkM24tDu3/F2pHgUSZQqtT34NDyMBLYVdWPmaj47z/WC6r9vX7KBJjF0aZiVsbw+oPE8SaO2q9SEt/zNW+t10wcWvRsj7OZzMRSeeBnFQoZlU5GzXzJN57EdXhgSQXD78NiKxaPbU7D9XKp6zkiClt6BLwVtFQx/8B7ZyolDlybuePzKCVh9cML9gPsOBeJqEaDhe3X9tGNsLZhcun4hdKyZzz2PZePTRe/DAOOI18pD/wG46vAG+Sa8WKcPsE20gTI9YdbENP7c6Q+A7UMwY7oXe8boaQUQlIEtleMuzH7YOdJNzOp/ActI5K8J3KFMxiFK2Cwu3TW3C+LJUXAZn4VvkoTiU+XZuiqrLJu7S9MkoMF7bRX57ryC2NsAnt+4Cx04NQlRDrVHHbvW8fDOTqNnHKA9TTulbbJYMYm8NeK+QzCZwzgP12dLn4roySqLc7Ii5gOP8Oqlm3Y1itR7dvrYxPAfY+/70EHP+naQbR8E/m4CKcjMpfBsQiMVeyH4J1H4KU1yhc/1mJwAGRlpnAeyfw7Fsjx8wvmgUB1aDEWAYebUyfi9KPlSaqFoiWtYPGeDyGRzJEESt/wFnj/oAfMmXRTQVJDQ/rflSl8iFGo48w8VTpn7Qpp1iGOJMB14xCGdQuAL1x/bOBiR2/NhUtlWoWuT+AwEg6OqjGeaAIs/PsezEC9Sd6AkelU1teD/xQOxznsRBLAluEmrgt/uW+kcCagqyfF5encj1gov8CEYa6uiuR/TXlTmsy0poPVHG76Hq2y0lZfh/4+Rt8Dt5MH/gPfHXmcyfgZhQAAAABJRU5ErkJggg==)}#toolPanel .save{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAABEUlEQVR42u2WLw7CMBjF2V1AzM5zACwBOwHJ92CXAC4wMYJYwhGQnALTSQwCwQ1YJipKMAtjsK3/EhL6PvvaX17br22v5+Tk9EGYEAMn0V7gyGgqP72QrJUUgJg0QCzWMgm4PEAKUQ66Y4+ksXZ0U0CUG7hv9y6HCilKQNLujfoK260FEB0OrR4AmW0At71E4ncAtO3QlAOdBBeMl6PmQqqTQLEcwCqgQLqYYY6UCgsAnCO/PP8+zoYB4BRUXMG3h0k1wbHmO5pNsKl18cZsgrjmi80CTjXfyfQpCisLFJrvgxyR8J4O4SGi3E4nX+lAB7pqdbLax0vmyWRadxGz8fl9TTAx+n1/u0xYp+mdnP5QD3iqMYarLOEvAAAAAElFTkSuQmCC);background-size:cover}#toolPanel .save:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAA+UlEQVR42u2WLQ7CMABG3+4CYnaeA2AJWAQ4LgFcAAFBLOEISE6B6SQGgeAGLBMVRY2wjJ/+JiT0++xrX7a1ayEmJuZVhggkSqOSgpH59MqwczOBMBYoFiYCaSEwUtRDbuxYf+yWq42iHrDTYHs2T1Hjaw22Y/O5XQRKZ9G6CYrQAhlaoH5IsNEQdF0EZwb0vzR3Edg2CkIKKnImTMmpQghOpA8m5eRbIMkaVPb2YLIUHFrcwa9g2eKWfgWrFrfyKzi2uKPvVTRuUGP/y7RkRgJAwowyzE6+sGfPxW0nS6cfhcaRKZwEIsTl97lDv9f35ssRetPHxPxf7otQ7hZUI05dAAAAAElFTkSuQmCC)}#toolPanel .save:active{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAmNJREFUaAXtWL9rFEEUft/mcne7AYuY0v8gpDsQ7A7h7oIK6bxCi5AfrZDCLoWFjX+Bhf9BijRB0wixEVOkEIykDTkuGHKbNMkpqJO3p5tsuNnM3OwMKMzBcbPvx/fe+97sG26I/Mcz4BlwxsDk5tlG8nUWgIFLLsFJ0AOn+AweuA7gGt8X4JphFb7vgIoh13rfAdcMq/B9B1QMudb7DrhmWIXvO6BiyLX+v+8ATBm6vXn+SQhx19Q/6wfQTq81UcvKdNfGHRAkTnSDKO0ETpU2OQbGBVAFSwSKc3D1xaDTchkL+g7XLY0LiOtRBwEW/8BBXIfVeMJfH4Hlw/vhvoaH1MS4gASt14jWgeA1kRj9XRLsA3oTz0Zr0sw0hYUKSGKEt6ornMiuZrxLMwB71ano2aXAcFG4gM499MdRanNC33VzYOp/jFGp3a3hXNcnz65wAQnwt2blC0GsDIKke1sW8Ur3/KhV/iwzGVU2tHfTe5y4NfFwVDA+G9b5bJi7yY9n/gbP/Ec32ch0eXkN3wsVuMsJKVzoU7/GZ8QdWRKc/GGlEs3LdEpZTl5WtlAavNNCjDE8IcJvutourE5GJsuC4Gm3juPU3sav1QKShI4b4YcA4iUNxmR6Pggmn171GuF7G0lnMawXkIDXm9EL7sDHQRH8zBNqe6YarmYD21o7KWAN+FUFtZn1r8m8L4/j8VYdP20lncUZfomz2gLrbjM6YPfpAhBark46oBXZkpEvwBKRxjC+A8bUWXL0HbBEpDFM7jkw+e5s9L+JxmmYO8q20FtzOOee/3Juzov3ATwDMgYuAKebdW38MyGrAAAAAElFTkSuQmCC)}#toolPanel .close{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAyUlEQVR42u2WwRGEIAxFLYgisBJvf+iRPiiEGc7sYXccEILGTW75HpH3RpCEbbNYLJb3wYGEjBjc6q3gEJGRcPDx9feU4Em8Rznf4ymQzomkosNXJJ4gN1OnCuwdviLzBLGbPCgGfEVkCYIbAI3isjjfUcfc5inEr0dEFGJ4YqWLIJ74Ckn8reJ//FIhgycVcnh1gfISKW+y8m86O7WCB025VCgXu3W5ntUoZrm+aziTr+A1HP2W+aDpXxTMpq99bVG/eFksFkubD7ijNamCUMb6AAAAAElFTkSuQmCC);background-size:cover}#toolPanel .close:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAu0lEQVR42u2WwQ3FIAxDPRBDhEk6KHswCBJneqkq+gv0R8S3uMcmfgLaGMDlcrk2dCCjICEsqwISCjIOvX27ngqZVgnqXadE5LtxjujtG7IOULrWMSI+7BuKDpAezW/Er31D0gHCy6BHyOBt0B6zTBGyhG8jzOzHO10t7cerMLX/QhjYrxBG9jOEoT0dQN4i8iGTP1Ph/mjkUUEedutxHffH9VfgyG7g0CPzn9CPO6FPv7bQL14ul8vV6QSg74KmDBfNdQAAAABJRU5ErkJggg==)}#toolPanel .undo-disabled{background-size:cover;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAABy0lEQVR42u1WS0sCURR2YSpFu8RVkIty1b8QggiiRcvCbNG+oAciuGvTQnGh+Auqn9BGC1q0C6JA6nwjDjMGgpXTfqKx5pF3xrk2s4jmO6sL557vvO65JxQKECCAK6gRSlMRV/RICilooo4ypdXwWMZohaqtpHHuxHFCfVKHBT2UOnF+gldSIdGC5nmYCqSwjOvSR16N8BEMvJORQgKXjsa/5RoJbgJS0YHkyvyniLTITTCU8Rec0aGwRVnkcD5UFdF1FEzzT9i09owaFTLUtibKZS0YvtfUKEtTiKFm0cuPR/CGlL22cGDuKFdNy4hAHjQtG+YoUBqzBpDEedsYYkYt0HPxum266N4hTRmTXnokAW6YMdw6TKqo8dpRHknwPCWsYt0qrTV5xtGpc52g4cu0RU4naPpCQFk9mcrfJPA9RaYi1/34UPnalB+cD43bPO+osFzeoaOR+TeP7CJf6fa0S8eOLvCPa723d/WL1e60hx/OAK1ly7BrY0Oe9OjL/PJujsQfE1XBKRWwbfPpt7lWFy2GJATXa0ubY20xIM3SnQ+LlyXTE8I+3j1eHRlxVKjr4fLLjCQsLFEFF3igvra+N36xvgcI8A/xAdgOd9HtG0mSAAAAAElFTkSuQmCC)}#toolPanel .undo{background-size:cover;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAB1UlEQVR42u1WTUsCURRtYSpFu8RVkIty1b8QggiiRcuiD7jnTTkIFVaIMLs2LRQXir+g+glttKBFuyAKpCBQtEVg5bQ3/GjGyec4z5xFNPeuBt69Z9695953RkYcc8wxS6a4pRASuKJHqFCpgBylpJDiGigZW6RMOKB/yz46oRrVux1VSso+YQB6pzqVd2abf+5iClRecs1rFFfcYgCtwIoUjPhxaZr8268jfnGAOl6obCl9w0s0JwzQ5W84o0NssE0Wo/OurpQs34Kb/AlrRs7IHraOorFQFnvBYUtW9nDJ60XWcDI+EAA+pGDv0zjoZJQl0nIKVGmRtgdE5y2Sg/agjJmeU+7Ve4Gqhenmcwj3JrO/rp+TQn0BcMMFuO0dIXs6pj3VF2B/HEu0YnS2TJOmtz7XAPK2bFsW0wAK9gBsaqVU/yiA3SXSm4ycDekFaTpAgcQGTVgQiK4Kw78BR30nv2PZISHWur1m2LFpevF1rYXuaoGZ6MQQH5x2+gXDqiuyVRob0pPZrv40lX7sUxWnTMEW/9FHUUi6NCwcwLNV2YKigGzRbXsKdzYILwOPRlmUPocsHTn3SNPrEMUvl5AuNo80LuiBag35TvlfyHfHHPuH9gVuq4MuDOEQhQAAAABJRU5ErkJggg==)}#toolPanel .undo:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABnUlEQVR4Ae3YA8hdYRjA8eG7vjddhZnpZrtmO87MNRtptrfMIbvZSrNtexnP/jOPz/MO3/uvX9bBywa2mLLZbDZbEh2xEgdxFW8/u4x9WIOOqIOxemIjWuJ3lbEUbyA+vcAqlKHeKwjuox2+VId5eAsJ6Q1mIwm15DsP0B5VHIDE5Aiq+g8APMR9SMzuoqb/AN5eYhumYQRGYia2442Ph6j+qQe4hqGog1MpDMcdj98pafoBNiMFv6WxGeJgtskHeI32CNNUl9mpbPILPEA7hMnpS6wyPQbuoy2ClnYYEy9QZ3oWOo8wDYf8RkdE7gTEp1MIU8phRV+DyOXQB4M89EMJYdsO+cl+/DPNhPzkMv6ZRkJ+8tY+gP2Fog3ifTCb8jSqn/JCpp/CVkKtcZiOqG2G/MZKqDUR8tkCkMJ2WqkJkJ9sREH/QBO97hAHdzAEWb0jZfRa4C7ExVtsxTyMCniov4MqVGuJm5CY3UENRmqKs7oXW/olMAXv9K8W9b/GBjzVvdzVrw5dsAE7cQFv8BaXsT/u63WbzWaz2d4D2omvLpJYj6kAAAAASUVORK5CYII=)}#toolPanel .confirm{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAzElEQVR42u3WPQ6CQBAF4JGWW+gJuIeFLQn1PKwolgPQcwQ4hV7DeBFuICFjoZ3hJ+5MYsy8/n0PSHYDkcfj8fxZygwtdyhkZ8KjwsjCwoKLwQSHF/6eKEx5Fu5seUFry49lZsizoDLlOWyq1ul53yRGfJ2ix8TCA3KTp0e/Xon6OJjWahE8ER/WqlE8UZPwsFSP5ImIkM8TCvwSo8TPntCrGj/7Fnr8polgc9fo8YsT4RduzK8ndPmPCX2eiKg84sYP3Pnk/38ej0c9T8qbtsk88JfxAAAAAElFTkSuQmCC);background-size:cover}#toolPanel .confirm:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAtklEQVR42u3WsQ2DMBCF4T+0bJFMwB4p0iKxA4XHYASYIqwRZRE2CEKXIqkiYSx8J0XoHvX7nuXCAjwej+doqejoaTjZ8C0zgiDcLSbCF/98jS0v9La80NnyM5UlL7S2fEirlpwprPiSgQVhorY5/ZBQybqcZbOWwcNls5rFQ8EUrWfyAHWEUOBjjBK/NjHq8WsTinzKRLB5axT52ET4ixdz74Qy/zthwANcefDiyc1//zwej3reZoErqC4lD3AAAAAASUVORK5CYII=)}.ico-panel{width:0;height:0;border-right:6px solid transparent;border-left:6px solid transparent;border-top:6px solid #fff;position:absolute;top:0;left:23px;transform:rotate(180deg)}.ico-panel img{width:100%;height:100%}#optionPanel{height:20px;top:6px;left:0;border-radius:5px;background:#fff;z-index:9999;position:absolute;padding:10px}#optionPanel .brush-select-panel{height:20px;float:left}#optionPanel .brush-select-panel .item-panel{width:20px;height:20px;margin-right:18px;float:left}#optionPanel .brush-select-panel .item-panel:first-child{margin-left:2px}#optionPanel .brush-select-panel .item-panel:last-child{margin-right:0}#optionPanel .brush-select-panel .brush-small{background-size:cover;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAKlJREFUeNrs18EKgkAUhWEnwmW1amObHqKeo0ftOfIh3OSmlba0xXSEK4SICAoz4X/gINwL8sE4C533Pok5myTyAAQIECBAgAAB/jdwO/cFO3dsH3v1qmY2LtWHWr/9KyxQOag3Nf2ZnQ17V6vQR3zp4bqktgv+DWYjuxO3eELKkd0zBmCuNgPzxnbBgZXd1kL9WIslbnAbx38xQIAAAQIECBDgqoFfAQYAhLQbgzDvXkAAAAAASUVORK5CYII=)}#optionPanel .brush-select-panel .brush-small-active,#optionPanel .brush-select-panel .brush-small:active,#optionPanel .brush-select-panel .brush-small:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAALhJREFUeNpi/P//P8NgBkwMgxyMOnDUgaMOHHXgqANHHTjqwFEHDm0HslBqAB+jGIhSBeIOIHaBCu8B4gogvv3p/yuKzGektMEKdKA6kDoBxAJoUh+A2ALowJsDHcVtWBzHABVro9RwaoTgRxCFQ/oLMAR5R3MxAbAHj9yuweDAamiGYMCSSaoHgwNvgHIrEK8D4s9QvA4qdmPAM8loVTfqwFEHjjpw1IGjDhx14KgDRx04pB0IEGAAHeMoHW2kl/cAAAAASUVORK5CYII=)}#optionPanel .brush-select-panel .brush-medium{background-size:cover;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAS9JREFUeNrs2EsLgkAQB/BWupQQHXpczbp36/EB6ptH1M2D17RLhx6XQG9lszCBxEa5zoTQDPxvjv52RR1UWZbVqlxOreIlQAEKUID/Dqx/e2BL9d4t0MP0IS7kBkkgZ0iMub82XrMjLdBQGjXTdgO6jRlpC2QDiX51ixVkClkacMbNhyywR/0COIGMLfrG2MsK9C1xeaTPBdTHzgkezHmR6zoFd88lAOpzDDmAHuHrzeMA9giBXQ5ggxDY5ADeq/4tTgmvm3IAL4TAEwcwJgTGHMAdTillK8FzsTwkawLgGkcylm+xXnlQAhcU2T3baWYLCS36QuzlmahzpX/mrCAHnPE+zYRXhO1strzMRK0n5D0OEQNIJzdMPEf+CGHWL3klf7cEKEABClCApeohwADD8zb9WRTsHgAAAABJRU5ErkJggg==)}#optionPanel .brush-select-panel .brush-medium-active,#optionPanel .brush-select-panel .brush-medium:active,#optionPanel .brush-select-panel .brush-medium:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAU9JREFUeNpi/P//P8NgBkwMgxyMOnDUgaMOHHXgSHcgC7EK+RjFsAmzAXEAFFsCsRQQ/wLiJ0B8HojXA/FGqBgK+PT/FVH2MhJb1WFxYCAQdwGxCgGtd4C4HIjXkeNAcqKYGYg7oRaqEKEepGYtVA8zzaIYCbQBcRkZ+mB6ymmZSULIdByyI0NI0UBKGgRliLtALENhxnwKxErANPiL2iEYSgXHgYA0EIfRIooDqFi8BdDCgaZUdKAJLRwoQUUHStLCgb8YBgCQ4sDnVLT3OS0ceImKDjxDCwduoKIDN9DCgauhrRRKwVOoWTTJJEVUcGAhEP+kVV0M8nk3BY7rJiX0yG1uVQLxFDL0TYXqpXmT/y8Q50JbJXeIUH8HWo/nQPWSBChpUcOa/KHQ1rUxtCEAywhnoU3+1XRp8o/26kYdOOrAUQeOOnDUgVgBQIABAPYuSgtJpajwAAAAAElFTkSuQmCC)}#optionPanel .brush-select-panel .brush-big{background-size:cover;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAaNJREFUeNrcmMFKw0AQhpOqRdGUCloD2lMv1T6B6RMI4sOK4BM0b1Clh56skFahpVaUaln/wBQkzKYmTbJTB75TSPJlN7uzM7ZSypIc9sYIVuxa0nsdUAcuqIIDUKZrczADExCAJ/CW5OFTNUolaIMGaIGThB80BF3QByoPwVPQptFaJ8JR7YDnrAS3gAfOM/69HoEPFusI7oIrcJzTGngB9+AzjWAod5PBlP5lym+jkqsEt8E1qBW0m4Q2d+A7KljS3OAVKGfRuzzuQkmzWpsG9uQmvTtW0KatxFS0yUEr2ChgUcRFlRy0ghcC0m9LJ+hQXjUdYQqtcIJ1QYeYM07QFSTocoKHggSrnOC+IEGHEywLEtyJyySi4rfgXJDXFyf4LkhwxgmOBQmOOcFAkGDACQ4ECQ44wamQURySC7vNPAgQ7MYdt/pUxJiKCTloBRUV1abCj3YduEwSVvw9A3I9bqHqUl2HSsGiYqSbuY0t3JexR62Po5zkXqn18ZG2N7PsMlxaQptH0TrBs7Jpv/mrMte/bGByx/LiWsBSQ7zgjwADAPqYqQ1c9nN+AAAAAElFTkSuQmCC)}#optionPanel .brush-select-panel .brush-big-active,#optionPanel .brush-select-panel .brush-big:active,#optionPanel .brush-select-panel .brush-big:hover{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAhRJREFUeNrUmLtPAkEQh+/UghCxw06JNuCjJURBK+OjsNVEW4KF6P+iYKGF9rYWhmClKKGg8wGNRu2kA4M25PyNGRKFPb0Fjlsm+SKG3MyXLLezs7phGJrK0acpHgP1D0P6sOyzY2AJRMAE8AEPf1cBz+ABZEAKPMkkLxtv33/1+hJbFOwHayAOZuh5i/WoSBYkwSmo2SG4ABIg0OaqFcAOuLAiaOU36AKHIN0BOY1zpDmnq92XxAsuQcyG33+Mc3tbFaQHr0DQxpc0yDW8soJucAb8XdhJ/FzLLSO4B0Jd3O5CXNOSIL2tUQf25CjX/lOQ/t93sHEkeK81FVznruBUBLgRmApuK9B+42aC1FtnFRCkFjouElyW6K12hs6HkCbBsEKnrLBIcEohwUmR4IhCgj6RoEchwcGeOfL/FKwo5PUuEnxVSPBFJHivkOCdSDCjkOC1SDDF05fTYbBLk+AjuFFAMMsuwm3mQAHB5K/G3DAX02HxtkPjZasz8zQN9mZzcY2Haqdit/HWQdRJaOI/cUDumAd6S1MdnWpzXZTLma2cmWAVrIJiF+SKXKsqe7NQAvMgb6NcnmuUWrn6oKBXaQ4c2SBHOSNcQ2tVkOIDbIHFDi15kXNRzk+Z49Z/keaxYIN3e9m2SM9sco605QlK8oZVaxhTV3iZaGMfpTT8XZmPTAU+hJxr7V4B98KJWsn4EmAAKPJ2SXt/mW0AAAAASUVORK5CYII=)}#optionPanel .right-panel{float:left;display:flex;align-items:center;margin-left:39px}#optionPanel .right-panel .color-panel{width:72px;display:flex;justify-content:center;flex-wrap:wrap;background:#fff;border:1px solid #e5e6e5;border-radius:5px;position:absolute;top:-225px;right:28px}#optionPanel .right-panel .color-panel .color-item{width:62px;height:20px;margin-bottom:5px}#optionPanel .right-panel .color-panel .color-item:first-child{margin-top:5px;background:#f53440}#optionPanel .right-panel .color-panel .color-item:nth-child(2){background:#f65e95}#optionPanel .right-panel .color-panel .color-item:nth-child(3){background:#d254cf}#optionPanel .right-panel .color-panel .color-item:nth-child(4){background:#12a9d7}#optionPanel .right-panel .color-panel .color-item:nth-child(5){background:#30a345}#optionPanel .right-panel .color-panel .color-item:nth-child(6){background:#facf50}#optionPanel .right-panel .color-panel .color-item:nth-child(7){background:#f66632}#optionPanel .right-panel .color-panel .color-item:nth-child(8){background:#989998}#optionPanel .right-panel .color-panel .color-item:nth-child(9){background:#000}#optionPanel .right-panel .color-panel .color-item:nth-child(10){border:1px solid #e5e6e5;background:#feffff}#optionPanel .right-panel .color-select-panel{width:62px;height:20px;background:#f53340;border:1px solid #e5e6e5}#optionPanel .right-panel .pull-down-arrow{width:15px;height:8px;margin-left:10px;background-size:cover;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAQCAYAAAABOs/SAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAANNJREFUeNq01TEKwjAUxvHXOAhKJ3Fwc9PVzbWipxCdHLyMV9AD6A2EegRdvYBOnd3E70ELIcT2JU0C/1BI4AeB8pKUhlMiOqAtKijuGqEj2ne61D/jY1V2QZ+IaI7maKywrdETzdAVDSKi/Lp3tGP4hRYRcRPlly1Uech4FgG3onygtEvvwDijNxtqwiHxCp3YUBscAm9E/8FtcBFaB/vgYrQJdsGdUAkswZ1RKVyH6+hDivJKMCTa/CY9DV26DBlX2MTJB/WFK/yEvmjjM05/AgwANuZSRB8r5twAAAAASUVORK5CYII=)}#textInputPanel{min-width:20px;min-height:30px;line-height:30px;padding:5px;box-sizing:border-box;position:absolute;outline:none;top:0;left:0;color:red;border:1px solid red}</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+
+<body class="git-project lang-zh-CN dimmable webkit" style=""><div id="MathJax_Message" style="display: none;"></div>
+<header class="common-header fixed noborder" id="git-header-nav">
+<div class="ui container">
+<div class="ui menu header-menu header-container">
+<div class="git-nav-expand-bar">
+<i class="iconfont icon-mode-table"></i>
+</div>
+<div class="gitee-nav__sidebar">
+<div class="gitee-nav__sidebar-container">
+<div class="gitee-nav__sidebar-top">
+<div class="gitee-nav__avatar-box">
+<a href="https://gitee.com/waterqun"><img class="ui avatar image waterqun-avatar" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/11989972_waterqun_1669987294.png" alt="11989972 waterqun 1669987294">
+</a></div>
+<div class="gitee-nav__info-box">
+<a href="https://gitee.com/waterqun">WaterQun</a>
+</div>
+</div>
+<div class="gitee-nav__sidebar-middle">
+<div class="gitee-nav__sidebar-list">
+<ul>
+<li class="gitee-nav__sidebar-item">
+<a href="https://gitee.com/waterqun"><i class="iconfont icon-ic-dashboard"></i>
+<span class="gitee-nav__sidebar-name">个人主页</span>
+</a></li>
+<li class="gitee-nav__sidebar-item">
+<a href="https://gitee.com/explore"><i class="iconfont icon-ic-discover"></i>
+<span class="gitee-nav__sidebar-name">开源软件</span>
+</a></li>
+<li class="gitee-nav__sidebar-item">
+<a href="https://gitee.com/enterprises"><i class="iconfont icon-ic-enterprise"></i>
+<span class="gitee-nav__sidebar-name">企业版</span>
+</a></li>
+<li class="gitee-nav__sidebar-item">
+<a href="https://gitee.com/education"><i class="iconfont icon-ic-education"></i>
+<span class="gitee-nav__sidebar-name">高校版</span>
+</a></li>
+<li class="gitee-nav__sidebar-item split-line"></li>
+<li class="gitee-nav__sidebar-item">
+<a href="https://gitee.com/search"><i class="iconfont icon-ic-search"></i>
+<span class="gitee-nav__sidebar-name">搜索</span>
+</a></li>
+<li class="gitee-nav__sidebar-item">
+<a href="https://gitee.com/help"><i class="iconfont icon-help-circle"></i>
+<span class="gitee-nav__sidebar-name">帮助中心</span>
+</a></li>
+<li class="gitee-nav__sidebar-item">
+<a href="https://gitee.com/terms"><i class="iconfont icon-file"></i>
+<span class="gitee-nav__sidebar-name">使用条款</span>
+</a></li>
+<li class="gitee-nav__sidebar-item">
+<a href="https://gitee.com/about_us"><i class="iconfont icon-issuepx"></i>
+<span class="gitee-nav__sidebar-name">关于我们</span>
+</a></li>
+<li class="gitee-nav__sidebar-item">
+<a href="https://gitee.com/profile/account_information"><i class="iconfont icon-edit"></i>
+<span class="gitee-nav__sidebar-name">设置</span>
+</a></li>
+<li class="gitee-nav__sidebar-item">
+<a rel="nofollow" data-method="delete" href="https://gitee.com/logout"><i class="iconfont icon-ic-logout"></i>
+<span class="gitee-nav__sidebar-name">
+退出
+</span>
+</a></li>
+</ul>
+</div>
+</div>
+<div class="gitee-nav__sidebar-bottom">
+<div class="gitee-nav__sidebar-close-button">
+<i class="fa fa-angle-double-left"></i>
+</div>
+</div>
+</div>
+</div>
+
+<div class="item gitosc-logo">
+<a href="https://gitee.com/"><img alt="Gitee — 基于 Git 的代码托管和研发协作平台" class="ui inline image" height="28" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/logo.svg" title="Gitee — 基于 Git 的代码托管和研发协作平台" width="95">
+<img alt="Gitee — 基于 Git 的代码托管和研发协作平台" class="ui inline black image" height="28" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/logo-black.svg" title="Gitee — 基于 Git 的代码托管和研发协作平台" width="95">
+</a></div>
+<a title="开源软件" class="item " href="https://gitee.com/explore">开源软件
+</a><a title="企业版" class="item " sa_evt="click_GiteeCommunity_tab_En" href="https://gitee.com/enterprises">企业版
+<img alt="&lt;span class=&quot;translation_missing&quot; title=&quot;translation missing: zh-CN.特惠&quot;&gt;特惠&lt;/span&gt;" class="event-slogan-gif-label" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/label-new-c3235cbf309336ae041d2419967aa240.gif">
+</a><a title="高校版" class="item " href="https://gitee.com/education">高校版
+</a><a title="私有云" class="item" target="_blank" href="https://gitee.cn/?utm_source=giteecom">私有云
+</a><a title="博客" class="item" id="gitee-blog" target="_blank" href="https://blog.gitee.com/?utm_sources=site_nav">博客
+</a><a title="持续集成流水线" class="item" id="gitee-go" target="_blank" href="https://gitee.com/features/gitee-go"><img width="29" height="16" style="margin-top:1px;" alt="持续集成流水线" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/giteego-6c61c00c7ee85e118ecfd749bb3b3c13.svg">
+</a><div class="dropdown item ui" id="my-gitee-dropdown" tabindex="0">
+<a href="https://gitee.com/">我的</a>
+<i class="dropdown icon"></i>
+<div class="menu" tabindex="-1">
+<div class="ui active dimmer inverted js-my-gitee-dropdown-loader">
+<div class="ui loader"></div>
+</div>
+<div class="header user-enterprises">
+<a class="pull-right" target="_blank" href="https://gitee.com/waterqun/dashboard/enterprises">全部</a>
+企业
+<span class="count"></span>
+</div>
+<div class="disabled item tip user-enterprises">
+无企业
+</div>
+<div class="header user-groups">
+<a class="pull-right" target="_blank" href="https://gitee.com/waterqun/dashboard/groups">全部</a>
+组织
+<span class="count"></span>
+</div>
+<div class="disabled item tip user-groups">
+无组织
+</div>
+<div class="header user-programs">
+项目
+<span class="count"></span>
+</div>
+<div class="disabled item tip user-programs">
+<span class="translation_missing" title="translation missing: zh-CN.layouts.header.empty_programs">Empty Programs</span>
+</div>
+<div class="header user-projects">
+<a class="pull-right" target="_blank" href="https://gitee.com/waterqun/projects">全部</a>
+仓库
+<span class="count"></span>
+</div>
+<div class="disabled item tip user-projects">
+无项目
+</div>
+</div>
+</div>
+<div class="center responsive-logo">
+<a href="https://gitee.com/"><img alt="Gitee — 基于 Git 的代码托管和研发协作平台" class="ui inline image" height="24" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/logo.svg" title="Gitee — 基于 Git 的代码托管和研发协作平台" width="85">
+<img alt="Gitee — 基于 Git 的代码托管和研发协作平台" class="ui inline black image" height="24" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/logo-black.svg" title="Gitee — 基于 Git 的代码托管和研发协作平台" width="85">
+</a></div>
+<div class="right menu userbar right-header" id="git-nav-user-bar">
+<form class="ui item" id="navbar-search-form" data-text-require="搜索关键字不能少于1个" data-text-filter="搜索格式不正确" action="https://gitee.com/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+<input type="hidden" name="type" id="navbar-search-type">
+<input type="hidden" name="fork_filter" id="fork_filter" value="on">
+<div class="ui search header-search">
+<input type="text" name="q" id="navbar-search-input" value="" class="prompt" placeholder="搜开源" autocomplete="off">
+<div class="results"></div></div>
+</form>
+
+<script>
+  var can_search_in_repo = 1,
+      repo = "VFdwWk1VNXFRVEJPZWxwb1RucFplbHBuUFQxaE56WXpaZz09YTc2M2Y=",
+      reponame = "waterqun/depth2uart_realsense";
+  
+  $(function() {
+    var $search = $('#navbar-search-form .ui.search');
+    $search.search({
+      apiSettings: {
+        url: '/search/relative_project?q={query}',
+        onResponse: function (res) {
+          if (res && res.status === 200 && res.data) {
+            var query = htmlSafe($search.search('get value'));
+  
+            res.data.map(function (item) {
+              item.path_ns = '/' + item.path_ns;
+              item.icon = 'iconfont icon-project-public';
+            });
+            res.data.unshift({
+              name_ns: "在全站搜索 <b class='hl'>" + query +"</b> 相关项目",
+              path_ns: '/search?fork_filter=on&q=' + query,
+              icon: 'iconfont icon-search'
+            });
+            return res;
+          } else {
+            return { data: [] };
+          }
+        }
+      },
+      fields: {
+        results: 'data',
+        description: 'name_ns',
+        url: 'path_ns',
+        icon: 'icon'
+      },
+      minCharacters: 1,
+      maxResults: 10,
+      searchDelay: 250,
+      showNoResults: false,
+      transition: 'fade'
+    });
+  });
+</script>
+
+<div class="item ui dropdown empty" data-count-path="/notifications/unread_count" data-enable="" data-mark-notice-path="/notifications/mark" id="notice-dropdown" tabindex="0">
+<a class="remind-button" href="https://gitee.com/notifications"><i class="iconfont icon-remind"></i>
+<div class="notice-count total"></div>
+</a><div class="notice-dropdown-panel menu" style="left: -165px;" tabindex="-1">
+<div class="notice-dropdown-panel-header">
+<div class="tab active" data-data-path="/notifications/notices?scope=referer" data-html-path="/notifications/referer" data-scope="referer">
+<div class="content">
+@ 我
+<div class="notice-count referer"></div>
+</div>
+</div>
+<div class="tab" data-data-path="/notifications/notices?scope=infos" data-html-path="/notifications/infos" data-scope="infos">
+<div class="content">
+通知
+<div class="notice-count infos"></div>
+</div>
+</div>
+<div class="tab" data-data-path="/notifications/notices?scope=messages" data-html-path="/notifications/messages" data-scope="messages">
+<div class="content">
+私信
+<div class="notice-count messages"></div>
+</div>
+</div>
+</div>
+<div class="item notice-dropdown-panel-container">
+<div class="ui dimmer over active">
+<div class="ui loader"></div>
+</div>
+<div class="notice-list"></div>
+<div class="notice-dropdown-panel-blank">
+暂没有新消息
+</div>
+</div>
+<div class="notice-dropdown-panel-footer">
+<div class="action">
+<div class="side left">
+<a class="mark-notices" href="javascript: void(0);">当前标记为已读
+</a></div>
+<div class="side right">
+<a class="load-all" target="_blank" href="javascript: void(0);">查看全部
+</a></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="ui item" id="feature-update-notice">
+<div class="notice-update-icon">
+<a class="notice-update-popup click-knowed" title="" href="https://gitee.com/help/articles/4380"><img alt="功能更新" title="" class="bubl_icon bubl-off-icon" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/bulb_off-24ee940be20998aace89a3f040cbc704.svg" style="display: none;">
+<img alt="功能更新" title="" class="bubl_icon bubl-on-icon" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/bulb_on-3986b1dc417285398e3d15671bd8f261.svg" style="display: block;">
+</a></div>
+<div class="feature-update-notice-panel menu" style="left: -119px;">
+<div class="notice-img">
+<img alt="" title="" class="notice-img-show" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/333.gif">
+</div>
+<div class="notice-update-title">Gitee 已支持 CLA 协议签署</div>
+<div class="notice-update-des"><p>✍️第一方功能集成，签署流程更高效<br>
+📃内置可自定义的协议模板<br>
+⚖️让开源贡献也能有据可依</p></div>
+<div class="notice-btn-list d-flex-between">
+<button name="button" type="button" class="ui basic orange button btn-notice btn-knowed click-knowed" style="margin-right: 0">我知道了</button>
+<a class="ui button orange btn-notice btn-details click-knowed" target="_blank" href="https://gitee.com/help/articles/4380">查看详情</a>
+</div>
+</div>
+</div>
+
+<div class="ui dropdown link item" id="git-nav-create" tabindex="0">
+<i class="iconfont icon-add-thin"></i>
+<div class="right menu" tabindex="-1">
+<a class="item" href="https://gitee.com/projects/new"><i class="add square icon"></i>
+新建仓库
+</a><a class="item" href="https://gitee.com/waterqun/codes/new"><i class="code icon"></i>
+发布代码片段
+</a><a class="item" href="https://gitee.com/organizations/new"><i class="group icon"></i>
+创建组织
+</a><a class="item" sa_evt="click_GiteeCommunity_tab_plus_EnSignup" href="https://gitee.com/enterprises/new"><i class="icon iconfont icon-enterprise"></i>
+开通企业版
+</a><a class="item" href="https://gitee.com/projects/import/url"><i class="github icon"></i>
+从 GitHub / GitLab 导入仓库
+</a></div>
+</div>
+<div class="ui dropdown item" id="git-nav-user" tabindex="0">
+<img class="ui avatar image" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/11989972_waterqun_1669987294.png!avatar30" alt="11989972 waterqun 1669987294">
+<i class="dropdown icon"></i>
+<div class="right menu" tabindex="-1">
+<a class="item" href="https://gitee.com/waterqun"><i class="iconfont icon-ic-home"></i>
+个人主页
+</a><a class="item" href="https://gitee.com/waterqun/starred"><i class="iconfont icon-star"></i>
+我的星选集
+</a><a class="item" sa_evt="recommenderClick" sa_click_location="头像-成为推荐官" href="https://gitee.com/profile/cps/overview"><img src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/cps_icon-9c17338b5d65451ce5190ddb75fce3c7.svg" alt="Cps icon">
+成为推荐官
+</a><a class="item" href="https://gitee.com/profile/account_information"><div class="mayun-icon my-ic-edit my-ic-edit-dims"></div>
+设置
+</a><div class="divider"></div>
+<a class="item" target="_blank" href="https://gitee.com/help"><div class="mayun-icon my-ic-help my-ic-help-dims"></div>
+帮助
+</a><div class="divider"></div>
+<a class="item destroy-user-session" rel="nofollow" data-method="delete" href="https://gitee.com/logout"><div class="mayun-icon my-ic-exit my-ic-exit-dims"></div>
+退出
+</a></div>
+</div>
+<script>
+  $('.destroy-user-session').on('click', function() {
+    $.cookie('access_token', null, { path: '/' });
+  })
+</script>
+
+</div>
+</div>
+</div>
+</header>
+<script>
+  Gitee.initNavbar()
+  Gitee.initRepoRemoteWay()
+  $.cookie('user_locale',null)
+</script>
+
+<script>
+  var userAgent = navigator.userAgent;
+  var isLessIE11 = userAgent.indexOf('compatible') > -1 && userAgent.indexOf('MSIE') > -1;
+  if(isLessIE11){
+    var can_access = ""
+    if (can_access != "true"){
+      window.location.href = "/incompatible.html";
+    }
+  }
+</script>
+
+<div class="fixed-notice-infos">
+<div class="all-messages">
+<div class="ui info message" id="git-bulletin">
+<a href="https://wj.qq.com/s2/11022804/f3c0/" target="_blank">【有奖问卷】填写 OSCHINA 2022 中国开源开发者问卷，全套周边等你拿&gt;&gt;&gt;</a>
+<i class="icon remove" id="remove-bulletin"></i>
+</div>
+</div>
+<div class="ui container">
+<div class="flash-messages" id="messages-container"></div>
+</div>
+<script>
+  (function() {
+    $(function() {
+      var $error_box, alertTip, notify_content, notify_options, template;
+      template = '<div data-notify="container" class="ui {0} message" role="alert">' + '<i data-notify="dismiss" class="close icon"></i>' + '<span data-notify="message">{2}</span>' + '</div>';
+      notify_content = null;
+      notify_options = {};
+      alertTip = '';
+      $error_box = $(".flash_error.flash_error_box");
+      if (notify_options.type === 'error' && $error_box.length > 0 && !$.isEmptyObject(notify_content.message)) {
+        if (notify_content.message === 'captcha_fail') {
+          alertTip = "验证码不正确";
+        } else if (notify_content.message === 'captcha_expired') {
+          alertTip = "验证码已过期，请点击刷新";
+        } else if (notify_content.message === 'not_found_in_database') {
+          alertTip = "帐号或者密码错误";
+        } else if (notify_content.message === 'not_found_and_show_captcha') {
+          alertTip = "帐号或者密码错误";
+        } else if (notify_content.message === 'phone_captcha_fail') {
+          alertTip = "手机验证码不通过";
+        } else {
+          alertTip = notify_content.message;
+        }
+        return $error_box.html(alertTip).show();
+      } else if (notify_content) {
+        if ("show" === 'third_party_binding') {
+          return $('#third_party_binding-message').html(notify_content.message).addClass('ui message red');
+        }
+        notify_options.delay = 3000;
+        notify_options.template = template;
+        notify_options.offset = {
+          x: 10,
+          y: 30
+        };
+        notify_options.element = '#messages-container';
+        return $.notify(notify_content, notify_options);
+      }
+    });
+  
+  }).call(this);
+</script>
+
+</div>
+<script>
+  (function() {
+    $(function() {
+      var setCookie;
+      setCookie = function(name, value) {
+        $.cookie(name, value, {
+          path: '/',
+          expires: 365
+        });
+      };
+      $('#remove-bulletin, #remove-bulletin-dashboard').on('click', function() {
+        setCookie('remove_bulletin', "gitee-maintain-1668593238");
+        $('#git-bulletin').hide();
+      });
+      $('#remove-member-bulletin').on('click', function() {
+        setCookie('remove_member_bulletin', "gitee_member_bulletin");
+        $(this).parent().hide();
+      });
+      return $('#remove-gift-bulletin').on('click', function() {
+        setCookie('remove_gift_bulletin', "gitee-gift-bulletin");
+        $(this).parent().hide();
+      });
+    });
+  
+  }).call(this);
+</script>
+<script>
+  function closeMessageBanner(pthis, type, val) {
+    var json = {}
+  
+    val = typeof val === 'undefined' ? null : val
+    $(pthis).parent().remove()
+    if (type === 'out_of_enterprise_member') {
+      json = {type: type, data: val}
+    } else if (type === 'enterprise_overdue') {
+      json = {type: type, data: val}
+    }
+    $.post('/profile/close_flash_tip', json)
+  }
+</script>
+
+<div class="site-content">
+<div class="git-project-header">
+<div class="fixed-notice-infos">
+<div class="ui info icon floating message green" id="fetch-ok" style="display: none">
+<div class="content">
+<div class="header status-title">
+<i class="info icon status-icon"></i>
+代码拉取完成，页面将自动刷新
+</div>
+</div>
+</div>
+<div class="ui info icon floating message error" id="fetch-error" style="display: none">
+<div class="content">
+<div class="header status-title">
+<i class="info icon status-icon"></i>
+<span class="error_msg"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="ui container">
+
+<div class="git-project-header-details">
+<div class="git-project-header-container">
+<div class="git-project-header-actions">
+
+<div class="ui small modal wepay-qrcode">
+<i class="iconfont icon-close close"></i>
+<div class="header">
+扫描微信二维码支付
+<span class="wepay-cash"></span>
+</div>
+<div class="content weqcode-center">
+<img id="wepay-qrcode" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAAAAACIM/FCAAACh0lEQVR4Ae3ch5W0OgyG4dt/mQJ2xgQPzJoM1m3AbALrxzrf28FzsoP0HykJEEAAAUQTBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEkKK0789+GK/I2ezfQB522PnS1qc8pGgXvr4tE4aY0XOUWlGImThWgyCk6DleixzE7qwBkg/MGiDPlVVAyp1VQGrPKiACDhFI6VkF5LmzCki+sg7IwDoglnVAil0IMkeG9CyUiwsxLFUVFzJJOQaKCjFCDN9RXMjIX7W6ztZXZDKKCyn8sWJvH+nca7WHDN9lROlAliPH9iRKCPI4cswFJQWxB46toLQgQ9jhn5QYZA9DOkoMUoQde5YapAxDWkoNYsOQR3KQd9CxUnIQF4S49CB9ENKlBxmDEKsFUgMCCCCAAHIrSF61f6153Ajy8nyiPr8L5MXnmm4CyT2fzN4DUvHZ+ntA2tOQBRBAAAEEEEAAAQQQ7ZBaC6TwSiDUaYHQ2yuB0MN+ft+43whyrs4rgVCjBUKTFshLC6TUAjGA3AxSaYFYLZBOC2RUAsk8h5qTg9QcbEoOsoQhQ2qQhsO5xCD5dgB5JQaZ+KBKGtKecvR81Ic0ZDjByKdDx0rSEDZ/djQbH+bkIdvfJFm98BfV8hD2zprfVdlu9PxVeyYAkciREohRAplJCaRSAplJCcQogTjSAdlyHRBvSAekJR0QRzogA+mADJkOiCPSAPEtqYBshlRAXC43hxix2QiOuEZkVERykGyNo9idIZKE0HO7XrG6OiMShlDWjstVzdPgXtUH9v0CEidAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQP4HgjZxTpdEii0AAAAASUVORK5CYII=">
+</div>
+<div class="actions">
+<div class="ui cancel blank button">取消</div>
+<div class="ui ok orange button">支付完成</div>
+</div>
+</div>
+
+
+<span class="ui buttons basic watch-container">
+<div class="ui dropdown button js-project-watch" data-watch-type="watching" tabindex="0">
+<input type="hidden" value="watching">
+<i class="iconfont icon-watch"></i>
+<div class="text">Watching</div>
+<i class="dropdown icon"></i>
+<div class="menu" tabindex="-1">
+<a data-value="unwatch" class="item" data-remote="true" rel="nofollow" data-method="post" href="https://gitee.com/waterqun/depth2uart_realsense/unwatch"><i class="iconfont icon-msg-read"></i>
+不关注
+</a><a data-value="watching" class="item active selected" data-remote="true" rel="nofollow" data-method="post" href="https://gitee.com/waterqun/depth2uart_realsense/watch"><i class="iconfont icon-msg-read"></i>
+关注所有动态
+</a><a data-value="releases_only" class="disabled item" data-remote="true" rel="nofollow" data-method="post" href="https://gitee.com/waterqun/depth2uart_realsense/release_only_watch"><i class="iconfont icon-msg-read"></i>
+仅关注版本发行动态
+</a><a data-value="ignoring" class="item" data-remote="true" rel="nofollow" data-method="post" href="https://gitee.com/waterqun/depth2uart_realsense/ignoring_watch"><i class="iconfont icon-msg-read"></i>
+关注但不提醒动态
+</a></div>
+</div>
+<style>
+  .js-project-watch .text .iconfont {
+    display: none; }
+  .js-project-watch a, .js-project-watch a:hover {
+    color: #000; }
+  .js-project-watch .item > .iconfont {
+    visibility: hidden;
+    margin-left: -10px; }
+  .js-project-watch .selected .iconfont {
+    visibility: visible; }
+  .js-project-watch .menu {
+    margin-top: 4px !important; }
+</style>
+<script>
+  $('.js-project-watch').dropdown({
+    action: 'select',
+    onChange: function(value, text, $selectedItem) {
+      var type = value === 'unwatch' ? 'Watch' : 'Watching';
+      $(this).children('.text').text(type);
+      $(this).dropdown('set selected', value)
+    }
+  });
+</script>
+
+<a class="ui button action-social-count" title="1" href="https://gitee.com/waterqun/depth2uart_realsense/watchers">1
+</a></span>
+<span class="basic buttons star-container ui">
+<a class="ui button unstar " sa_evt="clickStar" sa_location="仓库页面" sa_url="" sa_repo_id="26560476" data-remote="true" rel="nofollow" data-method="post" href="https://gitee.com/waterqun/depth2uart_realsense/unstar"><i class="iconfont icon-star-solid"></i>
+Starred
+</a><a class="ui button star " sa_evt="clickStar" sa_location="仓库页面" sa_url="" sa_repo_id="26560476" data-remote="true" rel="nofollow" data-method="post" href="https://gitee.com/waterqun/depth2uart_realsense/star"><i class="iconfont icon-star"></i>
+Star
+</a><a class="ui button action-social-count " title="0" href="https://gitee.com/waterqun/depth2uart_realsense/stargazers">0
+</a></span>
+<span class="ui basic buttons fork-container" title="">
+<a id="fork-top-button" class="ui button fork " sa_evt="repoFork" sa_repo_id="26560476" sa_is_self="true" sa_is_member="true" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#"><i class="iconfont icon-fork"></i>
+Fork
+</a><a class="ui button action-social-count " title="0" href="https://gitee.com/waterqun/depth2uart_realsense/members">0
+</a></span>
+</div>
+<h2 class="git-project-title mt-0 mb-0">
+<span class="project-title"><i class="project-icon iconfont icon-project-public" title="这是一个公开仓库"></i> <a title="WaterQun" class="author" href="https://gitee.com/waterqun">WaterQun</a> / <a title="Depth2Uart_Realsense" class="repository" target="" style="padding-bottom: 0px; margin-right: 4px" sa_evt="repoClick" sa_location="仓库页面" sa_url="" sa_repo_id="26560476" href="https://gitee.com/waterqun/depth2uart_realsense">Depth2Uart_Realsense</a></span><span class="project-badges"><a data-confirm="1.你的自荐申请将由我们人工审核，介绍完善、质量高的项目才能被推荐 &lt;br/&gt; 2.编辑可能会根据需要来调整推荐软件的描述信息 &lt;br/&gt; 3.申请提交后，&lt;strong&gt;如一个工作日内未得到推荐，则默认表示被拒&lt;/strong&gt;。" title="自荐" class="git-project-recommend-badge" rel="nofollow" data-method="post" href="https://gitee.com/waterqun/depth2uart_realsense/recomm_self"><i class="iconfont icon-recommend recommend-icon"></i>
+</a><style>
+  .gitee-modal {
+    width: 500px !important; }
+</style>
+</span>
+<input type="hidden" name="project_title" id="project_title" value="WaterQun/Depth2Uart_Realsense">
+</h2>
+</div>
+</div>
+</div>
+
+<script>
+  var title_import_url = "false";
+  var title_post_url = "/waterqun/depth2uart_realsense/update_import";
+  var title_fork_url = "/waterqun/depth2uart_realsense/sync_fork";
+  var title_project_path = "depth2uart_realsense";
+  var title_p_name = "Depth2Uart_Realsense";
+  var title_p_id= "26560476";
+  var title_description = "双目测距------双目相机V1.0，将双目相机采集到任意一点的深度数据进行串口传输";
+  var title_form_authenticity_token = "s5my5WHoea16hT0sJYoiWs6JJls/f57RSsR+8ejC60OQFbuE0U/qlamHRszBPJwywFJVFUdxk9ZFxPFUHuvlVA==";
+  var watch_type = "watching";
+  var checkFirst = false;
+  
+  $('.js-project-watch').dropdown('set selected', watch_type);
+  $('.checkbox.sync-wiki').checkbox();
+  $('.checkbox.team-member-checkbox').checkbox();
+</script>
+<script>
+  $(function () {
+    // SemticUI 校验表单等地方要求直接return 值, 对异步支持非常不友好...
+    // 从提交表单处 再用异步校验 ,控制是否提交
+    var $modalFork = $('#modal-fork-project');
+    var $okBtn = $modalFork.find('.ui.ok.button');
+    var $currentTarget = null;
+    var isSameProject = false;
+  
+    $('#fork-top-button, #fork-btm-button').on('click', function (e) {
+      e.preventDefault();
+      $modalFork.modal('show');
+      setTimeout(function () {
+        $.ajax({ url: '/waterqun/depth2uart_realsense/fork_project_info' }).done(function () {
+          // 自定义错误消息模板,  inline : true 每个输入框后面都插入消息提示, 而非集中到一处提醒
+          $.fn.form.settings.templates.prompt = function (errors) {
+            return $('<div />').addClass('ui error message custom prompt label').html(errors[0]);
+          };
+          // 表单的内容是异步传输的js动态生成的....
+          var $repoForm = $('#modal-fork-project .repo-form');
+          $repoForm.form({
+            on: 'change',
+            inline: true,
+            fields: {
+              projectName: {
+                identifier: 'project-name',
+                rules: [
+                  {
+                    type: 'empty',
+                    prompt: "仓库名不能为空"
+                  },
+                  {
+                    type: 'regExp',
+                    value: window.giteeRegex.projectName,
+                    prompt: "仓库名只允许包含中文、字母、数字或者下划线(_)、中划线(-)、英文句号(.)、加号(+)，必须以字母或数字开头，不能以下划线/中划线结尾，且长度为2~191个字符"
+                  },
+                  {
+                    type: 'maxLength[255]',
+                    prompt: "仓库名只允许包含中文、字母、数字或者下划线(_)、中划线(-)、英文句号(.)、加号(+)，必须以字母或数字开头，不能以下划线/中划线结尾，且长度为2~191个字符"
+                  }
+                ]
+              },
+              projectPath: {
+                identifier: 'project-path',
+                rules: [
+                  {
+                    type: 'empty',
+                    prompt: "路径不能为空"
+                  },
+                  {
+                    type: 'regExp',
+                    value: window.giteeRegex.projectPath,
+                    prompt: "路径只允许包含字母、数字或者下划线(_)、中划线(-)、英文句号(.)，必须以字母或数字开头，且长度为2~191个字符"
+                  }
+                ]
+              }
+            }
+          });
+  
+          $modalFork.find('.namespace-img-area.ui.checkbox').checkbox({
+            onChecked: function () {
+              $currentTarget = $(this).closest('.ui.checkbox');
+              // 当前选中的空间
+              isSameProject = $currentTarget[0].hasAttribute('data-any-same-projects');
+              var conflictProjectName = $currentTarget.data('conflict-project-title');
+              var conflictProjectUrl = $currentTarget.data('conflict-project-url');
+              var conflictProjectNameSpacePath = $currentTarget.data('conflict-namespace');
+              var conflictPathType = $currentTarget.find('.path-type').text();
+              // fork目标
+              var targetProjectName = $currentTarget.data('target-project-name');
+              var targetProjectPath = $currentTarget.data('target-project-path');
+              // 命名空间名称(@xxx)
+              var conflictNameSpaceName = $currentTarget.find('.path-name').text();
+              var $forkTargetNamespace = $('.fork-target-namespace-area');
+              var $forkTargetNamespaceItem = $(this).closest('.fork-target-namespace-item')
+              // 冲突 显示修改表单
+              if (isSameProject) {
+                //$forkTargetNamespace.addClass('same-name-editing');
+                $('.fork-target-namespace-item').removeClass('same-name-editing')
+                $forkTargetNamespaceItem.addClass('same-name-editing')
+                $forkTargetNamespace
+                  .find('.conflict-namespace-name')
+                  .attr('href', `/${conflictProjectNameSpacePath}`)
+                  .text(conflictNameSpaceName);
+                $forkTargetNamespace
+                  .find('.conflict-path')
+                  .attr('href', `${conflictProjectUrl}`)
+                  .text(`${conflictProjectNameSpacePath}/${targetProjectPath}`);
+                $forkTargetNamespace
+                  .find('.prefix-path')
+                  .text(`${window.location.origin}/${conflictProjectNameSpacePath}/`);
+                $forkTargetNamespace
+                  .find('.conflict-path-type')
+                  .text(conflictPathType.toLowerCase())
+                var $nameInput = $forkTargetNamespace.find('[name="project-name"]');
+                var $pathInput = $forkTargetNamespace.find('[name="project-path"]');
+                $nameInput.val(targetProjectName);
+                $pathInput.val(targetProjectPath);
+                checkFirst = true
+                // 立即校验一次
+                asyncValidateForkRepoForm();
+              } else {
+                $('.fork-target-namespace-item').removeClass('same-name-editing')
+                $forkTargetNamespaceItem.addClass('same-name-editing');
+              }
+              $okBtn.removeClass('disabled');
+            }
+          });
+        });
+      }, 500);
+    });
+    // 异步校验
+    function asyncValidateForkRepoForm (successCallback) {
+      var $repoForm = $('#modal-fork-project .same-name-editing .repo-form');
+      var $forkTargetNamespace = $('.fork-target-namespace-area .same-name-editing');
+      var $nameInput = $forkTargetNamespace.find('[name="project-name"]');
+      var $pathInput = $forkTargetNamespace.find('[name="project-path"]');
+      var name = $nameInput.val().trim();
+      var path = $pathInput.val().trim();
+      var namespace = $currentTarget ? $currentTarget.data('conflict-namespace') : '';
+      if (!name || !path) return;
+      $okBtn.addClass('loading');
+      $.ajax('/projects/check_fork_form', {
+        type: 'get',
+        data: { project_name: name, project_path: path, target_namespaces: namespace },
+        success: function (data) {
+          if (data.status == 0) {
+            successCallback && successCallback();
+          } else if (data.status == -1 && Array.isArray(data.conflict_keys)) {
+            if (!checkFirst) {
+              data.conflict_keys.includes('name') && $repoForm.form('add prompt', 'project-name', "已存在相同仓库名");
+              data.conflict_keys.includes('path') && $repoForm.form('add prompt', 'project-path', "已存在相同路径");
+            } else {
+              data.conflict_keys.includes('name') && data.new_name && $nameInput.val(data.new_name);
+              data.conflict_keys.includes('path') && data.new_path && $pathInput.val(data.new_path);
+            }
+          } else {
+            Flash.error("校验失败");
+          }
+          checkFirst = false
+        },
+        error: function (err) {
+          Flash.error(err.responseJSON.message);
+        },
+        complete: function () {
+          $okBtn.removeClass('loading');
+          // 添加提示 弹窗变高后 刷新弹窗位置
+          $modalFork.modal('refresh');
+        }
+      });
+    }
+    function forkSubmit () {
+      $modalFork.modal('hide');
+      // 构造一些 input 用于表单提交
+      var $form = $('<form></form>');
+      var $input = $('<input type="hidden" name="authenticity_token" />');
+      var $inputCheck = $('<input type="hidden" name="members" />');
+      var $inputCheck2 = $('<input type="hidden" name="namespace_path" />');
+      var checkedPath = $('.checkbox.checked > input[name=namespace_path]').val();
+      // fork存在冲突, 修改后的表单:
+      if (isSameProject) {
+        // 获取最新表单数据
+        var $forkTargetNamespace = $('.fork-target-namespace-area .same-name-editing');
+        var name = $forkTargetNamespace.find('[name="project-name"]').val().trim();
+        var path = $forkTargetNamespace.find('[name="project-path"]').val().trim();
+        var $projectName = $('<input type="hidden" name="name" />');
+        var $projectPath = $('<input type="hidden" name="path" />');
+        $projectName.val(name);
+        $projectPath.val(path);
+        $form.append($projectName);
+        $form.append($projectPath);
+      }
+      $form.hide();
+      $form.attr('method', 'post');
+      $form.attr('action', '/' + checkedPath + '/fork_project/waterqun/depth2uart_realsense');
+      $input.attr('value', $('meta[name="csrf-token"]').attr('content'));
+      $inputCheck.attr('value', $('.checkbox.checked > input[name=members]').val());
+      $inputCheck2.attr('value', checkedPath);
+      $form.append($input);
+      $form.append($inputCheck);
+      $form.append($inputCheck2);
+      $form.appendTo('body');
+      $form.submit();
+    }
+    $modalFork.modal({
+      transition: 'fade',
+      closable: true,
+      centered: false,
+      observeChanges:true,
+      onApprove: function () {
+        // 存在同名冲突时, 需要修改仓库信息, 再进行校验同名
+        // 判断当前选中的空间类型, 用于决定是否需要修改路径仓库名,验证表单
+        if (isSameProject) {
+          var $repoForm = $('#modal-fork-project .same-name-editing .repo-form');
+          $repoForm.form('validate form');
+          var isRepoInfoValid = $repoForm.form('is valid'); // 前端校验通过
+          // 由于是form提交和ajax检测结合..., 防止意外篡改 提交前必定校验一次, 通过后自动submit
+          if (isRepoInfoValid) {
+            // SemticUI add prompt 自定义验证连续执行太快, 会消失掉重复再出现再消失.
+            setTimeout(function () {
+              asyncValidateForkRepoForm(function () {
+                forkSubmit();
+              });
+            }, 200);
+          } else {
+            $repoForm.form('validate form');
+          }
+        } else {
+          // 正常 frok
+          forkSubmit();
+        }
+        return false;
+      }
+    });
+    $modalFork.find('.close-button').on('click', function () {
+      $modalFork.modal('hide');
+    });
+  });
+</script>
+<style>
+  i.loading, .icon-sync.loading {
+    -webkit-animation: icon-loading 1.2s linear infinite;
+    animation: icon-loading 1.2s linear infinite;
+  }
+  .qrcode_cs {
+    float: left;
+  }
+  .check-sync-wiki {
+    float: left;
+    height: 28px;
+    line-height: 28px;
+  }
+  .sync-wiki-warn {
+    color: #e28560;
+  }
+</style>
+
+<div class="git-project-nav">
+<div class="ui container">
+<div class="ui secondary pointing menu">
+<a class="item active" href="https://gitee.com/waterqun/depth2uart_realsense"><i class="iconfont icon-code"></i>
+代码
+</a><a class="item " href="https://gitee.com/waterqun/depth2uart_realsense/issues"><i class="iconfont icon-task"></i>
+Issues
+<span class="ui mini circular label">
+0
+</span>
+</a><a class="item " href="https://gitee.com/waterqun/depth2uart_realsense/pulls"><i class="iconfont icon-pull-request"></i>
+Pull Requests
+<span class="ui mini circular label">
+0
+</span>
+</a><a class="item " href="https://gitee.com/waterqun/depth2uart_realsense/wikis"><i class="iconfont icon-wiki"></i>
+Wiki
+</a><a class="item  " href="https://gitee.com/waterqun/depth2uart_realsense/repository/stats/master"><i class="iconfont icon-statistics"></i>
+统计
+</a><a class="item " href="https://gitee.com/waterqun/depth2uart_realsense/gitee_go"><i class="iconfont icon-workflow"></i>
+流水线
+</a><div class="item">
+<div class="ui pointing top right dropdown git-project-service" tabindex="0">
+<div>
+<i class="iconfont icon-service"></i>
+服务
+<i class="dropdown icon"></i>
+</div>
+<div class="menu" style="display:none" tabindex="-1">
+<a class="item" href="https://gitee.com/waterqun/depth2uart_realsense/pages"><img src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/logo-en.svg" alt="Logo en">
+<div class="item-title">
+Gitee Pages
+</div>
+</a><a class="item" href="https://gitee.com/waterqun/depth2uart_realsense/quality_analyses?platform=sonar_qube"><img src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/sonar_mini-5e1b54bb9f6c951d97fb778ef623afea.png" alt="Sonar mini">
+<div class="item-title">
+质量分析
+</div>
+</a><a class="item" href="https://gitee.com/waterqun/depth2uart_realsense/quality_analyses?platform=codesafe"><img width="100%" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/codesafe_mini-accbe1e555e9864c552620240d10e4de.png" alt="Codesafe mini">
+<div class="item-title">
+奇安信代码卫士
+</div>
+</a><a class="item" href="https://gitee.com/waterqun/depth2uart_realsense/gitee_scans"><img src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/giteescan-cd9ab4076bd751faf7e30888eb10f782.png" alt="Giteescan">
+<div class="item-title">Gitee Scan</div>
+</a><a class="item" href="https://gitee.com/waterqun/depth2uart_realsense/codecheck/report?branch=master"><img src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/CodeCheck-70a10cf889c51df6f00bf159c8e12374.svg" alt="Codecheck">
+<div class="item-title">CodeCheck</div>
+</a><a class="item" href="https://gitee.com/waterqun/depth2uart_realsense/fosseye_scans"><img src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/lic-de91a87a4f8dad44d993b27a69d58d5e.png" alt="Lic">
+<div class="item-title">
+许可证合规分析
+</div>
+</a><a class="item" href="https://gitee.com/waterqun/depth2uart_realsense/fosseye_cves"><img src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/cve-b0dc16e7f89057d7d263b0950b7a3ed6.png" alt="Cve">
+<div class="item-title">
+CVE 漏洞扫描
+</div>
+</a><a class="item" target="_blank" href="https://gitee.com/help/articles/4193"><img src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/jenkins_for_gitee-554ec65c490d0f1f18de632c48acc4e7.png" alt="Jenkins for gitee">
+<div class="item-title">
+Jenkins for Gitee
+</div>
+</a><a class="item" target="_blank" href="https://gitee.com/help/articles/4285"><img src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/baidu_efficiency_cloud-81a98c2eb67fac83b1453ca3d2feb326.svg" alt="Baidu efficiency cloud">
+<div class="item-title">
+百度效率云
+</div>
+</a><a class="item" target="_blank" href="https://gitee.com/help/articles/4318"><img src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/cloudbase-1197b95ea3398aff1df7fe17c65a6d42.png" alt="Cloudbase">
+<div class="item-title">
+腾讯云托管
+</div>
+</a><a class="item" target="_blank" href="https://gitee.com/help/articles/4330"><img src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/cloud_serverless-686cf926ced5d6d2f1d6e606d270b81e.png" alt="Cloud serverless">
+<div class="item-title">
+腾讯云 Serverless
+</div>
+</a><a class="item" href="https://gitee.com/waterqun/depth2uart_realsense/open_sca"><img src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/logo-9049ced662b2f9936b8001e6f9cc4952.png" alt="Logo">
+<div class="item-title">
+悬镜安全
+</div>
+</a><button class="ui orange basic button quit-button" id="quiting-button">
+我知道了，不再自动展开
+</button>
+</div>
+</div>
+</div>
+<a class="item d-flex d-flex-center " href="https://gitee.com/waterqun/depth2uart_realsense/settings"><i class="iconfont icon-settings"></i>
+<div class="text ml-05 setting-text red-dot">管理</div>
+</a></div>
+</div>
+</div>
+<script>
+  $('.git-project-nav .ui.dropdown').dropdown({ action: 'nothing' });
+  var gitee_reward_config = JSON.parse(localStorage.getItem('gitee_reward_config') || null) || false
+  var $settingText = $('.setting-text')
+  // 如果没有访问过
+  if(!gitee_reward_config) $settingText.addClass('red-dot')
+</script>
+<style>
+  .git-project-nav i.checkmark.icon {
+    color: green;
+  }
+  #quiting-button {
+    display: none;
+  }
+  
+  .git-project-nav .dropdown .menu.hidden:after {
+    visibility: hidden !important;
+  }
+</style>
+<script>
+  isSignIn = true
+  isClickGuide = true
+  $('#git-versions.dropdown').dropdown();
+  $.ajax({
+    url:"/waterqun/depth2uart_realsense/access/add_access_log",
+    type:"GET"
+  });
+  $('#quiting-button').on('click',function() {
+    $('.git-project-service').click();
+    if (isSignIn) {
+      $.post("/projects/set_service_guide")
+    }
+    $.cookie("Serve_State", true, { expires: 3650, path: '/'})
+    $('#quiting-button').hide();
+  });
+  if (!(isClickGuide || $.cookie("Serve_State") == 'true')) {
+    $('.git-project-service').click()
+    $('#quiting-button').show()
+  }
+</script>
+
+</div>
+<div class="ui container">
+
+<div class="git-project-content-wrapper">
+
+<div class="ui grid" id="project-wrapper">
+<div class="sixteen wide column">
+<div id="git-project-search-panel" style="display: none;">
+<a href="javascript: void(0);" id="back-to-list">
+<i class="angle left icon"></i>
+返回
+</a>
+<div class="ui icon input search-input">
+<i class="iconfont icon-search icon"></i>
+<input id="search-name" maxlength="40" placeholder="搜索文件" type="text">
+</div>
+</div>
+<div class="git-project-content" id="git-project-content">
+<div class="git-project-desc-wrapper">
+<script>
+  $('.git-project-desc-wrapper .ui.dropdown').dropdown();
+  if (false) {
+    gon.project_new_blob_path = "/waterqun/depth2uart_realsense/new/master"
+    bindShowModal({
+      el: $('.no-license .project-license__create'),
+      complete: function(data, modal) {
+        if (!data.haveNoChoice && !data.data) {
+          Flash.show('请选择一项开源许可证')
+        } else {
+          location.href = gon.project_new_blob_path + '?license=' + data.data
+        }
+      },
+      skip: function () {
+        location.href = gon.project_new_blob_path + '?license'
+      }
+    });
+  }
+  
+  $(".project-admin-action-box .reject").click(function() {
+    var reason = $('[name=review-reject-reason]').val();
+    if (!reason) {
+      Flash.error('请选择不通过理由')
+      return
+    }
+    $.ajax({
+      type: 'POST',
+      url: "/admin/shumei_content/shumei_check/reject_project_public",
+      data: {
+        reason: reason,
+        status: 'rejected',
+        project_id: 26560476
+      },
+      success: function(result){
+        if(result.status == 'success'){
+          window.location.reload();
+        }else{
+          Flash.error(result.message)
+        }
+      }
+    })
+  })
+  
+  $(".project-admin-action-box .approve").click(function(){
+  
+    $.ajax({
+      type: 'POST',
+      url: "/admin/shumei_content/shumei_check/reject_project_public",
+      data: {
+        status: 'approved',
+        project_id: 26560476
+      },
+      success: function(result){
+        if(result.status == 'success'){
+          window.location.reload();
+        }else{
+          Flash.error(result.message)
+        }
+      }
+    })
+  })
+  
+  $(".project-admin-action-box .waiting").click(function(){
+  
+    $.ajax({
+      type: 'POST',
+      url: "/admin/shumei_content/shumei_check/reject_project_public",
+      data: {
+        status: 'waiting',
+        project_id: 26560476
+      },
+      success: function(result){
+        if(result.status == 'success'){
+          window.location.reload();
+        }else{
+          Flash.error(result.message)
+        }
+      }
+    })
+  })
+  
+  $('i.help.circle.icon').popup({
+    popup: '.no-license .ui.popup',
+    position: 'right center'
+  });
+  
+  $('#remove-no-license-message').on('click', function() {
+    $.cookie("skip_repo_no_license_message_26560476", 'hide', { expires: 365 });
+    $('#user-no-license-message').hide();
+    return;
+  });
+</script>
+</div>
+
+<div class="git-project-bread" id="git-project-bread">
+<div class="ui horizontal list mr-1">
+<div class="item git-project-branch-item">
+<input type="hidden" name="path" id="path" value="README.md">
+<div class="ui top left pointing dropdown gradient button dropdown-has-tabs" id="git-project-branch">
+<input type="hidden" name="ref" id="ref" value="master">
+<div class="text"><span>master</span></div>
+<i class="dropdown icon"></i>
+<div class="menu" tabindex="-1">
+<div class="ui left icon search input">
+<i class="iconfont icon-search"></i>
+<input class="search-branch" placeholder="搜索分支" type="text" tabindex="0">
+</div>
+<div class="tab-menu">
+<div class="tab-menu-action active" data-tab="branches">
+<a class="ui link button" href="https://gitee.com/waterqun/depth2uart_realsense/branches">管理</a>
+</div>
+<div class="tab-menu-action" data-tab="tags">
+<a class="ui link button" href="https://gitee.com/waterqun/depth2uart_realsense/tags">管理</a>
+</div>
+<div class="tab-menu-item active" data-placeholder="搜索分支" data-tab="branches">
+分支 (1)
+</div>
+</div>
+<div class="tab scrolling menu active" data-tab="branches" id="branches_panel">
+<div data-value="master" class="item active selected"><span>master</span></div>
+</div>
+</div>
+</div>
+<style>
+  .iconfont.icon-shieldlock {
+    color: #8c92a4;
+  }
+</style>
+<script>
+  var $branchesDropdown = $('#branches_panel');
+  var $searchNameInput = $('.search-branch');
+  var concurrentRequestLock = false;
+  var filterXSS = window.filterXSS;
+  $branchesDropdown.scroll(function() {
+    var branchesPanel = document.getElementById('branches_panel');
+    var numOfBranches = $branchesDropdown.children().length;
+    var pageToken = $branchesDropdown.children().last().text().trim();
+    if (branchesPanel.clientHeight + branchesPanel.scrollTop + 37 > branchesPanel.scrollHeight && numOfBranches < 1) {
+      loadData({ page_token: pageToken });
+    }
+  });
+  
+  $searchNameInput.on('input', window.globalUtils.debouce(function (e) {
+    var $currentTab = $('.tab-menu-action.active');
+    var numOfBranches = $branchesDropdown.children().length;
+    if($currentTab.data('tab') === 'branches' && numOfBranches < 1) {
+    var searchWord = $searchNameInput.val().trim();
+      if (searchWord !== "") {
+        loadData({ search: searchWord });
+      } else {
+        loadData({});
+      }
+    }
+  }, 500));
+  
+  function loadData(data) {
+    if (concurrentRequestLock) { return; }
+      concurrentRequestLock = true;
+      $.ajax({
+        url: "/waterqun/depth2uart_realsense/branches/load_more",
+        type: 'GET',
+        data: data,
+        dataType: 'json',
+        success: function (branches) {
+          var html = '';
+          var protectRule = '';
+          if (data.search || !data.page_token) {
+            $branchesDropdown.empty();
+          }
+          branches.forEach(function (branch) {
+            var branchName = filterXSS(branch.name);
+            if(branch.branch_type.value === 1) {
+              var rule = filterXSS(branch.protection_rule.wildcard);
+              protectRule = `<i
+                 class="iconfont icon-shieldlock protected-branch-popup"
+                 data-title="受保护分支"
+                 data-content='保护规则： ${rule}'
+                >
+                </i>`
+            }
+            html += `<div data-value='${branchName}' class="item">
+                      <span>${branchName}</span> ${protectRule}
+                     </div>`
+          });
+          $branchesDropdown.append(html);
+          $('.protected-branch-popup').popup()
+        },
+        complete: function () {
+          concurrentRequestLock = false;
+        }
+    });
+  }
+</script>
+
+<script>
+  $(function () {
+    Gitee.initTabsInDropdown($('#git-project-branch').dropdown({
+      fullTextSearch: true,
+      selectOnKeydown: true,
+      action: function (text,value,el) {
+        var oItemOrInitObject = el[0] || el
+        var isNotSelect = oItemOrInitObject.dataset.tab && oItemOrInitObject.dataset.tab === 'branches'
+        if(isNotSelect){
+          console.warn("You didn't choose a branch")
+          return
+        } 
+        var path = $('#path').val();
+        var href = ['/waterqun/depth2uart_realsense/tree', encodeURIComponent(value), path].join('/');
+        window.location.href = href;
+        return true
+      },
+      onNoResults: function (searchTerm) {
+        //未找到结果
+        return true
+      },
+    }));
+    $('.protected-branch-popup').popup()
+  })
+</script>
+
+</div>
+</div>
+<div class="git-project-right-actions pull-right">
+<div class="ui orange button" id="btn-dl-or-clone">
+克隆/下载
+<i class="dropdown icon"></i>
+</div>
+<div class="git-project-download-panel for-project ui bottom right popup">
+<div class="ui small secondary pointing menu">
+<a class="item active" data-text="" data-type="http" data-url="https://gitee.com/waterqun/depth2uart_realsense.git">HTTPS</a>
+<a class="item" data-text="" data-type="ssh" data-url="git@gitee.com:waterqun/depth2uart_realsense.git">SSH</a>
+<a class="item" data-text="该仓库未启用SVN访问，请仓库管理员前往【&lt;a target=&#39;_blank&#39; href=/waterqun/depth2uart_realsense/settings&gt;仓库设置&lt;/a&gt;】开启。" data-type="svn" data-url="">SVN</a>
+<a class="item" data-text="该仓库未启用SVN访问，请仓库管理员前往【&lt;a target=&#39;_blank&#39; href=/waterqun/depth2uart_realsense/settings&gt;仓库设置&lt;/a&gt;】开启。" data-type="svn_ssh" data-url="">SVN+SSH</a>
+</div>
+<div class="ui fluid right labeled small input download-url-panel">
+<input type="text" name="project_clone_url" id="project_clone_url" value="https://gitee.com/waterqun/depth2uart_realsense.git" onclick="focus();select()" readonly="readonly">
+<div class="ui basic label">
+<div class="ui small basic orange button" data-clipboard-target="#project_clone_url" id="btn-copy-clone-url">
+复制
+</div>
+</div>
+</div>
+<div class="ui fluid right labeled warning-text forbid-warning-text"></div>
+<hr>
+<a class="ui fluid tiny download link button" sa_evt="repoDownload" sa_repo_id="26560476" sa_is_self="true" sa_is_member="true" href="https://gitee.com/waterqun/depth2uart_realsense/repository/archive/master.zip"><i class="icon download"></i>
+下载ZIP
+</a></div>
+<script>
+  (function() {
+    var $btnClone, $btnCopy, $input, $panel;
+  
+    $btnClone = $('#btn-dl-or-clone');
+  
+    $panel = $('.git-project-download-panel');
+  
+    $input = $('#project_clone_url');
+  
+    $btnCopy = $('#btn-copy-clone-url');
+  
+    $btnClone.popup({
+      on: 'click',
+      hoverable: true,
+      position: 'bottom center'
+    });
+  
+    $panel.find('.menu > .item').on('click', function(e) {
+      var $item, dataUrl;
+      $item = $(this).addClass('active');
+      $item.siblings().removeClass('active');
+      dataUrl = $item.attr('data-url');
+      if (dataUrl) {
+        $panel.find('.download-url-panel').show();
+        $input.val(dataUrl);
+        $panel.find('.forbid-warning-text').html('');
+      } else {
+        $panel.find('.download-url-panel').hide();
+        $panel.find('.forbid-warning-text').html($item.attr('data-text') || '');
+      }
+      return $.cookie('remote_way', $item.attr('data-type'), {
+        expires: 365,
+        path: '/'
+      });
+    }).filter('[data-type="' + ($.cookie('remote_way') || 'http') + '"]').trigger('click');
+  
+    new Clipboard($btnCopy[0]).on('success', function() {
+      $btnCopy.popup({
+        content: '已复制',
+        position: 'right center',
+        onHidden: function() {
+          return $btnCopy.popup('destroy');
+        }
+      });
+      return $btnCopy.popup('show');
+    });
+  
+  }).call(this);
+</script>
+
+</div>
+<div class="d-inline pull-right" id="git-project-root-actions"><script>
+  $('.disabled-upload-readonly').popup({
+    content: "只读目录不允许上传文件",
+    className: {
+      popup: 'ui popup',
+    },
+    position: 'bottom center',
+  })
+  $('.disabled-create-folder').popup({
+    content: "只读目录不允许创建目录",
+    className: {
+      popup: 'ui popup',
+    },
+    position: 'bottom center',
+  })
+  $('.disabled-create-file').popup({
+    content: "只读目录不允许创建文件",
+    className: {
+      popup: 'ui popup',
+    },
+    position: 'bottom center',
+  })
+  $('.disabled-create-submodule').popup({
+    content: "只读目录不允许创建子模块",
+    className: {
+      popup: 'ui popup',
+    },
+    position: 'bottom center',
+  })
+  $('.disabled-upload-readonly, .disabled-create-folder, .disabled-create-file, .disabled-create-submodule').click(function() {
+    return false
+  })
+</script>
+<style>
+  .disabled-upload-readonly, .disabled-create-file, .disabled-create-folder, .disabled-create-submodule {
+    background-color: #dcddde !important;
+    color: rgba(0, 0, 0, 0.4) !important;
+    opacity: 0.3 !important;
+    background-image: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important; }
+</style>
+
+</div>
+<div class="breadcrumb_path path-breadcrumb-contrainer" id="git-project-breadcrumb"><div class="ui breadcrumb path project-path-breadcrumb" id="path-breadcrumb">
+<a data-direction="back" class="section repo-name" style="font-weight: bold" href="https://gitee.com/waterqun/depth2uart_realsense/tree/master">depth2uart_realsense
+</a><div class="divider">
+/
+</div>
+<strong>
+README.md
+</strong>
+<i class="iconfont icon-clone" data-clipboard-text="README.md" id="btn-copy-file-path"></i>
+</div>
+<style>
+  #btn-copy-file-path {
+    vertical-align: middle;
+    cursor: pointer;
+  }
+</style>
+<script>
+  $btnCopy = $('#btn-copy-file-path')
+  $btnCopy.popup({
+    content: '复制路径'
+  })
+  
+  if ($btnCopy[0]) {
+    new Clipboard($btnCopy[0]).on('success', function() {
+      $btnCopy.popup('destroy').popup({
+        content: '已复制',
+        on: 'manual'
+      }).popup('show');
+      setTimeout(function () {
+        $btnCopy.popup('destroy').popup({
+          content: '复制路径'
+        });
+      }, 2000)
+    });
+  }
+</script>
+</div>
+<div class="ui horizontal list repo-action-list branches-tags" style="display: none;">
+<div class="item">
+<a class="ui blank button" href="https://gitee.com/waterqun/depth2uart_realsense/branches"><i class="iconfont icon-branches"></i>
+分支 1
+</a></div>
+<div class="item mr-3">
+<a class="ui blank button" href="https://gitee.com/waterqun/depth2uart_realsense/tags"><i class="iconfont icon-tag"></i>
+标签 0
+</a></div>
+</div>
+</div>
+<script>
+  if(window.gon.locale == 'en')
+    $('.branches-tags').css('margin-top', '12px')
+</script>
+
+<style>
+  .ui.dropdown .menu > .header {
+    text-transform: none; }
+</style>
+<script>
+  $(function () {
+    var $tip = $('#apk-download-tip');
+    if (!$tip.length) {
+      return;
+    }
+    $tip.find('.btn-close').on('click', function () {
+      $tip.hide();
+    });
+  });
+  (function(){
+    function pathAutoRender() {
+      var $parent = $('#git-project-bread'),
+          $child = $('#git-project-bread').children('.ui.horizontal.list'),
+          mainWidth = 0;
+      $child.each(function (i,item) {
+        mainWidth += $(item).width()
+      });
+      $('.breadcrumb.path.fork-path').remove();
+      if (mainWidth > 995) {
+        $('#path-breadcrumb').hide();
+        $parent.append('<div class="ui breadcrumb path fork-path">' + $('#path-breadcrumb').html() + '<div/>')
+      } else {
+        $('#path-breadcrumb').show();
+      }
+    }
+    window.pathAutoRender = pathAutoRender;
+    pathAutoRender();
+  })();
+</script>
+
+<div class="branch-diff-notice-bar hide">
+<div class="left-section"></div>
+<div class="right-section">
+<div class="ui button gradient contribute">
+贡献代码
+<i class="dropdown icon"></i>
+</div>
+<div class="ui button gradient branch-sync hide">
+同步代码
+<i class="dropdown icon"></i>
+</div>
+</div>
+</div>
+<div class="ui popup contribute branch-diff-pop-panel contribute-pop">
+<div class="notice-title"></div>
+<div class="notice-sub-title"></div>
+<div class="notice-content"></div>
+<a class="ui button orange fluid disabled create-pr" href="https://gitee.com/" target="_blank">
+创建 Pull Request
+</a>
+</div>
+<div class="ui popup branch-diff-pop-panel branch-sync-pop">
+<div class="notice-title"></div>
+<div class="notice-content"></div>
+<div class="known-more">
+<a href="https://gitee.com/help/articles/4395" target="_blank">
+了解更多
+</a>
+</div>
+<div class="btn-group">
+<div class="ui button basic red discard-btn hide"></div>
+<a class="ui button orange basic diff-btn hide" href="https://gitee.com/" target="_blank">
+对比差异
+</a>
+<a class="ui button gradient pr-sync-btn hide" href="https://gitee.com/" target="_blank">
+通过 Pull Request 同步
+</a>
+<div class="ui buttons basic dropdown-group-btn hide">
+<div class="ui button branch-sync-btn">
+同步更新到分支
+</div>
+<div class="ui button dropdown dropdown-create-pr">
+<i class="icon dropdown"></i>
+<div class="menu">
+<div class="disabled item">
+<div>
+通过 Pull Request 同步
+<div class="text-muted fs-12 mt-1">
+将会在向当前分支创建一个 Pull <br>Request，合入后将完成同步
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    const i18_compare_current_branch = `当前分支与 <a href="URL">BRANCH</a> 相比`
+    const i18_branch_ahead_commit = `，领先 <a href="URL">NUM 个 Commit</a>`
+    const i18_branch_behind_commit = `，落后 <a href="URL">NUM 个 Commit</a>`
+  
+    const i18_contribute_ahead_title = `当前分支比 BRANCH 领先了 NUM 次提交。`
+    const i18_contribute_pr_create = `创建一个 Pull Request 贡献代码。`
+    const i18_contribute_has_pr = `已创建了 Pull Request`
+    const i18_contribute_no_ahead = `这个分支没有领先于 BRANCH 的代码提交。`
+  
+    const i18_branch_sync_behind  = `这个分支已落后于 BRANCH 分支`
+    const i18_branch_sync_behind_desc = `从 BRANCH 分支同步 NUM 个提交来更新分支以保持当前分支代码是最新的。`
+    const i18_branch_sync_out_of_date = `此分支已过时`
+    const i18_branch_sync_out_of_date_desc = `你可以将 BRANCH 分支中的最新更改合并到此分支中。或丢弃当前分支上的提交以使当前分支与 BRANCH 分支匹配。这将从当前分支中删除 NUM 个提交。`
+    const i18_branch_discard_diff = `丢弃 NUM 个提交`
+  
+    window.locale_temple_branch_diff = {
+      i18_compare_current_branch,
+      i18_branch_ahead_commit,
+      i18_branch_behind_commit,
+  
+      i18_contribute_ahead_title,
+      i18_contribute_pr_create,
+      i18_contribute_has_pr,
+      i18_contribute_no_ahead,
+  
+      i18_branch_sync_behind,
+      i18_branch_sync_behind_desc,
+      i18_branch_sync_out_of_date,
+      i18_branch_sync_out_of_date_desc,
+      i18_branch_discard_diff
+    }
+  })();
+</script>
+
+<div class="row column tree-holder" id="tree-holder"><div class="tree-content-holder" id="tree-content-holder">
+<div class="file_holder">
+<div class="file_title">
+<div class="blob-header-title">
+<div class="blob-description">
+<i class="iconfont icon-file"></i>
+<span class="file_name" title="README.md">
+README.md
+</span>
+<small>2.54 KB</small>
+</div>
+<div class="options"><div class="ui mini buttons basic">
+<textarea name="blob_raw" id="blob_raw" style="display:none;"># 使用方法
+### 1、安装Ubuntu
+推荐Ubuntu 18/20 LTS版本，兼容Ubuntu 22 LTS，本文部分依赖（如Intel Realsense SDK）官方文档暂未支持Ubuntu22，但实测可行，在未来会慢慢适配新版本。
+
+### 2、安装ROS/ROS2
+根据Ubuntu版本安装ROS/ROS2，安装方法可前往观看古月居/鱼香ROS相关视频，可使用一键安装脚本：https://github.com/fishros/install 。
+本版本双目测距理论上不需要安装ROS系统，但安装ROS比较方便解决相关依赖，同时后续版本肯定也会使用到就直接安装好了
+
+### 3、安装Intel Realsense SDK
+如出现问题可查看[Linux官方安装文档](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)
+
+#### (1) 安装依赖
+```
+sudo apt-get install git libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev
+```
+#### (2) 下载Intel Realsense SDK
+``` 
+git clone  https://github.com/IntelRealSense/librealsense.git
+```
+这行代码默认是下载的最新稳定版的SDK，现在只支持ROS2了，可以前往github仓库查看具体要求。
+下载指定版本在git clone后加上-b，如Ubuntu18/20一般安装ROS，v2.50.0版本为支持ROS1的最后版本，就使用下面这个代码
+``` 
+git clone  -b v2.50.0 https://github.com/IntelRealSense/librealsense.git
+```
+#### (3) 安装Intel Realsense SDK
+```
+cd librealsense
+./scripts/setup_udev_rules.sh
+mkdir build &amp;&amp; cd build
+cmake ..
+make -j8
+sudo make install
+```
+测试可以输入命令 realsense-viewer，可以看到一个软件打开，可以在此测试相机是否正常。
+
+### 4、编译depth2uart.cpp
+在depth2uart.cpp所在目录打开终端，输入以下代码编译cpp文件，生成depth2uart可执行文件，部分硬件可能会报错，可以根据报错查看缺少什么库文件，在最末尾加上-l再输入库名称。
+```
+g++ depth2uart.cpp -o depth2uart -lrealsense2 -lboost_system
+```
+
+### 5、给串口添加权限
+输入以下命令可查询串口所在USB口。
+```
+ls -l /dev/ttyUSB* 
+```
+默认是USB0，输入以下命令给串口添加权限，如果是其他USB则需要修改USB后面数字。
+```
+sudo chmod 777 /dev/ttyUSB0
+```
+
+### 6、运行depth2uart
+```
+./depth2uart 
+```
+可以看到输出摄像头最中央一点的深度信息，串口传输至STM32端接收。
+
+### 7、设置开机自启动
+开机自启动有很多种方法，比如在rc.local文件添加命令，即可开机自己动，可以上网查询。
+这里推荐命令行输入‘gnome-session-properties’通过gnome设置开机自启动。</textarea>
+<a class="ui button" id="copy-text" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#">一键复制</a>
+<a class="ui button edit-blob" title="" href="https://gitee.com/waterqun/depth2uart_realsense/edit/master/README.md">编辑</a>
+<a class="ui button web-ide" target="_blank" href="https://gitee.com/-/ide/project/waterqun/depth2uart_realsense/edit/master/-/README.md">Web IDE</a>
+<a class="ui button edit-raw" target="_blank" href="https://gitee.com/waterqun/depth2uart_realsense/raw/master/README.md">原始数据</a>
+<a class="ui button edit-blame" href="https://gitee.com/waterqun/depth2uart_realsense/blame/master/README.md">按行查看</a>
+<a class="ui button edit-history" href="https://gitee.com/waterqun/depth2uart_realsense/commits/master/README.md">历史</a>
+</div>
+<div class="ui mini basic icon-actions">
+<a title="删除文件 master/README.md" data-confirm="确定要删除吗？" rel="nofollow" data-method="delete" href="https://gitee.com/waterqun/depth2uart_realsense/delete/blob/master/README.md"><i class="iconfont icon-delete"></i>
+</a></div>
+<script>
+  "use strict";
+  try {
+    if((gon.wait_fork!=undefined && gon.wait_fork==true) || (gon.wait_fetch!=undefined && gon.wait_fetch==true)){
+      $('.edit-blob').popup({content:"当前仓库正在后台处理中,暂时无法编辑", on: 'hover', delay: { show: 200, hide: 200 }});
+      $('.edit-blob').click(function(e){
+        e.preventDefault();
+      })
+    }
+  
+    var setUrl = function() {
+      var params = window.location.search
+      if (params==undefined || $.trim(params).length==0) return;
+      $('span.options').children('.basic').find('a').each(function(index,ele){
+        var origin_href = $(ele).attr('href');
+        if (origin_href!="#" && origin_href.indexOf('?') == -1){
+          $(ele).attr('href',origin_href+params);
+        }
+      });
+    }
+  
+    setUrl();
+  
+    var clipboard = null,
+        $btncopy  = $("#copy-text");
+  
+    clipboard = new Clipboard("#copy-text", {
+      text: function(trigger) {
+        return $("#blob_raw").val();
+      }
+    })
+  
+    clipboard.on('success', function(e) {
+      $btncopy.popup('hide');
+      $btncopy.popup('destroy');
+      $btncopy.popup({content: '已复制', position: 'bottom center'});
+      $btncopy.popup('show');
+    })
+  
+    clipboard.on('error', function(e) {
+      var giteeModal = new GiteeModalHelper({okText: '确定'});
+      giteeModal.alert("一键复制", '复制失败，请手动复制');
+    })
+  
+    $(function() {
+      $btncopy.popup({
+        content: '点击复制',
+        position: 'bottom center'
+      })
+    })
+  
+  } catch (error) {
+    console.log('blob/action error:' + error);
+  }
+  
+  $('.disabled-edit-readonly').popup({
+    content: "只读文件不可编辑",
+    className: {
+      popup: 'ui popup',
+    },
+    position: 'bottom center',
+  })
+  $('.disabled-edit-readonly, .disabled-edit-status').click(function() {
+    return false
+  })
+  $('.has_tooltip').popup({
+    position: 'top center'
+  });
+</script>
+<style>
+  .disabled-edit-readonly, .disabled-edit-status {
+    background-color: #dcddde !important;
+    color: rgba(0, 0, 0, 0.4) !important;
+    opacity: 0.3 !important;
+    background-image: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+    cursor: default !important; }
+</style>
+</div>
+</div>
+<div class="blob-header-title mt-1 ubblock_tip">
+</div>
+<div class="contributor-description"><span class="recent-commit" style="margin-top: 0.7rem">
+<a class="commit-author-link  js-popover-card " data-username="waterqun" href="https://gitee.com/waterqun">WaterQun</a>
+<span>提交于</span>
+<span class="timeago commit-date" title="2022-12-03 00:58">2分钟前</span>
+.
+<a href="https://gitee.com/waterqun/depth2uart_realsense/commit/8ea4f05316e62e29ff5e4935b088a07112a76770">Document Prepare</a>
+</span>
+</div>
+</div>
+<div class="clearfix"></div>
+<div class="file_catalog" style="max-width: 998px;">
+<div class="toggle abs-pos collapse" title="收起">
+<i class="icon angle left"></i>
+</div>
+<div class="scroll-container">
+<div class="container"><ul class="catalog-ul" level="1"><li class="catalog-li active"><a href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" class="anchor" title="使用方法">使用方法</a></li><li><ul class="catalog-ul" level="2"><li class="catalog-li"><a href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#1%E5%AE%89%E8%A3%85ubuntu" class="anchor" title="1、安装Ubuntu">1、安装Ubuntu</a></li><li class="catalog-li"><a href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#2%E5%AE%89%E8%A3%85rosros2" class="anchor" title="2、安装ROS/ROS2">2、安装ROS/ROS2</a></li><li class="catalog-li"><a href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#3%E5%AE%89%E8%A3%85intel-realsense-sdk" class="anchor" title="3、安装Intel Realsense SDK">3、安装Intel Realsense SDK</a></li><li><ul class="catalog-ul" level="3"><li class="catalog-li"><a href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#1-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96" class="anchor" title="(1) 安装依赖">(1) 安装依赖</a></li><li class="catalog-li"><a href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#2-%E4%B8%8B%E8%BD%BDintel-realsense-sdk" class="anchor" title="(2) 下载Intel Realsense SDK">(2) 下载Intel Realsense SDK</a></li><li class="catalog-li"><a href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#3-%E5%AE%89%E8%A3%85intel-realsense-sdk" class="anchor" title="(3) 安装Intel Realsense SDK">(3) 安装Intel Realsense SDK</a></li></ul></li><li class="catalog-li"><a href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#4%E7%BC%96%E8%AF%91depth2uartcpp" class="anchor" title="4、编译depth2uart.cpp">4、编译depth2uart.cpp</a></li><li class="catalog-li"><a href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#5%E7%BB%99%E4%B8%B2%E5%8F%A3%E6%B7%BB%E5%8A%A0%E6%9D%83%E9%99%90" class="anchor" title="5、给串口添加权限">5、给串口添加权限</a></li><li class="catalog-li"><a href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#6%E8%BF%90%E8%A1%8Cdepth2uart" class="anchor" title="6、运行depth2uart">6、运行depth2uart</a></li><li class="catalog-li"><a href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#7%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8" class="anchor" title="7、设置开机自启动">7、设置开机自启动</a></li></ul></li></ul></div>
+</div>
+</div>
+<div class="file_content markdown-body">
+<h1>
+<a id="user-content-使用方法" class="anchor" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"></a>使用方法</h1>
+<h3>
+<a id="user-content-1安装ubuntu" class="anchor" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#1%E5%AE%89%E8%A3%85ubuntu"></a>1、安装Ubuntu</h3>
+<p>推荐Ubuntu 18/20 LTS版本，兼容Ubuntu 22 LTS，本文部分依赖（如Intel Realsense SDK）官方文档暂未支持Ubuntu22，但实测可行，在未来会慢慢适配新版本。</p>
+<h3>
+<a id="user-content-2安装rosros2" class="anchor" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#2%E5%AE%89%E8%A3%85rosros2"></a>2、安装ROS/ROS2</h3>
+<p>根据Ubuntu版本安装ROS/ROS2，安装方法可前往观看古月居/鱼香ROS相关视频，可使用一键安装脚本：<a href="https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Ffishros%2Finstall">https://github.com/fishros/install</a> 。
+本版本双目测距理论上不需要安装ROS系统，但安装ROS比较方便解决相关依赖，同时后续版本肯定也会使用到就直接安装好了</p>
+<h3>
+<a id="user-content-3安装intel-realsense-sdk" class="anchor" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#3%E5%AE%89%E8%A3%85intel-realsense-sdk"></a>3、安装Intel Realsense SDK</h3>
+<p>如出现问题可查看<a href="https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2FIntelRealSense%2Flibrealsense%2Fblob%2Fmaster%2Fdoc%2Finstallation.md">Linux官方安装文档</a></p>
+<h4>
+<a id="user-content-1-安装依赖" class="anchor" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#1-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"></a>(1) 安装依赖</h4>
+<div class="white"><div class="highlight markdown-code-block">
+<pre><span id="LC1" class="line">sudo apt-get install git libssl-dev libusb-1.0-0-dev libudev-dev pkg-config libgtk-3-dev libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev</span></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div></div>
+<h4>
+<a id="user-content-2-下载intel-realsense-sdk" class="anchor" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#2-%E4%B8%8B%E8%BD%BDintel-realsense-sdk"></a>(2) 下载Intel Realsense SDK</h4>
+<div class="white"><div class="highlight markdown-code-block">
+<pre><span id="LC1" class="line">git clone  https://github.com/IntelRealSense/librealsense.git</span></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div></div>
+<p>这行代码默认是下载的最新稳定版的SDK，现在只支持ROS2了，可以前往github仓库查看具体要求。
+下载指定版本在git clone后加上-b，如Ubuntu18/20一般安装ROS，v2.50.0版本为支持ROS1的最后版本，就使用下面这个代码</p>
+<div class="white"><div class="highlight markdown-code-block">
+<pre><span id="LC1" class="line">git clone  -b v2.50.0 https://github.com/IntelRealSense/librealsense.git</span></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div></div>
+<h4>
+<a id="user-content-3-安装intel-realsense-sdk" class="anchor" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#3-%E5%AE%89%E8%A3%85intel-realsense-sdk"></a>(3) 安装Intel Realsense SDK</h4>
+<div class="white"><div class="highlight markdown-code-block">
+<pre><span id="LC1" class="line">cd librealsense</span>
+<span id="LC2" class="line">./scripts/setup_udev_rules.sh</span>
+<span id="LC3" class="line">mkdir build &amp;&amp; cd build</span>
+<span id="LC4" class="line">cmake ..</span>
+<span id="LC5" class="line">make -j8</span>
+<span id="LC6" class="line">sudo make install</span></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div></div>
+<p>测试可以输入命令 realsense-viewer，可以看到一个软件打开，可以在此测试相机是否正常。</p>
+<h3>
+<a id="user-content-4编译depth2uartcpp" class="anchor" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#4%E7%BC%96%E8%AF%91depth2uartcpp"></a>4、编译depth2uart.cpp</h3>
+<p>在depth2uart.cpp所在目录打开终端，输入以下代码编译cpp文件，生成depth2uart可执行文件，部分硬件可能会报错，可以根据报错查看缺少什么库文件，在最末尾加上-l再输入库名称。</p>
+<div class="white"><div class="highlight markdown-code-block">
+<pre><span id="LC1" class="line">g++ depth2uart.cpp -o depth2uart -lrealsense2 -lboost_system</span></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div></div>
+<h3>
+<a id="user-content-5给串口添加权限" class="anchor" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#5%E7%BB%99%E4%B8%B2%E5%8F%A3%E6%B7%BB%E5%8A%A0%E6%9D%83%E9%99%90"></a>5、给串口添加权限</h3>
+<p>输入以下命令可查询串口所在USB口。</p>
+<div class="white"><div class="highlight markdown-code-block">
+<pre><span id="LC1" class="line">ls -l /dev/ttyUSB* </span></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div></div>
+<p>默认是USB0，输入以下命令给串口添加权限，如果是其他USB则需要修改USB后面数字。</p>
+<div class="white"><div class="highlight markdown-code-block">
+<pre><span id="LC1" class="line">sudo chmod 777 /dev/ttyUSB0</span></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div></div>
+<h3>
+<a id="user-content-6运行depth2uart" class="anchor" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#6%E8%BF%90%E8%A1%8Cdepth2uart"></a>6、运行depth2uart</h3>
+<div class="white"><div class="highlight markdown-code-block">
+<pre><span id="LC1" class="line">./depth2uart </span></pre>
+<div class="markdown-code-block-copy-btn"></div>
+</div></div>
+<p>可以看到输出摄像头最中央一点的深度信息，串口传输至STM32端接收。</p>
+<h3>
+<a id="user-content-7设置开机自启动" class="anchor" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md#7%E8%AE%BE%E7%BD%AE%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"></a>7、设置开机自启动</h3>
+<p>开机自启动有很多种方法，比如在rc.local文件添加命令，即可开机自己动，可以上网查询。
+这里推荐命令行输入‘gnome-session-properties’通过gnome设置开机自启动。</p></div>
+<div class="file_line" style="top: 83px; height: calc(100% - 83px);"></div>
+<script>
+  window.Gitee.initReadmeCatalog();
+  toMathMlCode('','markdown-body');
+  $('.file_content a, .catalog-li a.anchor').click(function () {
+    var anchor = $(this).attr('href')
+    window.location.hash = anchor
+  })
+</script>
+
+</div>
+</div>
+<div class="tree_progress" style="display: none;"></div>
+<div class="ui small modal" id="modal-linejump">
+<div class="ui custom form content">
+<div class="field">
+<div class="ui right action input">
+<input placeholder="跳转至某一行..." type="number">
+<div class="ui orange button">
+跳转
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="complaint">
+<div class="ui modal small form" id="landing-comments-complaint-modal">
+<i class="iconfont icon-close close"></i>
+<div class="header">
+举报
+</div>
+<div class="content">
+<div class="appeal-success-tip hide">
+<i class="iconfont icon-ic_msg_success"></i>
+<div class="appeal-success-text">
+举报成功
+</div>
+<span>
+我们将于2个工作日内通过站内信反馈结果给你！
+</span>
+</div>
+<div class="appeal-tip">
+请认真填写举报原因，尽可能描述详细。
+</div>
+<div class="ui form appeal-form">
+<div class="inline field">
+<label class="left-part appeal-type-wrap">
+举报类型
+</label>
+<div class="ui dropdown selection" id="appeal-comments-types" tabindex="0">
+<div class="text default">
+请选择举报类型
+</div>
+<i class="dropdown icon"></i>
+<div class="menu" tabindex="-1"></div>
+</div>
+</div>
+<div class="inline field">
+<label class="left-part">
+举报原因
+</label>
+<textarea class="appeal-reason" id="appeal-comment-reason" name="msg" placeholder="请说明举报原因" rows="3"></textarea>
+</div>
+<div class="ui message callback-msg hide"></div>
+<div class="ui small error text message exceeded-size-tip"></div>
+</div>
+</div>
+<div class="actions">
+<div class="ui button blank cancel">
+取消
+</div>
+<div class="ui orange icon button disabled ok" id="complaint-comment-confirm">
+发送
+</div>
+</div>
+</div>
+<script>
+  var $complaintCommentsModal = $('#landing-comments-complaint-modal'),
+      $complainCommentType = $complaintCommentsModal.find('#appeal-comments-types'),
+      $complaintModalTip = $complaintCommentsModal.find('.callback-msg'),
+      $complaintCommentsContent = $complaintCommentsModal.find('.appeal-reason'),
+      $complaintCommentBtn = $complaintCommentsModal.find('#complaint-comment-confirm'),
+      complaintSending = false,
+      initedCommentsType = false;
+  
+  function initCommentsTypeList() {
+    if (!initedCommentsType) {
+      $.ajax({
+        url: "/appeals/fetch_types",
+        method: 'get',
+        data: {'type': 'comment'},
+        success: function (data) {
+          var result = '';
+          for (var i = 0; i < data.length; i++) {
+            result = result + "<div class='item' data-value='" + data[i].id + "'>" + data[i].name + "</div>";
+          }
+          $complainCommentType.find('.menu').html(result);
+        }
+      });
+      $complainCommentType.dropdown({showOnFocus: false});
+      initedCommentsType = true;
+    }
+  }
+  $complainCommentType.on('click', function() {
+    $complaintCommentsModal.modal({
+      autofocus: false,
+      onApprove: function() {
+        return false;
+      },
+      onHidden: function() {
+        restoreCommonentDefault();
+      }
+    }).modal('show');
+  });
+  
+  $complaintCommentsContent.on('change keyup', function(e) {
+    var content = $(this).val();
+    if ($.trim(content).length > 0 && $complainCommentType.dropdown('get value').length > 0 ) {
+      $complaintCommentBtn.removeClass('disabled');
+      return;
+    }
+    $complaintCommentBtn.addClass('disabled');
+  });
+  
+  
+  $complainCommentType.dropdown({
+    showOnFocus: false,
+    onChange: function(value, text, $selectedItem) {
+      if (value.length > 0 && $.trim($complaintCommentsContent.val()).length > 0) {
+        $complaintCommentBtn.removeClass('disabled');
+        return
+      }
+      $complaintCommentBtn.addClass('disabled');
+    }
+  });
+  
+  function restoreCommonentDefault() {
+    $complainCommentType.dropdown('restore defaults');
+    $complaintCommentsContent.val('');
+    $('.exceeded-size-tip').text('').hide();
+    $complaintModalTip.text('').hide();
+    setTimeout(function() {
+      setCommentSendTip(false);
+    }, 1500);
+  }
+  
+  $complaintCommentBtn.on('click',function(e){
+    var reason = $complaintCommentsContent.val();
+    var appealableId = $('#landing-comments-complaint-modal').attr('data-id');
+    if (complaintSending) {
+      return;
+    }
+    var appealType = $complainCommentType.dropdown('get value');
+    var formData = new FormData();
+    formData.append('appeal_type_id', appealType);
+    formData.append('reason', reason);
+    formData.append('appeal_type','Note');
+    formData.append('target_id',appealableId);
+    $.ajax({
+      type: 'POST',
+      url: "/appeals",
+      cache: false,
+      contentType: false,
+      processData: false,
+      data: formData,
+      beforeSend: function() {
+        setCommentSendStatus(true);
+      },
+      success: function(res) {
+        if (res.status == 200) {
+          setCommentSendTip(true);
+          setTimeout(function() {
+            $complaintCommentsModal.modal('hide');
+            restoreCommonentDefault();
+          }, 3000);
+        }
+        setCommentSendStatus(false);
+      },
+      error: function(err) {
+        showCommonTips(err.responseJSON.message, 'error');
+        setCommentSendStatus(false);
+      }
+    })
+  });
+  
+  function showCommonTips(text, type) {
+    $complaintModalTip.text(text).show();
+    if (type == 'error') {
+      $complaintModalTip.removeClass('success').addClass('error');
+    } else {
+      $complaintModalTip.removeClass('error').addClass('success');
+    }
+  }
+  
+  function setCommentSendStatus(value) {
+    complaintSending = value;
+    if (complaintSending) {
+      $complaintCommentBtn.addClass('loading');
+      $complaintCommentsContent.attr('readonly', true);
+      $complainCommentType.attr('readonly', true);
+    } else {
+      $complaintCommentBtn.removeClass('loading');
+      $complaintCommentsContent.attr('readonly', false);
+      $complainCommentType.attr('readonly', false);
+    }
+  }
+  
+  function setCommentSendTip(value) {
+    if (value) {
+      $('.appeal-success-tip').removeClass('hide');
+      $('.appeal-tip').addClass('hide');
+      $('.appeal-form').addClass('hide');
+      $('#landing-comments-complaint-modal .actions').addClass('hide');
+    } else {
+      $('.appeal-success-tip').addClass('hide');
+      $('.appeal-tip').removeClass('hide');
+      $('.appeal-form').removeClass('hide');
+      $('#landing-comments-complaint-modal .actions').removeClass('hide');
+    }
+  }
+</script>
+
+<div class="ui small modal" id="misjudgment_appeal_modal">
+<i class="close icon"></i>
+<div class="header dividing ui">
+误判申诉
+</div>
+<div class="content">
+<p>此处可能存在不合适展示的内容，页面不予展示。您可通过相关编辑功能自查并修改。</p>
+<p>如您确认内容无涉及 不当用语 / 纯广告导流 / 暴力 / 低俗色情 / 侵权 / 盗版 / 虚假 / 无价值内容或违法国家有关法律法规的内容，可点击提交进行申诉，我们将尽快为您处理。</p>
+<div class="buttons">
+<div class="ui button blank cancel">取消</div>
+<div class="ui button orange submit">提交</div>
+</div>
+</div>
+</div>
+<style>
+  #misjudgment_appeal_modal .buttons {
+    float: right;
+    margin-top: 30px;
+    margin-bottom: 20px; }
+    #misjudgment_appeal_modal .buttons .cancel {
+      margin-right: 20px; }
+</style>
+<script>
+  var $misjudgmentAppealModal = $('#misjudgment_appeal_modal');
+  $('.cancel').on('click',function(){
+    $misjudgmentAppealModal.modal('hide');
+  });
+  var $jsSubmitAppeal = $misjudgmentAppealModal.find('.submit')
+  $jsSubmitAppeal.on('click', function(e) {
+    e.preventDefault();
+    $(this).addClass('loading').addClass('disabled');
+    var type = $(this).attr('data-type');
+    var id = $(this).attr('data-id');
+    var projectId = $(this).attr('data-project-id');
+    var appealType = $(this).attr('data-appeal-type');
+    $.ajax({
+      type: "PUT",
+      url: "/misjudgment_appeal",
+      data: {
+        type: type,
+        id: id,
+        project_id: projectId,
+        appeal_type: appealType
+      },
+      success: function(data) {
+        Flash.info('提交成功');
+        $jsSubmitAppeal.removeClass('loading');
+        $misjudgmentAppealModal.modal('hide');
+        location.reload()
+      },
+      error: function(e) {
+        Flash.error('提交失败:'+e.responseText);
+        $jsSubmitAppeal.removeClass('loading').removeClass('disabled');
+        location.reload()
+      }
+    });
+  })
+</script>
+
+</div>
+<script>
+  "use strict";
+  $('.js-check-star').checkbox('set unchecked')
+</script>
+</div>
+<script>
+  (function() {
+    $(function() {
+      Tree.init();
+      return TreeCommentActions.init();
+    });
+  
+  }).call(this);
+</script>
+</div>
+</div>
+<div class="four wide column" style="display: none;">
+<div class="project__right-side">
+<div class="side-item intro">
+<div class="header">
+<h4>简介</h4>
+<a class="ui link button pull-right btn-edit" href="javascript:void(0);"><i class="iconfont icon-edit"></i>
+</a></div>
+<div class="content">
+<span class="git-project-desc-text">双目测距------双目相机V1.0，将双目相机采集到任意一点的深度数据进行串口传输</span>
+<a class="hide spread" href="javascript:void(0);">
+展开
+<i class="caret down icon"></i>
+</a>
+<a class="retract hide" href="javascript:void(0);">
+收起
+<i class="caret up icon"></i>
+</a>
+<div class="intro-list">
+<div class="blank d-flex d-flex-between dropdown item js-project-label_show label-list-line-feed project-label-list ui" data-labels="[]" data-url="/waterqun/depth2uart_realsense/update_description">
+<div class="mixed-label">
+</div>
+
+<div class="default">暂无标签</div>
+<i class="iconfont icon-add-thin hover-color cursor-pointer"></i>
+<div class="menu w100">
+<div class="ui input mt-1 mb-1 ml-1 mr-1">
+<input maxlength="35" placeholder="搜索或创建标签" type="text">
+</div>
+<div class="scrolling menu">
+<div class="item d-none-important active selected" data-is-related="0" data-value=""></div>
+</div>
+</div>
+</div>
+<div class="hide item">
+<i class="iconfont icon-link"></i>
+<span class="git-project-homepage">
+<a rel="nofollow" id="homepage" target="_blank" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md"></a>
+</span>
+</div>
+<div class="item">
+<i class="iconfont icon-tag-program"></i>
+<span class="summary-languages">
+C++
+</span>
+<div class="ui popup summary-languages-popup">
+<div class="row">
+<div class="lang">
+<a href="https://gitee.com/explore/all?lang=C%2B%2B">C++</a>
+</div>
+<div class="lang-bar">
+<div class="bar" style="width: 100.0%;"></div>
+</div>
+<a class="percentage" href="https://gitee.com/explore/all?lang=C%2B%2B">100.0%</a>
+</div>
+</div>
+</div>
+
+<div class="item">
+<i class="iconfont icon-licence"></i>
+<a target="_blank" id="license-popup" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/LICENSE">GPL-3.0</a>
+<div class="ui popup dark">使用 GPL-3.0 开源许可协议</div>
+</div>
+</div>
+</div>
+<div class="content intro-form">
+<div class="ui small input">
+<textarea name="project[description]" placeholder="描述" rows="5"></textarea>
+</div>
+<div class="ui small input">
+<input data-regex-value="(^$)|(^(http|https):\/\/(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).*)|(^(http|https):\/\/[a-zA-Z0-9]+([_\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,10}(:[0-9]{1,10})?(\?.*)?(\/.*)?$)" name="project[homepage]" placeholder="主页(eg: https://gitee.com)" type="text">
+</div>
+<button class="ui orange button mt-1 btn-save">
+保存更改
+</button>
+<div class="ui blank button btn-cancel-edit">
+取消
+</div>
+</div>
+</div>
+<div class="side-item release">
+<div class="header">
+<h4>发行版</h4>
+</div>
+<div class="content">
+<span class="text-muted">
+暂无发行版，
+<a href="https://gitee.com/waterqun/depth2uart_realsense/releases/new">创建</a>
+</span>
+</div>
+</div>
+<div class="side-item contrib" data-url="/waterqun/depth2uart_realsense/contributors_count?ref=master" id="contributor">
+<div class="header">
+<h4>
+贡献者
+<span class="text-muted" id="contributor-count">(1)</span>
+</h4>
+<a class="ui link button pull-right" href="https://gitee.com/waterqun/depth2uart_realsense/contributors?ref=master">全部</a>
+</div>
+<div class="content" id="contributor-list"><a href="https://gitee.com/waterqun" class="js-popover-card" data-username="waterqun">
+  <img class="ui avatar image" alt="WaterQun" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/11989972_waterqun_1669987294.png!avatar60">
+</a></div>
+<div class="ui centered inline loader" id="contributor-loader"></div>
+</div>
+<div class="side-item events" data-url="/waterqun/depth2uart_realsense/events.json" id="proj-events">
+<div class="header">
+<h4>近期动态</h4>
+</div>
+<div class="content">
+<div class="ui comments" id="event-list"><div class="comment">
+  <div class="avatar"><a href="https://gitee.com/waterqun" class="js-popover-card" data-username="waterqun">
+  <img class="ui avatar image" alt="WaterQun" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/11989972_waterqun_1669987294.png!avatar30">
+</a></div>
+  <div class="content">不到1分钟前推送了新的提交到 <a href="https://gitee.com/waterqun/depth2uart_realsense/tree/master">master</a> 分支，<a href="https://gitee.com/waterqun/depth2uart_realsense/compare/6f489003f52a7702a702fd79b131720d7fb68219...8ea4f05316e62e29ff5e4935b088a07112a76770">6f48900...8ea4f05</a></div>
+</div><div class="comment">
+  <div class="avatar"><a href="https://gitee.com/waterqun" class="js-popover-card" data-username="waterqun">
+  <img class="ui avatar image" alt="WaterQun" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/11989972_waterqun_1669987294.png!avatar30">
+</a></div>
+  <div class="content">2小时前推送了新的提交到 <a href="https://gitee.com/waterqun/depth2uart_realsense/tree/master">master</a> 分支，<a href="https://gitee.com/waterqun/depth2uart_realsense/compare/6490c19fad5f0aa72eb1171c1fc57754a9e25303...6f489003f52a7702a702fd79b131720d7fb68219">6490c19...6f48900</a></div>
+</div><div class="comment">
+  <div class="avatar"><a href="https://gitee.com/waterqun" class="js-popover-card" data-username="waterqun">
+  <img class="ui avatar image" alt="WaterQun" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/11989972_waterqun_1669987294.png!avatar30">
+</a></div>
+  <div class="content">4小时前推送了新的提交到 <a href="https://gitee.com/waterqun/depth2uart_realsense/tree/master">master</a> 分支，<a href="https://gitee.com/waterqun/depth2uart_realsense/compare/cdbce61cb06d8d1855405982342e52743c22176e...6490c19fad5f0aa72eb1171c1fc57754a9e25303">cdbce61...6490c19</a></div>
+</div><div class="comment">
+  <div class="avatar"><a href="https://gitee.com/waterqun" class="js-popover-card" data-username="waterqun">
+  <img class="ui avatar image" alt="WaterQun" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/11989972_waterqun_1669987294.png!avatar30">
+</a></div>
+  <div class="content">4小时前推送了新的 <a href="https://gitee.com/waterqun/depth2uart_realsense/tree/master">master</a> 分支</div>
+</div><div class="comment">
+  <div class="avatar"><a href="https://gitee.com/waterqun" class="js-popover-card" data-username="waterqun">
+  <img class="ui avatar image" alt="WaterQun" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/11989972_waterqun_1669987294.png!avatar30">
+</a></div>
+  <div class="content">4小时前创建了仓库</div>
+</div></div>
+<a class="loadmore hide" href="javascript:void(0);" style="display: inline;">加载更多
+<i class="icon dropdown"></i>
+</a><center>
+<div class="text-muted nomore hide">不能加载更多了</div>
+<div class="ui inline loader"></div>
+</center>
+</div>
+</div>
+</div>
+
+
+<script>
+  window.gon.projectRightSide = {
+    homepage: "",
+    description: "双目测距------双目相机V1.0，将双目相机采集到任意一点的深度数据进行串口传输",
+    url: '/waterqun/depth2uart_realsense/update_description',
+    i18n: {
+      invalidHomepage: '不是有效的 http 地址',
+      descriptionLimitExceeded: '简介长度不得超过%{limit}个字符',
+      noDescription: '暂无描述',
+      noPermission: '无权限操作！',
+      requestError: '修改发生错误，请稍后重试！'
+    }
+  }
+  window.gon.cloneArrSelectedLabel = [] || []
+  $(function () {
+    var $editModal = $('#edit-project-description')
+    $editModal.modal({
+      onShow: function () {
+        window.globalUtils.getFocus($editModal.find('textarea'))
+      }
+    })
+    $('.project__right-side').on('click', '.header .btn-edit', function () {
+      $editModal.modal('show')
+    })
+    $('#license-popup').popup({ position: 'bottom center', lastResort: 'bottom center' })
+  
+    $('.js-project-label_show').projectLabel({
+      i18n: {
+        empty: "标签名不能为空",
+        verify: "标签名只允许包含中文、字母、数字或者中划线(-)，不能以中划线开头，且长度少于35个字符",
+        max: "最多选择 5 个标签"
+      }
+    })
+  })
+</script>
+
+</div>
+</div>
+</div>
+<style>
+  .team-member-checkbox .ui.radio.checkbox.checked label:after {
+    top: 7px !important; }
+</style>
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/gitee-linker.b5c93d77567006097fca.js.下载"></script>
+
+</div>
+<script>
+  (function() {
+    var donateModal;
+  
+    Gitee.modalHelper = new GiteeModalHelper({
+      alertText: '提示',
+      okText: '确定'
+    });
+  
+    donateModal = new ProjectDonateModal({
+      el: '#project-donate-modal',
+      alipayUrl: '/waterqun/depth2uart_realsense/alipay',
+      wepayUrl: '/waterqun/depth2uart_realsense/wepay',
+      nameIsBlank: '名称不能为空',
+      nameTooLong: '名称过长（最多为 36 个字符）',
+      modalHelper: Gitee.modalHelper
+    });
+  
+    if (null === 'true') {
+      donateModal.show();
+    }
+  
+    $('#project-donate').on('click', function() {
+      return donateModal.show();
+    });
+  
+  }).call(this);
+</script>
+<script>
+  Tree.initHighlightTheme('white')
+</script>
+
+
+</div><div class="ui dimmer modals page"><div class="ui mini modal" id="confirm-alipay-modal">
+<div class="header">支付提示</div>
+<div class="content">
+将跳转至支付宝完成支付
+</div>
+<div class="actions">
+<div class="ui approve orange button">确定</div>
+<div class="ui blank cancel button">取消</div>
+</div>
+</div><div class="ui tiny modal project-donate-modal" id="project-donate-modal">
+<i class="iconfont icon-close close"></i>
+<div class="header">捐赠</div>
+<div class="content">
+未开启捐赠功能，开启捐赠功能需要绑定 OSCHINA 帐号
+</div>
+<div class="actions">
+<a class="ui blank button cancel">取消</a>
+<a class="ui orange ok button" href="https://gitee.com/profile/account_information" target="_blank">马上绑定</a>
+</div>
+</div><div class="ui small modal long" id="modal-fork-project">
+<i class="icon-close iconfont close"></i>
+<div class="header">
+Fork 仓库
+</div>
+<div class="content fork-project-content">
+<div class="fork-info-content">
+<div class="ui segment fork_project_loader">
+<div class="ui active inverted dimmer">
+<div class="ui text loader">加载中</div>
+</div>
+</div>
+</div>
+</div>
+<div class="actions fork-action d-flex-between hide">
+<div>
+</div>
+<div>
+<a class="cancel"> 取消 </a>
+<div class="ui disabled button orange ok"> 确认 </div>
+</div>
+</div>
+</div><div class="ui modal tiny" id="edit-project-description">
+<i class="iconfont icon-close close"></i>
+<div class="header">编辑仓库简介</div>
+<div class="content">
+<div class="item mb-2">
+<div class="title label">简介内容</div>
+<div class="ui small input">
+<textarea maxlength="200" name="project[description]" placeholder="描述" rows="5">双目测距------双目相机V1.0，将双目相机采集到任意一点的深度数据进行串口传输</textarea>
+</div>
+</div>
+<div class="item mb-2">
+<div class="title label">主页</div>
+<div class="ui small input">
+<input data-regex-value="(^$)|(^(http|https):\/\/(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5]).*)|(^(http|https):\/\/[a-zA-Z0-9]+([_\-\.]{1}[a-zA-Z0-9]+)*\.[a-zA-Z]{2,10}(:[0-9]{1,10})?(\?.*)?(\/.*)?$)" name="project[homepage]" placeholder="主页(eg: https://gitee.com)" type="text" value="">
+</div>
+</div>
+</div>
+<div class="actions">
+<button class="ui button blank cancel">取消</button>
+<button class="ui button orange btn-save">保存更改</button>
+</div>
+</div></div>
+<div class="gitee-project-extension">
+<div class="extension lang">C++</div>
+<div class="extension public">1</div>
+<div class="extension https">https://gitee.com/waterqun/depth2uart_realsense.git</div>
+<div class="extension ssh">git@gitee.com:waterqun/depth2uart_realsense.git</div>
+<div class="extension namespace">waterqun</div>
+<div class="extension repo">depth2uart_realsense</div>
+<div class="extension name">Depth2Uart_Realsense</div>
+<div class="extension branch">master</div>
+</div>
+
+<script>
+  $(function() {
+    GitLab.GfmAutoComplete.dataSource = "/waterqun/depth2uart_realsense/autocomplete_sources"
+    GitLab.GfmAutoComplete.Emoji.assetBase = '/assets/emoji'
+    GitLab.GfmAutoComplete.setup();
+  });
+</script>
+
+<footer id="git-footer-main">
+<div class="ui container">
+<div class="logo-row">
+<a href="https://gitee.com/"><img alt="Gitee — 基于 Git 的代码托管和研发协作平台" class="logo-img" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/logo-black(1).svg">
+</a></div>
+<div class="name-important">
+深圳市奥思网络科技有限公司版权所有
+</div>
+<div class="ui two column grid d-flex-center">
+<div class="nine wide column git-footer-left">
+<div class="ui four column grid" id="footer-left">
+<div class="column">
+<div class="ui link list">
+<div class="item">
+<a class="item" href="https://gitee.com/all-about-git">Git 大全</a>
+</div>
+<div class="item">
+<a class="item" rel="nofollow" href="https://oschina.gitee.io/learn-git-branching/">Git 命令学习</a>
+</div>
+<div class="item">
+<a class="item" rel="nofollow" href="https://copycat.gitee.com/">CopyCat 代码克隆检测</a>
+</div>
+<div class="item">
+<a class="item" href="https://gitee.com/appclient">APP与插件下载</a>
+</div>
+</div>
+</div>
+<div class="column">
+<div class="ui link list">
+<div class="item">
+<a class="item" href="https://gitee.com/gitee_reward">Gitee Reward</a>
+</div>
+<div class="item">
+<a class="item" href="https://gitee.com/gitee-stars">Gitee 封面人物</a>
+</div>
+<div class="item">
+<a class="item" href="https://gitee.com/gvp">GVP 项目</a>
+</div>
+<div class="item">
+<a class="item" rel="nofollow" href="https://blog.gitee.com/">Gitee 博客</a>
+</div>
+<div class="item">
+<a class="item" href="https://gitee.com/enterprises#nonprofit-plan">Gitee 公益计划</a>
+</div>
+<div class="item">
+<a class="item" href="https://gitee.com/features/gitee-go">Gitee 持续集成</a>
+</div>
+</div>
+</div>
+<div class="column">
+<div class="ui link list">
+<div class="item">
+<a class="item" href="https://gitee.com/api/v5/swagger">OpenAPI</a>
+</div>
+<div class="item">
+<a class="item" href="https://gitee.com/help">帮助文档</a>
+</div>
+<div class="item">
+<a class="item" href="https://gitee.com/self_services">在线自助服务</a>
+</div>
+<div class="item">
+<a class="item" href="https://gitee.com/help/articles/4378">更新日志</a>
+</div>
+</div>
+</div>
+<div class="column">
+<div class="ui link list">
+<div class="item">
+<a class="item" href="https://gitee.com/about_us">关于我们</a>
+</div>
+<div class="item">
+<a class="item" rel="nofollow" href="https://www.oschina.net/news/131099/oschina-hiring">加入我们</a>
+</div>
+<div class="item">
+<a class="item" href="https://gitee.com/terms">使用条款</a>
+</div>
+<div class="item">
+<a class="item" href="https://gitee.com/oschina/git-osc/issues">意见建议</a>
+</div>
+<div class="item">
+<a class="item" href="https://gitee.com/links.html">合作伙伴</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="seven wide column right aligned followus git-footer-right">
+<div class="qrcode mini_app">
+<img alt="微信小程序" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/mini_app-e5eee5a21c552b69ae6bf2cf87406b59.jpg">
+<p class="mini_app-text">微信小程序</p>
+</div>
+<div class="qrcode weixin">
+<img alt="微信服务号" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/qrcode-weixin-9e7cfb27165143d2b8e8b268a52ea822.jpg">
+<p class="weixin-text">微信服务号</p>
+</div>
+<div class="phone-and-qq column">
+<div class="ui list official-support-container">
+<div class="item">
+<a class="icon-popup" title="点击加入 Gitee 官方群" rel="nofollow" href="https://qm.qq.com/cgi-bin/qm/qr?k=FOdoYurYb10aXeAiViAgsqWX0fsgykNZ"><i class="iconfont icon-logo-qq"></i>
+<span>官方技术交流QQ群：777320883</span>
+</a></div>
+<div class="item mail-and-zhihu">
+<a rel="nofollow" href="mailto:%20git@oschina.cn"><i class="iconfont icon-msg-mail"></i>
+<span id="git-footer-email">git@oschina.cn</span>
+</a></div>
+<div class="item mail-and-zhihu">
+<a target="_blank" rel="nofollow" href="https://www.zhihu.com/org/ma-yun-osc/"><i class="iconfont icon-zhihu"></i>
+<span>Gitee</span>
+</a></div>
+<div class="item tel">
+<a>
+<i class="iconfont icon-tel"></i>
+<span>售前及售后使用咨询：400-606-0201</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bottombar">
+<div class="ui container">
+<div class="ui d-flex d-flex-between">
+<div class="seven wide column partner d-flex">
+<div class="open-atom d-flex-center">
+<img class="logo-openatom mr-1" alt="开放原子开源基金会" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/logo-openatom-d083391cc8a54e283529f3fc11cc38ca.svg">
+<a target="_blank" rel="nofollow" href="https://www.openatom.org/">开放原子开源基金会</a>
+<div class="sub-title ml-1">合作代码托管平台</div>
+</div>
+<div class="report-12377 d-flex-center ml-3">
+<img class="report-12377__logo mr-1" alt="违法和不良信息举报中心" src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/12377@2x-1aa42ed2d2256f82a61ecf57be1ec244.png">
+<a target="_blank" rel="nofollow" href="https://12377.cn/">违法和不良信息举报中心</a>
+</div>
+<div class="copyright ml-3">
+<a rel="nofollow" href="http://beian.miit.gov.cn/">粤ICP备12009483号</a>
+</div>
+</div>
+<div class="nine wide column right aligned">
+<i class="icon world"></i>
+<a href="https://gitee.com/language/zh-CN">简 体</a>
+/
+<a href="https://gitee.com/language/zh-TW">繁 體</a>
+/
+<a href="https://gitee.com/language/en">English</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+  var officialEmail = $('#git-footer-email').text()
+  $('#git-footer-main .icon-popup').popup({ position: 'bottom center' })
+  $('#git-footer-email').text(officialEmail.replace('#', '@'))
+  window.gon.popover_card_locale = {
+    follow:"关注",
+    unfollow:"已关注",
+    gvp_title: "GVP - Gitee 最有价值开源项目",
+    project: "项目",
+    org: "开源组织",
+    member: "",
+    author: "作者",
+    user_blocked: "该用户已被屏蔽或已注销",
+    net_error: "网络错误",
+    unknown_exception: "未知异常"
+  }
+  window.gon.select_message = {
+    placeholder: "请输入个人空间地址或完整的邮箱地址"
+  }
+</script>
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/popover_card-b829a7d0b8f9c8896f85.bundle.js.下载"></script>
+<link rel="stylesheet" media="all" href="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/gitee_nps-69491f94919350b0258c.css">
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/gitee_nps-fd068f5b290ac29bce32.bundle.js.下载"></script>
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/gitee_icons-344178ef7600cbe43e4a.bundle.js.下载"></script>
+
+
+<div class="side-toolbar">
+<div class="button toolbar-help">
+<i class="iconfont icon-help"></i>
+</div>
+<div class="ui popup left center dark">点此查找更多帮助</div>
+<div class="toolbar-help-dialog">
+<div class="toolbar-dialog-header">
+<h3 class="toolbar-dialog-title">搜索帮助</h3>
+<form class="toolbar-help-search-form" action="https://gitee.com/help/load_keywords_data" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+<div class="ui icon input fluid toolbar-help-search">
+<input name="keywords" placeholder="请输入产品名称或问题" type="text">
+<i class="icon search"></i>
+</div>
+</form>
+
+<i class="iconfont icon-close toolbar-dialog-close-icon"></i>
+</div>
+<div class="toolbar-dialog-content">
+<div class="toolbar-help-hot-search">
+<div class="toolbar-roll">
+<a class="active" title="Git 命令在线学习" href="https://oschina.gitee.io/learn-git-branching/?utm_source==gitee-help-widget"><i class="Blue icon icon-command iconfont"></i>
+<span>Git 命令在线学习</span>
+</a><a class="" title="如何在 Gitee 导入 GitHub 仓库" href="https://gitee.com/help/articles/4261?utm_source==gitee-help-widget"><i class="icon icon-clipboard iconfont orange"></i>
+<span>如何在 Gitee 导入 GitHub 仓库</span>
+</a></div>
+<div class="toolbar-list">
+<div class="toolbar-list-item">
+<a href="https://gitee.com/help/articles/4114">Git 仓库基础操作</a>
+</div>
+<div class="toolbar-list-item">
+<a href="https://gitee.com/help/articles/4166">企业版和社区版功能对比</a>
+</div>
+<div class="toolbar-list-item">
+<a href="https://gitee.com/help/articles/4191">SSH 公钥设置</a>
+</div>
+<div class="toolbar-list-item">
+<a href="https://gitee.com/help/articles/4194">如何处理代码冲突</a>
+</div>
+<div class="toolbar-list-item">
+<a href="https://gitee.com/help/articles/4232">仓库体积过大，如何减小？</a>
+</div>
+<div class="toolbar-list-item">
+<a href="https://gitee.com/help/articles/4279">如何找回被删除的仓库数据</a>
+</div>
+<div class="toolbar-list-item">
+<a href="https://gitee.com/help/articles/4283">Gitee 产品配额说明</a>
+</div>
+<div class="toolbar-list-item">
+<a href="https://gitee.com/help/articles/4284">GitHub仓库快速导入Gitee及同步更新</a>
+</div>
+<div class="toolbar-list-item">
+<a href="https://gitee.com/help/articles/4328">什么是 Release（发行版）</a>
+</div>
+<div class="toolbar-list-item">
+<a href="https://gitee.com/help/articles/4354">将 PHP 项目自动发布到 packagist.org</a>
+</div>
+</div>
+</div>
+<div class="toolbar-help-search-reseult">
+<div class="toolbar-help-flex-column">
+<div class="ui centered inline loader toolbar-help-loader"></div>
+<div class="toolbar-list"></div>
+<div class="toolbar-help-link-to-help">
+<a target="_blank" href="https://gitee.com/waterqun/depth2uart_realsense/blob/master/README.md">查看更多搜索结果</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  var opt = { position: 'left center'};
+  var $helpSideToolbar = $('.button.toolbar-help');
+  var $toolbarRoll = $('.toolbar-roll');
+  
+  $(function() {
+    if (true) {
+      $helpSideToolbar.popup(opt).popup({lastResort:'left center'})
+    } else {
+      $helpSideToolbar.popup({lastResort:'left center'}).popup('show', opt);
+      setTimeout(function() {
+        $helpSideToolbar.popup('hide', opt);
+      }, 3000);
+    }
+  
+    if ($toolbarRoll.length) {
+      setInterval(function() {
+        var $nextActiveLink = $toolbarRoll.find('a.active').next();
+        if (!$nextActiveLink.length) {
+          $nextActiveLink = $toolbarRoll.find('a:first-child');
+        }
+        $nextActiveLink.attr('class', 'active').siblings().removeClass('active init');
+      }, 5000);
+    }
+  })
+</script>
+
+<div class="ui popup dark left center transition hidden js-feedback-popup">发送反馈</div>
+<div class="button" id="feedback-btn">
+<i class="iconfont icon-feedback"></i>
+</div>
+<div class="popup button" id="home-comment">
+<i class="iconfont icon-comment"></i>
+</div>
+<div class="ui popup dark">评论</div>
+<div class="button gotop popup" id="gotop">
+<i class="iconfont icon-top"></i>
+</div>
+<div class="ui popup dark">回到顶部</div>
+</div>
+<style>
+  .side-toolbar .bdsharebuttonbox a {
+    font-size: 24px;
+    color: white !important;
+    opacity: 0.9;
+    margin: 6px 6px 0px 6px;
+    background-image: none;
+    text-indent: 0;
+    height: auto;
+    width: auto;
+  }
+</style>
+<style>
+  #udesk_btn a {
+    margin: 0px 20px 217px 0px !important;
+  }
+  #ent-sale-img-wrap {
+    margin: 0px 15px 294px 0px !important;
+  }
+</style>
+<script>
+  (function() {
+    $('#project-user-message').popup({
+      position: 'left center'
+    });
+  
+  }).call(this);
+</script>
+<script>
+  Gitee.initSideToolbar({
+    hasComment: true,
+    commentUrl: '/waterqun/depth2uart_realsense#tree_comm_title'
+  })
+</script>
+<link rel="stylesheet" media="all" href="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/side_toolbar_feedback-5dcc1be9cca438cc952f.css">
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/side_toolbar_feedback-8ca8aad39a5fbe2b547f.bundle.js.下载"></script>
+
+
+
+
+
+<script>
+  (function() {
+    this.__gac = {
+      domain: 'www.oschina.net'
+    };
+  
+  }).call(this);
+</script>
+
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/build_status-a3ee4cc8489b2defc1a8.bundle.js.下载"></script>
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/scan_status-7e7ea6729de0c714a3a4.bundle.js.下载"></script>
+<script src="./README.md · WaterQun_Depth2Uart_Realsense - 码云 - 开源中国_files/mermaid_render-80437a0d645e9044f9e8.bundle.js.下载"></script>
+
+
+<div class="star-collection-popup d-none" style="display: none;">
+                  <div class="star-collection-popup__header d-flex-between">
+                    <div class="star-collection-popup__header__left">已成功 Star，添加到以下星选集：</div>
+                    <div class="star-collection-popup__header__right"><i class="iconfont icon-close js-close-popup cursor-pointer hover-color"></i></div>
+                  </div>
+                  <div class="star-collection-popup__body">
+                    <div class="blank-message d-none">点击下方新建星选集</div>
+                    <div class="star-collection-popup__search ui input small icon">
+                      <input type="text" class="js-star-collection-search" placeholder="快速搜索">
+                      <i class="iconfont icon-search"></i>
+                    </div>
+                    <div class="star-collection-popup__scroll">
+                      <div class="star-collection-popup__list js-star-collection-popup__list">
+
+                      </div>
+                    </div>                    
+                  </div>
+                  <div class="star-collection-popup__footer js-star-collection-popup__footer">
+                    <div class="star-collection-popup__footer--normal js-new-star-collection-btn cursor-pointer hover-color">新建星选集</div>
+                    <div class="star-collection-popup__footer--new d-flex-between">
+                      <input class="star-collection-popup__footer__new-input js-star-collection-popup__footer__new-input" maxlength="35" type="text" placeholder="请输入星选集名称">
+                      <div class="star-collection-popup__footer__add-btn js-star-collection-popup__footer__add-btn cursor-pointer hover-color disabled">新建</div>
+                    </div>
+                  </div>
+                 </div><div class="feedback-screenshot-tip">按下并拖动鼠标开始截图</div><div></div></body></html>
