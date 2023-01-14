@@ -15,11 +15,11 @@
 
 ## 三、使用方法/Usage
 ### 1、安装Ubuntu
-推荐Ubuntu 18/20 LTS版本，兼容Ubuntu 22 LTS，本文部分依赖（如Intel Realsense SDK）官方文档暂未支持Ubuntu22，但实测可行，在未来会慢慢适配新版本。
+推荐Ubuntu 18/20 LTS版本，兼容Ubuntu 22 LTS，本文部分依赖（如Intel Realsense SDK）官方文档暂未支持Ubuntu22，但实测可行。
 
 ### 2、安装ROS/ROS2
 根据Ubuntu版本安装ROS/ROS2，安装方法可前往观看古月居/鱼香ROS相关视频，可使用一键安装脚本：https://github.com/fishros/install 。
-本版本双目测距理论上不需要安装ROS系统，但安装ROS比较方便解决相关依赖，同时后续版本肯定也会使用到就直接安装了。
+本版本双目测距理论上不需要安装ROS系统，但安装ROS比较方便解决相关依赖，同时后续版本也会使用到就直接安装了。
 
 ### 3、安装Intel Realsense SDK
 如出现问题可查看[Linux官方安装文档](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)
@@ -49,7 +49,7 @@ sudo make install
 测试可以输入命令 realsense-viewer，可以看到一个软件打开，可以在此测试相机是否正常。
 
 ### 4、编译depth2uart.cpp
-在depth2uart.cpp所在目录打开终端，输入以下代码编译cpp文件，生成depth2uart可执行文件，部分硬件可能会报错，可以根据报错查看缺少什么库文件，在最末尾加上-l再输入库名称。
+复制depth2uart.cpp(项目Software文件夹下)到Linux设备，在所在目录打开终端，输入以下代码编译cpp文件，生成depth2uart可执行文件，部分硬件可能会报错，可以根据报错查看缺少什么库文件，在最末尾加上-l再输入库名称。
 ```
 g++ depth2uart.cpp -o depth2uart -lrealsense2 -lboost_system
 ```
@@ -68,7 +68,7 @@ sudo chmod 777 /dev/ttyUSB0
 ```
 ./depth2uart 
 ```
-可以看到输出摄像头最中央一点的深度信息，串口传输至STM32端接收。
+可以看到输出摄像头最中央一点的深度信息，数据串口发送至MCU系统接收。
 
 ### 7、设置开机自启动
 开机自启动有很多种方法，比如在rc.local文件添加命令，即可开机自己动，可以上网查询。
@@ -81,6 +81,6 @@ sudo chmod 777 /dev/ttyUSB0
 - 双目相机数据的采集使用的是Intel Realsense官方的SDK,可以前往[官方GitHub仓库](https://github.com/IntelRealSense/librealsense)查看学习。
 
 ## 五、后续/Questions
-1. 在这个工程中，传输的数据是某一点像素对应的深度值，仅仅获取这个数据在我们的嵌入式系统并没有太多的效果，所以在最终上嵌入式系统时，一般都是全双工数据传输，将MCU设备端获取到的数据传输至Linux主控中进行计算，最后返回计算出来的控制信号给MCU端进行控制。
+1. 在这个工程中，传输的数据是某一点像素对应的深度值，仅仅获取这个数据在我们的嵌入式系统并没有太多的效果，所以在最终上嵌入式系统时，一般都是双向数据传输，将MCU设备端获取到的数据传输至Linux主控中进行计算，最后返回计算出来的控制信号给MCU端进行控制。
 2. 往Linux设备增加算法，CPU本身是能计算的，同时Jetson Nano等还配备“显卡”能够加速视觉计算，后续可以运行OpenCV视觉算法以及TensorFlow等深度学习算法，搭配控制系统进行更高级的运用；
-3. 同时，对于无人机方面，我们的D435i双目相机内部含有IMU，可以运行VINS等开源算法，等待着开发……
+3. 同时，对于无人机方面，我们的D435i双目相机内部含有IMU，可以运行VINS等开源算法……
