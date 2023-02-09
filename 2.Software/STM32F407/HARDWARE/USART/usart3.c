@@ -1,12 +1,3 @@
-/**
-  *************************************************************************************************************************
-  * @file    usart3.c
-  * @author  @你认识
-  * @version V1.0
-  * @date    2022-10-08
-  * @brief   串口3.c文件配置
-  *************************************************************************************************************************/
-	
 #include "usart3.h"
 
 /***
@@ -15,7 +6,6 @@
  * 输入:   Bound—波特率
  * 输出:   无
  */
- 
 void Usart3_Init(u32 Bound)
 {
 	//GPIO,USART,NVIC配置结构体
@@ -32,7 +22,7 @@ void Usart3_Init(u32 Bound)
 	GPIO_PinAFConfig(GPIOB,GPIO_PinSource11,GPIO_AF_USART3); //GPIOB11复用为USART3
 	
 	//USART3端口配置
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11; //GPIOB10与GPIOB11
+  	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10 | GPIO_Pin_11; //GPIOB10与GPIOB11
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;//复用功能
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;	//速度50MHz
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP; //推挽复用输出
@@ -50,11 +40,11 @@ void Usart3_Init(u32 Bound)
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;             //使能外部通道
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority =0;    //抢占优先级
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority =3;           //响应优先级
-  //开启中断，使能串口
-  USART_ITConfig(USART3,USART_IT_RXNE, ENABLE);                   //开启中断
-  USART_Cmd(USART3, ENABLE);                                  //使能串口
-  //GPIO,USART,NVIC初始化
-  GPIO_Init(GPIOB,&GPIO_InitStructure);
+  	//开启中断，使能串口
+  	USART_ITConfig(USART3,USART_IT_RXNE, ENABLE);                   //开启中断
+  	USART_Cmd(USART3, ENABLE);                                  //使能串口
+  	//GPIO,USART,NVIC初始化
+  	GPIO_Init(GPIOB,&GPIO_InitStructure);
 	USART_Init(USART3, &USART_InitStructure);
 	NVIC_Init(&NVIC_InitStructure);
 }

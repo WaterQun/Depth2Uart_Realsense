@@ -1,12 +1,3 @@
-/**
-  *************************************************************************************************************************
-  * @file    tim1.c文件 
-  * @author  @你认识
-  * @version V1.0
-  * @date    2020-10-09
-  * @brief   定时器1配置PWM.c配置函数
-  *************************************************************************************************************************/
-
 #include "tim1.h"
 
 /***
@@ -45,18 +36,18 @@ void TIM10_PWM_Init(uint16_t Per,uint16_t Psc)//PF6,PF7
 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;                  //比较输出使能
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;                       //输出极性高
 	//TIM_OCInitStructure.TIM_Pulse = 0;
-  //初始化TM10的CH1 PWM
-  TIM_OC1Init(TIM10, &TIM_OCInitStructure);
-  //刹车和死区寄存器
-//  TIM_CtrlPWMOutputs(TIM1,ENABLE);//产生PWM波(高级定时器独有)
+	//初始化TM10的CH1 PWM
+	TIM_OC1Init(TIM10, &TIM_OCInitStructure);
+	//刹车和死区寄存器
+	//TIM_CtrlPWMOutputs(TIM1,ENABLE);//产生PWM波(高级定时器独有)
 	//使能预装载寄存器
 	TIM_OC1PreloadConfig(TIM10, TIM_OCPreload_Enable);
 	//ARPE使能 
 	TIM_ARRPreloadConfig(TIM10,ENABLE);
 	//使能TIM10
 	TIM_Cmd(TIM10,ENABLE);
-
 }
+
 /***
  * 函数名:TIM11_PWM2_Init
  * 描述:定时器11输出PWM配置函数
@@ -91,11 +82,11 @@ void TIM11_PWM_Init(uint16_t Per,uint16_t Psc)//PF7
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;                               //选择PWM模式1
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_Low;                       //输出极性高
 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;                  //比较输出使能
-//	TIM_OCInitStructure.TIM_Pulse = 0;
-  //初始化TM11的CH1 PWM
-  TIM_OC1Init(TIM11, &TIM_OCInitStructure);
-  //刹车和死区寄存器
-//  TIM_CtrlPWMOutputs(TIM1,ENABLE);//产生PWM波(高级定时器独有)
+	//TIM_OCInitStructure.TIM_Pulse = 0;
+  	//初始化TM11的CH1 PWM
+  	TIM_OC1Init(TIM11, &TIM_OCInitStructure);
+  	//刹车和死区寄存器
+	//TIM_CtrlPWMOutputs(TIM1,ENABLE);//产生PWM波(高级定时器独有)
 	//使能预装载寄存器
 	TIM_OC1PreloadConfig(TIM11, TIM_OCPreload_Enable);
 	//ARPE使能 
@@ -103,10 +94,6 @@ void TIM11_PWM_Init(uint16_t Per,uint16_t Psc)//PF7
 	//使能TIM11
 	TIM_Cmd(TIM11,ENABLE);
 	
-//	TIM_CtrlPWMOutputs(TIM11,ENABLE);
+	//TIM_CtrlPWMOutputs(TIM11,ENABLE);
 }
-
-
-
-
 

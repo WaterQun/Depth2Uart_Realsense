@@ -49,7 +49,7 @@ union receiveData
 int usartReceiveOneData(int *p_newdepth1,int *p_newdepth2)//数据接收
 {
 	unsigned char USART_Receiver              = 0;          //接收数据
-//	static unsigned char checkSum             = 0;
+	//static unsigned char checkSum             = 0;
 	static unsigned char USARTBufferIndex     = 0;
 	static short k=0;
 	static unsigned char USARTReceiverFront   = 0;
@@ -97,9 +97,8 @@ int usartReceiveOneData(int *p_newdepth1,int *p_newdepth2)//数据接收
 
 					//newdepth = receiveBuff[2]*256 + receiveBuff[3];
 					//进行赋值操作										
-						newdepth1.data[0]  = receiveBuff[2]; //buf[2] 
-						newdepth2.data[0]  = receiveBuff[3]; //buf[3] 
-									
+					newdepth1.data[0]  = receiveBuff[2]; //buf[2] 
+					newdepth2.data[0]  = receiveBuff[3]; //buf[3] 		
 					
 					//速度赋值操作
 					*p_newdepth1  = (int)newdepth1.d;
@@ -114,8 +113,7 @@ int usartReceiveOneData(int *p_newdepth1,int *p_newdepth2)//数据接收
 					Start_Flag         = START;
 //					checkSum           = 0;
 					//dataLength         = 0;
-					k = 0;
-					//-----------------------------------------------------------------					
+					k = 0;			
 				}
 				break;
 			 default:break;

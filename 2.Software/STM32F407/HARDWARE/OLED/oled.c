@@ -9,28 +9,28 @@ u8 OLED_GRAM[144][8];
 void OLED_ColorTurn(u8 i)
 {
 	if(i==0)
-		{
-			OLED_WR_Byte(0xA6,OLED_CMD);//正常显示
-		}
+	{
+		OLED_WR_Byte(0xA6,OLED_CMD);//正常显示
+	}
 	if(i==1)
-		{
-			OLED_WR_Byte(0xA7,OLED_CMD);//反色显示
-		}
+	{
+		OLED_WR_Byte(0xA7,OLED_CMD);//反色显示
+	}
 }
 
 //屏幕旋转180度
 void OLED_DisplayTurn(u8 i)
 {
 	if(i==0)
-		{
-			OLED_WR_Byte(0xC8,OLED_CMD);//正常显示
-			OLED_WR_Byte(0xA1,OLED_CMD);
-		}
+	{
+		OLED_WR_Byte(0xC8,OLED_CMD);//正常显示
+		OLED_WR_Byte(0xA1,OLED_CMD);
+	}
 	if(i==1)
-		{
-			OLED_WR_Byte(0xC0,OLED_CMD);//反转显示
-			OLED_WR_Byte(0xA0,OLED_CMD);
-		}
+	{
+		OLED_WR_Byte(0xC0,OLED_CMD);//反转显示
+		OLED_WR_Byte(0xA0,OLED_CMD);
+	}
 }
 
 //延时
@@ -81,17 +81,17 @@ void Send_Byte(u8 dat)
 		if(dat&0x80)//将dat的8位从最高位依次写入
 		{
 			OLED_SDA_Set();
-    }
+    	}
 		else
 		{
 			OLED_SDA_Clr();
-    }
+    	}
 		IIC_delay();
 		OLED_SCL_Set();
 		IIC_delay();
 		OLED_SCL_Clr();//将时钟信号设置为低电平
 		dat<<=1;
-  }
+  	}
 }
 
 //发送一个字节
@@ -102,7 +102,7 @@ void OLED_WR_Byte(u8 dat,u8 mode)
 	Send_Byte(0x78);
 	I2C_WaitAck();
 	if(mode){Send_Byte(0x40);}
-  else{Send_Byte(0x00);}
+  	else{Send_Byte(0x00);}
 	I2C_WaitAck();
 	Send_Byte(dat);
 	I2C_WaitAck();
@@ -147,6 +147,7 @@ void OLED_Refresh(void)
 		I2C_Stop();
   }
 }
+
 //清屏函数
 void OLED_Clear(void)
 {
@@ -154,10 +155,10 @@ void OLED_Clear(void)
 	for(i=0;i<8;i++)
 	{
 	   for(n=0;n<128;n++)
-			{
-			 OLED_GRAM[n][i]=0;//清除所有数据
-			}
-  }
+		{
+			OLED_GRAM[n][i]=0;//清除所有数据
+		}
+  	}
 	OLED_Refresh();//更新显示
 }
 
@@ -217,6 +218,7 @@ void OLED_DrawLine(u8 x1,u8 y1,u8 x2,u8 y2,u8 mode)
 		}
 	}
 }
+
 //x,y:圆心坐标
 //r:圆的半径
 void OLED_DrawCircle(u8 x,u8 y,u8 r)
@@ -265,11 +267,11 @@ void OLED_ShowChar(u8 x,u8 y,u8 chr,u8 size1,u8 mode)
 		if(size1==8)
 			  {temp=asc2_0806[chr1][i];} //调用0806字体
 		else if(size1==12)
-        {temp=asc2_1206[chr1][i];} //调用1206字体
+        	{temp=asc2_1206[chr1][i];} //调用1206字体
 		else if(size1==16)
-        {temp=asc2_1608[chr1][i];} //调用1608字体
+        	{temp=asc2_1608[chr1][i];} //调用1608字体
 		else if(size1==24)
-        {temp=asc2_2412[chr1][i];} //调用2412字体
+        	{temp=asc2_2412[chr1][i];} //调用2412字体
 		else return;
 		for(m=0;m<8;m++)
 		{
@@ -285,7 +287,6 @@ void OLED_ShowChar(u8 x,u8 y,u8 chr,u8 size1,u8 mode)
   }
 }
 
-
 //显示字符串
 //x,y:起点坐标  
 //size1:字体大小 
@@ -299,7 +300,7 @@ void OLED_ShowString(u8 x,u8 y,u8 *chr,u8 size1,u8 mode)
 		if(size1==8)x+=6;
 		else x+=size1/2;
 		chr++;
-  }
+  	}
 }
 
 //m^n
@@ -326,15 +327,15 @@ void OLED_ShowNum(u8 x,u8 y,u32 num,u8 len,u8 size1,u8 mode)
 	for(t=0;t<len;t++)
 	{
 		temp=(num/OLED_Pow(10,len-t-1))%10;
-			if(temp==0)
-			{
-				OLED_ShowChar(x+(size1/2+m)*t,y,'0',size1,mode);
-      }
-			else 
-			{
-			  OLED_ShowChar(x+(size1/2+m)*t,y,temp+'0',size1,mode);
-			}
-  }
+		if(temp==0)
+		{
+			OLED_ShowChar(x+(size1/2+m)*t,y,'0',size1,mode);
+      	}
+		else 
+		{
+			OLED_ShowChar(x+(size1/2+m)*t,y,temp+'0',size1,mode);
+		}
+  	}
 }
 
 //显示汉字
@@ -381,24 +382,24 @@ void OLED_ScrollDisplay(u8 num,u8 space,u8 mode)
 	{
 		if(m==0)
 		{
-	    OLED_ShowChinese(128,24,t,16,mode); //写入一个汉字保存在OLED_GRAM[][]数组中
+	    	OLED_ShowChinese(128,24,t,16,mode); //写入一个汉字保存在OLED_GRAM[][]数组中
 			t++;
 		}
 		if(t==num)
+		{
+			for(r=0;r<16*space;r++)      //显示间隔
 			{
-				for(r=0;r<16*space;r++)      //显示间隔
-				 {
-					for(i=1;i<144;i++)
-						{
-							for(n=0;n<8;n++)
-							{
-								OLED_GRAM[i-1][n]=OLED_GRAM[i][n];
-							}
-						}
-           OLED_Refresh();
-				 }
-        t=0;
-      }
+				for(i=1;i<144;i++)
+				{
+					for(n=0;n<8;n++)
+					{
+						OLED_GRAM[i-1][n]=OLED_GRAM[i][n];
+					}
+				}
+				OLED_Refresh();
+			}
+        	t=0;
+      	}
 		m++;
 		if(m==16){m=0;}
 		for(i=1;i<144;i++)   //实现左移
@@ -445,32 +446,34 @@ void OLED_ShowPicture(u8 x,u8 y,u8 sizex,u8 sizey,u8 BMP[],u8 mode)
      }
 	 }
 }
+
 //OLED的初始化
 void OLED_Init(void)
 {
-  GPIO_InitTypeDef  GPIO_InitStructure;
+
+  	GPIO_InitTypeDef  GPIO_InitStructure;
 	
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOF,ENABLE);//使能PORTA~E,PORTG时钟
   	
 	//GPIO初始化设置
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_1;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//普通输出模式
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;//推挽输出
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
-  GPIO_Init(GPIOF, &GPIO_InitStructure);//初始化
+  	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_1;
+  	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//普通输出模式
+  	GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;//推挽输出
+  	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
+  	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
+  	GPIO_Init(GPIOF, &GPIO_InitStructure);//初始化
 	
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;//推挽输出
 	GPIO_Init(GPIOF, &GPIO_InitStructure);//初始化
 	
 	//GPIO初始化设置
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//普通输出模式
-  GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;//推挽输出
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
-  GPIO_Init(GPIOG, &GPIO_InitStructure);//初始化
+  	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
+  	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;//普通输出模式
+  	GPIO_InitStructure.GPIO_OType = GPIO_OType_OD;//推挽输出
+  	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;//100MHz
+  	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP;//上拉
+  	GPIO_Init(GPIOG, &GPIO_InitStructure);//初始化
 	
 	OLED_RES_Clr();
 	delay_ms(200);

@@ -1,5 +1,5 @@
-#ifndef __BSP_RCCCLKCONFIG_H
-#define __BSP_RCCCLKCONFIG_H
+#ifndef __BSP_RCCCLKCONFIG_H__
+#define __BSP_RCCCLKCONFIG_H__
 
 #include "stm32f4xx.h"
 

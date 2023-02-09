@@ -1,11 +1,11 @@
-#ifndef __OLED_H
-#define __OLED_H 
+#ifndef __OLED_H__
+#define __OLED_H__
 
 #include "sys.h"
 #include "stdlib.h"	
 
 
-//-----------------OLED¶Ë¿Ú¶¨Òå---------------- 
+//-----------------OLEDï¿½Ë¿Ú¶ï¿½ï¿½ï¿½---------------- 
 
 #define OLED_SCL_Clr() GPIO_ResetBits(GPIOF,GPIO_Pin_1)//SCL
 #define OLED_SCL_Set() GPIO_SetBits(GPIOF,GPIO_Pin_1)
@@ -17,8 +17,8 @@
 #define OLED_RES_Set() GPIO_SetBits(GPIOD,GPIO_Pin_4)
 
 
-#define OLED_CMD  0	//Ð´ÃüÁî
-#define OLED_DATA 1	//Ð´Êý¾Ý
+#define OLED_CMD  0	//Ð´ï¿½ï¿½ï¿½ï¿½
+#define OLED_DATA 1	//Ð´ï¿½ï¿½ï¿½ï¿½
 
 void OLED_ClearPoint(u8 x,u8 y);
 void OLED_ColorTurn(u8 i);

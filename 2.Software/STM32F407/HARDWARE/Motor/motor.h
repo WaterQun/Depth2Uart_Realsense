@@ -1,14 +1,5 @@
-/**
-  *************************************************************************************************************************
-  * @file    motor.c
-  * @author  @你认识
-  * @version V1.0
-  * @date    2022-10-06
-  * @brief   tb6612模块.h文件配置
-  *************************************************************************************************************************/
-	
-#ifndef __MOTOR_H
-#define __MOTOR_H
+#ifndef __MOTOR_H__
+#define __MOTOR_H__
 
 #include "stm32f4xx.h"
 #include "sys.h"
@@ -29,12 +20,5 @@ typedef enum
 void Motor_Init(void);//PB12,PB13,PB14,PB15
 void Moror_Left(Motor_Choose Direction);
 void Moror_Right(Motor_Choose Direction);
-
-
-
-
-
-
-
 
 #endif

@@ -1,12 +1,3 @@
-/**
-  *************************************************************************************************************************
-  * @file    usart1.c
-  * @author  @你认识
-  * @version V1.0
-  * @date    2022-10-08
-  * @brief   串口1.c文件配置
-  *************************************************************************************************************************/
-	
 #include "usart1.h"
 
 /*定义 -------------------------------------------------------------------------------------------------------------------*/
@@ -21,12 +12,11 @@ int newdepth;
  * 输入:   Bound—波特率
  * 输出:   无
  */
- 
 void Usart1_Init(u32 Bound)
 {
-   GPIO_InitTypeDef GPIO_InitStructure;
-	 USART_InitTypeDef USART_InitStructure;
-	 NVIC_InitTypeDef NVIC_InitStruct;
+   	GPIO_InitTypeDef GPIO_InitStructure;
+	USART_InitTypeDef USART_InitStructure;
+	NVIC_InitTypeDef NVIC_InitStruct;
 	//开启串口时钟和GPIO时钟
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1,ENABLE);
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB,ENABLE);
@@ -34,49 +24,39 @@ void Usart1_Init(u32 Bound)
 	GPIO_PinAFConfig(GPIOB,GPIO_PinSource6,GPIO_AF_USART1); //GPIOB6复用为USART1
 	GPIO_PinAFConfig(GPIOB,GPIO_PinSource7,GPIO_AF_USART1); //GPIOB7复用为USART1
 	//串口复位
-  USART_DeInit(USART1);	
+  	USART_DeInit(USART1);	
 	//USART3端口配置
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7; //GPIOB6与GPIOB7
+  	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7; //GPIOB6与GPIOB7
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;//复用功能
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;	//速度50MHz
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP; //推挽复用输出
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_UP; //上拉
 	GPIO_Init(GPIOB,&GPIO_InitStructure); //初始化PB6，PB7
 	
-//USART配置
-	 USART_InitStructure.USART_BaudRate = Bound;                                     //波特率设置
-	 USART_InitStructure.USART_WordLength = USART_WordLength_8b;                     //字长为8位
-	 USART_InitStructure.USART_StopBits = USART_StopBits_1;                          //一个停止位
-	 USART_InitStructure.USART_Parity = USART_Parity_No;                             //无奇偶校验位
-   USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None; //无硬件数据流控制
-	 USART_InitStructure.USART_Mode = USART_Mode_Rx|USART_Mode_Tx;                    //收发模式
-//NVIC中断配置
-	 NVIC_InitStruct.NVIC_IRQChannel = USART1_IRQn;                                  //使能USART外部中断通道
-	 NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 0;                          //抢占优先级3
-	 NVIC_InitStruct.NVIC_IRQChannelSubPriority = 1;                                 //子优先级3
-	 NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;                                    //使能外部中断通道
+	//USART配置
+	USART_InitStructure.USART_BaudRate = Bound;                                     //波特率设置
+	USART_InitStructure.USART_WordLength = USART_WordLength_8b;                     //字长为8位
+	USART_InitStructure.USART_StopBits = USART_StopBits_1;                          //一个停止位
+	USART_InitStructure.USART_Parity = USART_Parity_No;                             //无奇偶校验位
+   	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None; //无硬件数据流控制
+	USART_InitStructure.USART_Mode = USART_Mode_Rx|USART_Mode_Tx;                    //收发模式
+	//NVIC中断配置
+	NVIC_InitStruct.NVIC_IRQChannel = USART1_IRQn;                                  //使能USART外部中断通道
+	NVIC_InitStruct.NVIC_IRQChannelPreemptionPriority = 0;                          //抢占优先级3
+	NVIC_InitStruct.NVIC_IRQChannelSubPriority = 1;                                 //子优先级3
+	NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;                                    //使能外部中断通道
 
 	
-//GPIO,USART,NVIC初始化	
-	 GPIO_Init(GPIOA, &GPIO_InitStructure);
-	 USART_Init(USART1, &USART_InitStructure);
-	 NVIC_Init(&NVIC_InitStruct);
+	//GPIO,USART,NVIC初始化	
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	USART_Init(USART1, &USART_InitStructure);
+	NVIC_Init(&NVIC_InitStruct);
 	 
-//开启中断
-  USART_ITConfig(USART1,USART_IT_RXNE,ENABLE);
-//使能串口
-  USART_Cmd(USART1, ENABLE);
+	//开启中断
+	USART_ITConfig(USART1,USART_IT_RXNE,ENABLE);
+	//使能串口
+	USART_Cmd(USART1, ENABLE);
 }
-
-/***
- * 函数名:
- * 描述:
- * 输入:
- * 输出:
- */
-//使用自定义协议接收十六进制数据
-
-
 
 int hextoDec(int hex)
 {
@@ -95,6 +75,7 @@ int hextoDec(int hex)
 	 return sum;
 }
 
+//使用自定义协议接收十六进制数据
 void newdepth_jieshou(void)
 {
 	int num_H,num_L,i;
@@ -129,7 +110,7 @@ void USART1_IRQHandler(void)                 	//串口1中断服务程序
 		{
 			table_data[count]=Res;//将第一个数据存到数据中第一元素
 			if(table_data[0]==0x55)//判断接收的第一个数据是不是十六进制0X2C
-			  count++;//如果第一个数据是0X2C则表示正确计数+1
+			  	count++;//如果第一个数据是0X2C则表示正确计数+1
 		}
 		else if(count==1)//第一个数据接收正确的情况下，判断第二个数据
 		{
@@ -157,9 +138,9 @@ void USART1_IRQHandler(void)                 	//串口1中断服务程序
    } 
 	 
 	//	memset(&table_cp, 0, sizeof(table_data));//在使用数组table_cp时清空
-		for(i=0;i<5;i++)//把接收到的数据复制到table_cp数组中
-		{
-			 table_cp[i]= table_data[i];
+	for(i=0;i<5;i++)//把接收到的数据复制到table_cp数组中
+	{
+			table_cp[i]= table_data[i];
 	}
 } 
 

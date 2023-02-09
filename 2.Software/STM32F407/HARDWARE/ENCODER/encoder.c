@@ -18,22 +18,22 @@
  */
 void TIM3_Encoder_Init(void)//PC6,PC7
 {
-//结构体定义
-  GPIO_InitTypeDef GPIO_InitStructure;
-  TIM_TimeBaseInitTypeDef  TIM_TimeBaseInitStructure;
-  TIM_ICInitTypeDef TIM_ICInitStructure;      
-  //PC6 ch1  A,PC7 ch2 B 
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
-//GPIO初始化配置
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;        
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;	//速度100MHz
+	//结构体定义
+  	GPIO_InitTypeDef GPIO_InitStructure;
+  	TIM_TimeBaseInitTypeDef  TIM_TimeBaseInitStructure;
+  	TIM_ICInitTypeDef TIM_ICInitStructure;      
+  	//PC6 ch1  A,PC7 ch2 B 
+  	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
+  	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOC, ENABLE);
+	//GPIO初始化配置
+  	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 | GPIO_Pin_7;        
+  	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;	//速度100MHz
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP; //推挽复用输出
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN; //下拉   
-  GPIO_Init(GPIOC, &GPIO_InitStructure);                           
-//端口复用
-  GPIO_PinAFConfig(GPIOC,GPIO_PinSource6,GPIO_AF_TIM3);
-  GPIO_PinAFConfig(GPIOC,GPIO_PinSource7,GPIO_AF_TIM3);
+  	GPIO_Init(GPIOC, &GPIO_InitStructure);                           
+	//端口复用
+  	GPIO_PinAFConfig(GPIOC,GPIO_PinSource6,GPIO_AF_TIM3);
+  	GPIO_PinAFConfig(GPIOC,GPIO_PinSource7,GPIO_AF_TIM3);
 	//TIM定时器初始化配置
 	TIM_TimeBaseInitStructure.TIM_Period = 0;                       //设置重装载值
 	TIM_TimeBaseInitStructure.TIM_Prescaler = 65535;                //设置时钟频率除数的预分频值
@@ -62,20 +62,20 @@ void TIM4_Encoder_Init(void)//PD12 ch1  A,PD13 ch2 B
 {
 	//结构体定义
 	GPIO_InitTypeDef GPIO_InitStructure;
-  TIM_TimeBaseInitTypeDef  TIM_TimeBaseInitStructure;
-  TIM_ICInitTypeDef TIM_ICInitStructure;      
-  //PD12 ch1  A,PD13 ch2 B 开启时钟
-  RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
-  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
-  //配置GPIO
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13;        
-  GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;	//速度100MHz
+  	TIM_TimeBaseInitTypeDef  TIM_TimeBaseInitStructure;
+  	TIM_ICInitTypeDef TIM_ICInitStructure;      
+  	//PD12 ch1  A,PD13 ch2 B 开启时钟
+  	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
+  	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
+  	//配置GPIO
+  	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13;        
+  	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;	//速度100MHz
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP; //推挽复用输出
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN; //下拉
-  GPIO_Init(GPIOD, &GPIO_InitStructure);                           
-  //端口复用
-  GPIO_PinAFConfig(GPIOD,GPIO_PinSource12,GPIO_AF_TIM4);
-  GPIO_PinAFConfig(GPIOD,GPIO_PinSource13,GPIO_AF_TIM4);
+  	GPIO_Init(GPIOD, &GPIO_InitStructure);                           
+  	//端口复用
+  	GPIO_PinAFConfig(GPIOD,GPIO_PinSource12,GPIO_AF_TIM4);
+  	GPIO_PinAFConfig(GPIOD,GPIO_PinSource13,GPIO_AF_TIM4);
 	//TIM定时器初始化配置
 	TIM_TimeBaseInitStructure.TIM_Period = 0;                       //设置重装载值
 	TIM_TimeBaseInitStructure.TIM_Prescaler = 65535;                //设置时钟频率除数的预分频值
@@ -93,41 +93,3 @@ void TIM4_Encoder_Init(void)//PD12 ch1  A,PD13 ch2 B
 	//使能定时器
 	TIM_Cmd(TIM4,ENABLE);  
 }
-/***
- * 函数名:
- * 描述:
- * 输入:
- * 输出:
- */
-//int Read_Pluse(int Timx)
-//{
-//  int value;
-//	switch(Timex)
-//	{
-//		case 2:
-//		case 4:
-//	
-//	}
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

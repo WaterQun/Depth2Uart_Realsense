@@ -1,12 +1,3 @@
-/**
-  *************************************************************************************************************************
-  * @file    tim3.c文件 
-  * @author  @你认识
-  * @version V1.0
-  * @date    2020-10-09
-  * @brief   定时器3.c配置函数
-  *************************************************************************************************************************/
-
 #include "tim3.h"
 
 /**
@@ -21,7 +12,7 @@ void TIM3_Init(void)
 	//TIM，NVIC结构体定义
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
-  //开启TIM3时钟
+  	//开启TIM3时钟
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
 
 	//定时器TIM3初始化
@@ -35,7 +26,7 @@ void TIM3_Init(void)
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;             //设置响应优先级
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;                //使能外部中断
 	//NVIC，TIM3初始化	
-  NVIC_Init(&NVIC_InitStructure);
+  	NVIC_Init(&NVIC_InitStructure);
 	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseInitStructure);
 	//开启TIM3
 	TIM_ITConfig(TIM3,TIM_IT_Update,ENABLE);
