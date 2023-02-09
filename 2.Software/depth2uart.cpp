@@ -75,7 +75,7 @@ int main(int argc, char * argv[]) try
         // Query the distance from the camera to the object in the center of the image
         double dist_to_center = depth.get_distance(width / 2, height / 2);
 
-        // m to mm
+        // Convert meters to millimeters
         dist_to_center *= 1000;
 
         // Send/Print the distance data
