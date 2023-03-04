@@ -19,11 +19,14 @@
 ### 1、安装Ubuntu
 推荐Ubuntu 18/20 LTS版本，兼容Ubuntu 22 LTS，本文部分依赖（如Intel Realsense SDK）官方文档暂未支持Ubuntu22，但实测可行。
 
-### 2、安装ROS/ROS2
+### 2、更换软件源
+Ubuntu系统软件源默认是在国外的，下载安装后续软件会比较慢，建议更换国内软件源，推荐中科大源：http://mirrors.ustc.edu.cn/help/ubuntu.html，同时后续安装ROS也可以使用中科大源/清华源。
+
+### 3、安装ROS/ROS2
 根据Ubuntu版本安装ROS/ROS2，安装方法可前往观看古月居/鱼香ROS相关视频，可使用一键安装脚本：https://github.com/fishros/install 。
 本版本双目测距理论上不需要安装ROS系统，但安装ROS比较方便解决相关依赖，同时后续版本也会使用到就直接安装了。
 
-### 3、安装Intel Realsense SDK
+### 4、安装Intel Realsense SDK
 如出现问题可查看[Linux官方安装文档](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)
 
 #### (1) 安装依赖
@@ -50,13 +53,13 @@ sudo make install
 ```
 测试可以输入命令 realsense-viewer，可以看到一个软件打开，可以在此测试相机是否正常。
 
-### 4、编译depth2uart.cpp
+### 5、编译depth2uart.cpp
 复制depth2uart.cpp(项目Software文件夹下)到Linux设备，在所在目录打开终端，输入以下代码编译cpp文件，生成depth2uart可执行文件，部分硬件可能会报错，可以根据报错查看缺少什么库文件，在最末尾加上-l再输入库名称。
 ```
 g++ depth2uart.cpp -o depth2uart -lrealsense2 -lboost_system
 ```
 
-### 5、给串口添加权限
+### 6、给串口添加权限
 输入以下命令可查询串口所在USB口。
 ```
 ls -l /dev/ttyUSB* 
@@ -66,13 +69,13 @@ ls -l /dev/ttyUSB*
 sudo chmod 777 /dev/ttyUSB0
 ```
 
-### 6、运行depth2uart
+### 7、运行depth2uart
 ```
 ./depth2uart 
 ```
 可以看到输出摄像头最中央一点的深度信息，数据串口发送至MCU系统接收。
 
-### 7、设置开机自启动
+### 8、设置开机自启动
 开机自启动有很多种方法，比如在rc.local文件添加命令，即可开机自己动，可以上网查询。
 这里推荐命令行输入‘gnome-session-properties’通过gnome设置开机自启动。
 
