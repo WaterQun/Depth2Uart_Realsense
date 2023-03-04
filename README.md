@@ -20,7 +20,7 @@
 推荐Ubuntu 18/20 LTS版本，兼容Ubuntu 22 LTS，本文部分依赖（如Intel Realsense SDK）官方文档暂未支持Ubuntu22，但实测可行。
 
 ### 2、更换软件源
-Ubuntu系统软件源默认是在国外的，下载安装后续软件会比较慢，建议更换国内软件源，推荐中科大源：http://mirrors.ustc.edu.cn/help/ubuntu.html，同时后续安装ROS也可以使用中科大源/清华源。
+Ubuntu系统软件源默认是在国外的，下载安装后续软件会比较慢，建议更换国内软件源，推荐中科大源：http://mirrors.ustc.edu.cn/help/ubuntu.html ，同时后续安装ROS也可以使用中科大源/清华源。
 
 ### 3、安装ROS/ROS2
 根据Ubuntu版本安装ROS/ROS2，安装方法可前往观看古月居/鱼香ROS相关视频，可使用一键安装脚本：https://github.com/fishros/install 。
